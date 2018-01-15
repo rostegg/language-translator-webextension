@@ -14,7 +14,6 @@
             <option value="$PROJECT_DIR$/copy-module" />
             <option value="$PROJECT_DIR$/options-module" />
             <option value="$PROJECT_DIR$/panel-module" />
-            <option value="$PROJECT_DIR$/test-module" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
