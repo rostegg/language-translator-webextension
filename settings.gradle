@@ -1,0 +1,7 @@
+rootProject.name = 'translation-plugin'
+include 'copy-module'
+include 'test-module'
+include 'panel-module'
+include 'options-module'
+include 'background-script'
+

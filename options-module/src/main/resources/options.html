@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <style>
+        body {
+            width: 35em;
+            font-family: "Open Sans Light", sans-serif;
+            font-size: 0.9em;
+            font-weight: 300;
+        }
+
+        section.proxy-options {
+            padding: 0.5em 0;
+            margin: 1em 0;
+        }
+
+
+        section.proxy-options input,
+        section.proxy-options>select {
+            float: right;
+        }
+
+        label {
+            display: block;
+            padding: 0.2em 0;
+        }
+
+        label:hover {
+            background-color: #EAEFF2;
+        }
+
+    </style>
+</head>
+<body>
+<section class="proxy-options data-types">
+    <label>Enable proxy:<input type="checkbox" checked="false" data-type="enable-proxy"/></label>
+    <label>Proxy URL (IP:PORT):<input type="text"  data-type="proxy-url"/></label>
+</section>
+
+<input type="button" value="Save preferences" id="save-button"/>
+<script src="../../../build/classes/main/min/kotlin.js"></script>
+<script src="../../../build/classes/main/min/options-module.js"></script>
+</body>
+</html>
