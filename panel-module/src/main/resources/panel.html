@@ -71,8 +71,35 @@
             font-size: 14px;
             line-height: 20px;
 
-            border: 1px solid #2c3e50;
+            border: 1px solid orange;
             border-top: 0px;
+        }
+
+        /*dropdown menu*/
+        .dropdown {
+            width:200px;
+            overflow:hidden;
+            height:40px;
+        }
+        .selectbox {
+            width:250px;
+            background: none;
+            border:none;
+            -webkit-appearance: none;
+            padding:10px 15px;
+            color:black;
+        }
+        .dropdown:after {
+            content: "▼";
+            position: relative;
+            top:-35px;
+            left:170px;
+            font-size:10px;
+            color: black;
+            width: 20px;
+        }
+        .dark {
+            background:orange;
         }
 
     </style>
@@ -88,7 +115,13 @@
 
         <div class="text-area-panel">
             <div class="text-area-header">
-                <h2>Translated text:</h2>
+                <div class="dropdown dark">
+                    <select class="selectbox">
+                        <option value="0">Выберите категорию</option>
+                        <option value="1">Photoshop</option>
+                        <option value="2">Wordpress</option>
+                    </select>
+                </div>
             </div>
             <textarea class="text-area" id="output-text"></textarea>
         </div>
