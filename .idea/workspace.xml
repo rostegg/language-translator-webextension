@@ -48,60 +48,9 @@
       <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/min/kotlin.js" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/build/classes/main/min/kotlin.js.map" afterPath="" />
       <change type="DELETED" beforePath="$PROJECT_DIR$/build/kotlin-build/version.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin.meta.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/jquery/jquery.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/jquery/ui/ui.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/annotation/annotation.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/browser/browser.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/collections/collections.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/comparisons/comparisons.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/intrinsics/intrinsics.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/contracts/contracts.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/io/io.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/js/js.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/jvm/jvm.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/kotlin.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/math/math.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/properties/properties.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/ranges/ranges.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/js/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/reflect.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/sequences/sequences.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/kotlin/text/text.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/khronos/webgl/webgl.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/css/css.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/events/events.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/parsing/parsing.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/svg/svg.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/url/url.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/fetch/fetch.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/files/files.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/notifications/notifications.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/performance/performance.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/workers/workers.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/xhr/xhr.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies-tmp/kotlin/root-package.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/dependencies/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/min/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/test-module/build/classes/main/min/kotlin.js.map" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitattributes" afterPath="$PROJECT_DIR$/.gitattributes" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/background-script.iml" afterPath="$PROJECT_DIR$/.idea/modules/background-script.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gitignore" afterPath="$PROJECT_DIR$/.gitignore" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/settings.gradle" afterPath="$PROJECT_DIR$/settings.gradle" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -188,18 +137,18 @@
       <file leaf-file-name=".gitattributes" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/.gitattributes">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+            <state relative-caret-position="0">
+              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="background-script.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/background-script/build/classes/main/min/background-script.js">
+      <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="26" lean-forward="false" selection-start-line="14" selection-start-column="26" selection-end-line="14" selection-end-column="26" />
+            <state relative-caret-position="567">
+              <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
               <folding />
             </state>
           </provider>
@@ -1756,6 +1705,7 @@
         <option value="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" />
         <option value="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" />
         <option value="$PROJECT_DIR$/settings.gradle" />
+        <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/.gitattributes" />
       </list>
     </option>
@@ -1965,12 +1915,12 @@
       <workItem from="1515755757302" duration="7810000" />
       <workItem from="1515845898762" duration="23138000" />
       <workItem from="1515942526175" duration="3247000" />
-      <workItem from="1516014619894" duration="1692000" />
+      <workItem from="1516014619894" duration="2586000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68929000" />
+    <option name="totallyTimeSpent" value="69823000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
@@ -2024,13 +1974,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test-module/src/main/kotlin/helper.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -2330,10 +2273,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="567">
+          <caret line="27" column="8" lean-forward="false" selection-start-line="27" selection-start-column="8" selection-end-line="27" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/.gitattributes">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="1" column="29" lean-forward="false" selection-start-line="1" selection-start-column="29" selection-end-line="1" selection-end-column="29" />
+        <state relative-caret-position="0">
+          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
           <folding />
         </state>
       </provider>
