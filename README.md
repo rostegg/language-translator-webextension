@@ -1,2 +1,2 @@
-# translator-webextiension
-firefox webextension for to translate text using Yandex Translate API
+# language-translator-webextension
+firefox webextension written in Kotlin for translate text using Yandex Translate API 
