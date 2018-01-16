@@ -2006,7 +2006,20 @@
       return LongRange$Companion_instance;
     }
     LongRange.$metadata$ = {kind: Kind_CLASS, simpleName: 'LongRange', interfaces: [ClosedRange, LongProgression]};
+    function Unit() {
+      Unit_instance = this;
+    }
+    Unit.prototype.toString = function () {
+      return 'kotlin.Unit';
+    };
+    Unit.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Unit', interfaces: []};
     var Unit_instance = null;
+    function Unit_getInstance() {
+      if (Unit_instance === null) {
+        new Unit();
+      }
+      return Unit_instance;
+    }
     var AnnotationTarget$CLASS_instance;
     var AnnotationTarget$ANNOTATION_CLASS_instance;
     var AnnotationTarget$TYPE_PARAMETER_instance;
@@ -2431,6 +2444,7 @@
         return true;
       return false;
     }
+    var Unit_0 = Kotlin.kotlin.Unit;
     function appendElement_0($receiver, element, transform) {
       if (transform != null)
         $receiver.append_gw00v9$(transform(element));
@@ -2615,6 +2629,7 @@
     package$ranges.IntRange = IntRange;
     Object.defineProperty(LongRange, 'Companion', {get: LongRange$Companion_getInstance});
     package$ranges.LongRange = LongRange;
+    Object.defineProperty(package$kotlin, 'Unit', {get: Unit_getInstance});
     var package$internal_0 = package$kotlin.internal || (package$kotlin.internal = {});
     package$internal_0.getProgressionLastElement_cub51b$ = getProgressionLastElement;
     package$internal_0.getProgressionLastElement_e84ct6$ = getProgressionLastElement_0;

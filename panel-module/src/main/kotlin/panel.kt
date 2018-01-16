@@ -8,15 +8,18 @@ import kotlin.browser.document
 val inputPanel = document.querySelector("#input-text") as HTMLTextAreaElement
 val outputPanel = document.querySelector("#output-text")  as HTMLTextAreaElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
+val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 
 fun main(args: Array<String>) {
-    getLanguages()
+    setupLanguagesList()
 
     var btn = document.querySelector("#translate-btn") as HTMLButtonElement
     btn.onclick = {
         var text = inputPanel.value
         var xhttp :dynamic= XMLHttpRequest()
-        xhttp.open("GET", "https://translate.yandex.net/api/v1.5/tr.json/translate?key=trnsl.1.1.20171203T152844Z.6e5c9380e6c29cce.1c5aa4d05ce699afbcdf8f0bac9b93c79382aee0&text=$text&lang=ru-en")
+        var request= Endpoints.getTranslateTextEndpoint("ru-en",text)
+        println("sending request : $request")
+        xhttp.open("GET", request)
         xhttp.onload=fun(){
             println(xhttp.responseText)
             val response = JSON.parse<YandexResponse>(xhttp.responseText)
@@ -24,9 +27,22 @@ fun main(args: Array<String>) {
         }
         xhttp.send()
     }
+
+    var swapBtn = document.querySelector("#swap-btn") as HTMLButtonElement
+
+    swapBtn.onclick = {
+        swapLanguagesInMenu()
+    }
 }
 
-fun getLanguages()
+fun swapLanguagesInMenu()
+{
+    languageToMenu.selectedIndex =  languageToMenu.selectedIndex + languageFromMenu.selectedIndex
+    languageFromMenu.selectedIndex = languageToMenu.selectedIndex  - languageFromMenu.selectedIndex
+    languageToMenu.selectedIndex = languageToMenu.selectedIndex - languageFromMenu.selectedIndex
+}
+
+fun setupLanguagesList()
 {
     var xhttp :dynamic= XMLHttpRequest()
     var request = Endpoints.getLanguageEndpoint("en")
@@ -35,21 +51,20 @@ fun getLanguages()
         var xmlParser = DOMParser()
         println("executing query $request")
         var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
-
-        var availableTranslateList = xmlDoc.getElementsByTagName("string")
-
         var languagesList = xmlDoc.getElementsByTagName("Item")
         languagesList.asList().forEach { language->
-            println(language.getAttribute("key") + " - " + language.getAttribute("value") )
-            var option = document.createElement("option") as HTMLOptionElement
-            option.value= language.getAttribute("key")!!
-            option.text =  language.getAttribute("value")!!
-            languageToMenu.add(option)
+            println(language.getAttribute("key") + " - " + language.getAttribute("value"))
+            insertIntoMenu(language.getAttribute("value")!!,language.getAttribute("key")!!, languageToMenu)
+            insertIntoMenu(language.getAttribute("value")!!,language.getAttribute("key")!!, languageFromMenu)
         }
-
-
     }
-
     xhttp.send()
+}
+
+fun insertIntoMenu(text:String, value:String, element:HTMLSelectElement){
+    var option = document.createElement("option") as HTMLOptionElement
+    option.value= value
+    option.text = text
+    element.add(option)
 }
 

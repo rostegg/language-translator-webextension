@@ -12,7 +12,7 @@ const val YANDEX_API_KEY = "YOUR_API_KEY"
 
 object Endpoints{
 
-    fun translateTextEndpoint(lang:String,text:String): String {
+    fun getTranslateTextEndpoint(lang:String,text:String): String {
         return  "https://translate.yandex.net/api/v1.5/tr.json/translate?key=$YANDEX_API_KEY&text=$text&lang=$lang"
     }
 

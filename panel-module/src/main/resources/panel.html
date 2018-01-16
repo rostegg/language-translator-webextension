@@ -115,13 +115,31 @@
             font-size: 14px;
             padding: 0px 20px;
         }
+
+        #swap-btn{
+            float: right;
+            margin: 0px;
+            margin-right: 10px;
+            border-radius: 0px;
+            line-height: 40px;
+            border: 0px;
+            background: #2ecc71;
+            color: white;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+
+        }
     </style>
 </head>
 <body>
         <div class="text-area-panel">
             <div class="text-area-header">
                 <button id="translate-btn" >Translate</button>
-                <h2>Enter translating text</h2>
+                <div class="dropdown dark">
+                    <select class="selectbox" id="language-from">
+                    </select>
+                </div>
             </div>
             <textarea class="text-area" id="input-text"></textarea>
         </div>
@@ -133,6 +151,7 @@
                     </select>
                 </div>
                 <button id="test-btn" >Get text</button>
+                <button id="swap-btn" >Swap languages</button>
             </div>
             <textarea class="text-area" id="output-text"></textarea>
         </div>
