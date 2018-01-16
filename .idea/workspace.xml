@@ -1,18 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="15b3196a-3b66-4f4f-9010-9a48661e10c5" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module/com/rostegg/kotlin/webextensions/webextensions.kjsm" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module/com/rostegg/kotlin/webextensions/webextensions.kjsm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/min/panel-module.js" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/min/panel-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.meta.js" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" afterPath="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" />
-    </list>
+    <list default="true" id="15b3196a-3b66-4f4f-9010-9a48661e10c5" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -130,8 +119,8 @@
       <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
+            <state relative-caret-position="-3">
+              <caret line="85" column="11" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="85" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -1744,6 +1733,11 @@
             <path>
               <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="options-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
@@ -1766,14 +1760,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
-              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1922,12 +1908,12 @@
       <workItem from="1515755757302" duration="7810000" />
       <workItem from="1515845898762" duration="23138000" />
       <workItem from="1515942526175" duration="3247000" />
-      <workItem from="1516014619894" duration="31766000" />
+      <workItem from="1516014619894" duration="32117000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="99003000" />
+    <option name="totallyTimeSpent" value="99354000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
@@ -2263,14 +2249,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="12" column="30" lean-forward="true" selection-start-line="12" selection-start-column="30" selection-end-line="12" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/panel-module/src/main/resources/panel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -2286,6 +2264,14 @@
           <folding>
             <element signature="e#42#164#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="85" column="11" lean-forward="true" selection-start-line="2" selection-start-column="0" selection-end-line="85" selection-end-column="11" />
+          <folding />
         </state>
       </provider>
     </entry>
