@@ -100,9 +100,10 @@ this['panel-module'] = function (_, Kotlin) {
     swapBtn.onclick = main$lambda_0;
   }
   function swapLanguagesInMenu() {
-    languageToMenu.selectedIndex = languageToMenu.selectedIndex + languageFromMenu.selectedIndex | 0;
-    languageFromMenu.selectedIndex = languageToMenu.selectedIndex - languageFromMenu.selectedIndex | 0;
-    languageToMenu.selectedIndex = languageToMenu.selectedIndex - languageFromMenu.selectedIndex | 0;
+    var tmp$ = languageToMenu;
+    var $receiver = languageFromMenu.selectedIndex;
+    languageFromMenu.selectedIndex = languageToMenu.selectedIndex;
+    tmp$.selectedIndex = $receiver;
   }
   function setupLanguagesList$lambda(closure$request, closure$xhttp) {
     return function () {

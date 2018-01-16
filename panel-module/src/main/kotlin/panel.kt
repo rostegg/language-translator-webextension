@@ -35,11 +35,8 @@ fun main(args: Array<String>) {
     }
 }
 
-fun swapLanguagesInMenu()
-{
-    languageToMenu.selectedIndex =  languageToMenu.selectedIndex + languageFromMenu.selectedIndex
-    languageFromMenu.selectedIndex = languageToMenu.selectedIndex  - languageFromMenu.selectedIndex
-    languageToMenu.selectedIndex = languageToMenu.selectedIndex - languageFromMenu.selectedIndex
+fun swapLanguagesInMenu() {
+    languageToMenu.selectedIndex = languageFromMenu.selectedIndex.also { languageFromMenu.selectedIndex = languageToMenu.selectedIndex }
 }
 
 fun setupLanguagesList()
