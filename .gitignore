@@ -25,7 +25,6 @@ hs_err_pid*
 .idea/**/tasks.xml
 .idea/dictionaries
 
-**/build
 
 # Sensitive or high-churn files:
 .idea/**/dataSources/
