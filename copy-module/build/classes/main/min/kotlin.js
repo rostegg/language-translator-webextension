@@ -1126,9 +1126,6 @@
     };
     BufferedOutputToConsoleLog.$metadata$ = {kind: Kind_CLASS, simpleName: 'BufferedOutputToConsoleLog', interfaces: [BufferedOutput]};
     var output;
-    function println_0(message) {
-      output.println_s8jyv4$(message);
-    }
     var throwCCE = Kotlin.throwCCE;
     var UNDECIDED;
     var RESUMED;
@@ -2141,7 +2138,6 @@
     package$io.NodeJsOutput = NodeJsOutput;
     package$io.BufferedOutput = BufferedOutput;
     package$io.BufferedOutputToConsoleLog = BufferedOutputToConsoleLog;
-    package$io.println_s8jyv4$ = println_0;
     var package$coroutines = package$kotlin.coroutines || (package$kotlin.coroutines = {});
     var package$experimental = package$coroutines.experimental || (package$coroutines.experimental = {});
     package$experimental.SafeContinuation_init_n4f53e$ = SafeContinuation_init;

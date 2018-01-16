@@ -449,6 +449,9 @@
   Kotlin.isChar = function (value) {
     return value instanceof Kotlin.BoxedChar;
   };
+  Kotlin.isCharSequence = function (value) {
+    return typeof value === 'string' || Kotlin.isType(value, Kotlin.kotlin.CharSequence);
+  };
   Kotlin.Long = function (low, high) {
     this.low_ = low | 0;
     this.high_ = high | 0;
@@ -937,6 +940,9 @@
       }
     };
   }());
+  Kotlin.ensureNotNull = function (x) {
+    return x != null ? x : Kotlin.throwNPE();
+  };
   (function () {
     'use strict';
     var Kind_OBJECT = Kotlin.Kind.OBJECT;
@@ -1019,12 +1025,20 @@
     IllegalArgumentException.prototype.constructor = IllegalArgumentException;
     IllegalStateException.prototype = Object.create(RuntimeException.prototype);
     IllegalStateException.prototype.constructor = IllegalStateException;
+    IndexOutOfBoundsException.prototype = Object.create(RuntimeException.prototype);
+    IndexOutOfBoundsException.prototype.constructor = IndexOutOfBoundsException;
     UnsupportedOperationException.prototype = Object.create(RuntimeException.prototype);
     UnsupportedOperationException.prototype.constructor = UnsupportedOperationException;
+    NullPointerException.prototype = Object.create(RuntimeException.prototype);
+    NullPointerException.prototype.constructor = NullPointerException;
     ClassCastException.prototype = Object.create(RuntimeException.prototype);
     ClassCastException.prototype.constructor = ClassCastException;
     NoSuchElementException.prototype = Object.create(Exception.prototype);
     NoSuchElementException.prototype.constructor = NoSuchElementException;
+    AbstractList.prototype = Object.create(AbstractCollection.prototype);
+    AbstractList.prototype.constructor = AbstractList;
+    asList$ObjectLiteral_0.prototype = Object.create(AbstractList.prototype);
+    asList$ObjectLiteral_0.prototype.constructor = asList$ObjectLiteral_0;
     SimpleKClassImpl.prototype = Object.create(KClassImpl.prototype);
     SimpleKClassImpl.prototype.constructor = SimpleKClassImpl;
     PrimitiveKClassImpl.prototype = Object.create(KClassImpl.prototype);
@@ -1039,6 +1053,10 @@
     IntRange.prototype.constructor = IntRange;
     LongRange.prototype = Object.create(LongProgression.prototype);
     LongRange.prototype.constructor = LongRange;
+    AbstractList$SubList.prototype = Object.create(AbstractList.prototype);
+    AbstractList$SubList.prototype.constructor = AbstractList$SubList;
+    AbstractList$ListIteratorImpl.prototype = Object.create(AbstractList$IteratorImpl.prototype);
+    AbstractList$ListIteratorImpl.prototype.constructor = AbstractList$ListIteratorImpl;
     NotImplementedError.prototype = Object.create(Error_0.prototype);
     NotImplementedError.prototype.constructor = NotImplementedError;
     function captureStack(baseClass, instance) {
@@ -1074,8 +1092,33 @@
       array.$type$ = type;
       return array;
     }
+    function copyToArrayImpl(collection) {
+      var array = [];
+      var iterator = collection.iterator();
+      while (iterator.hasNext())
+        array.push(iterator.next());
+      return array;
+    }
+    function copyToArrayImpl_0(collection, array) {
+      var tmp$;
+      if (array.length < collection.size) {
+        return copyToArrayImpl(collection);
+      }
+      var iterator = collection.iterator();
+      var index = 0;
+      while (iterator.hasNext()) {
+        array[tmp$ = index, index = tmp$ + 1 | 0, tmp$] = iterator.next();
+      }
+      if (index < array.length) {
+        array[index] = null;
+      }
+      return array;
+    }
     var Math_0 = Math;
     var EqualityComparator$HashCode_instance = null;
+    function RandomAccess() {
+    }
+    RandomAccess.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'RandomAccess', interfaces: []};
     function BaseOutput() {
     }
     BaseOutput.prototype.println = function () {
@@ -1186,6 +1229,9 @@
       SafeContinuation.call($this, delegate, UNDECIDED);
       return $this;
     }
+    function throwNPE(message) {
+      throw new NullPointerException(message);
+    }
     function throwCCE_0() {
       throw new ClassCastException('Illegal cast');
     }
@@ -1242,6 +1288,13 @@
       this.name = 'IllegalStateException';
     }
     IllegalStateException.$metadata$ = {kind: Kind_CLASS, simpleName: 'IllegalStateException', interfaces: [RuntimeException]};
+    function IndexOutOfBoundsException(message) {
+      if (message === void 0)
+        message = null;
+      RuntimeException.call(this, message);
+      this.name = 'IndexOutOfBoundsException';
+    }
+    IndexOutOfBoundsException.$metadata$ = {kind: Kind_CLASS, simpleName: 'IndexOutOfBoundsException', interfaces: [RuntimeException]};
     function UnsupportedOperationException(message) {
       if (message === void 0)
         message = null;
@@ -1249,6 +1302,13 @@
       this.name = 'UnsupportedOperationException';
     }
     UnsupportedOperationException.$metadata$ = {kind: Kind_CLASS, simpleName: 'UnsupportedOperationException', interfaces: [RuntimeException]};
+    function NullPointerException(message) {
+      if (message === void 0)
+        message = null;
+      RuntimeException.call(this, message);
+      this.name = 'NullPointerException';
+    }
+    NullPointerException.$metadata$ = {kind: Kind_CLASS, simpleName: 'NullPointerException', interfaces: [RuntimeException]};
     function ClassCastException(message) {
       if (message === void 0)
         message = null;
@@ -1279,6 +1339,53 @@
     function get_lastIndex_7($receiver) {
       return $receiver.length - 1 | 0;
     }
+    function joinTo_8($receiver, buffer, separator, prefix, postfix, limit, truncated, transform) {
+      if (separator === void 0)
+        separator = ', ';
+      if (prefix === void 0)
+        prefix = '';
+      if (postfix === void 0)
+        postfix = '';
+      if (limit === void 0)
+        limit = -1;
+      if (truncated === void 0)
+        truncated = '...';
+      if (transform === void 0)
+        transform = null;
+      var tmp$;
+      buffer.append_gw00v9$(prefix);
+      var count = 0;
+      tmp$ = $receiver.iterator();
+      while (tmp$.hasNext()) {
+        var element = tmp$.next();
+        if ((count = count + 1 | 0, count) > 1)
+          buffer.append_gw00v9$(separator);
+        if (limit < 0 || count <= limit) {
+          appendElement_0(buffer, element, transform);
+        }
+         else
+          break;
+      }
+      if (limit >= 0 && count > limit)
+        buffer.append_gw00v9$(truncated);
+      buffer.append_gw00v9$(postfix);
+      return buffer;
+    }
+    function joinToString_8($receiver, separator, prefix, postfix, limit, truncated, transform) {
+      if (separator === void 0)
+        separator = ', ';
+      if (prefix === void 0)
+        prefix = '';
+      if (postfix === void 0)
+        postfix = '';
+      if (limit === void 0)
+        limit = -1;
+      if (truncated === void 0)
+        truncated = '...';
+      if (transform === void 0)
+        transform = null;
+      return joinTo_8($receiver, new StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString();
+    }
     function downTo_4($receiver, to) {
       return IntProgression$Companion_getInstance().fromClosedRange_qt1dr2$($receiver, to, -1);
     }
@@ -1296,6 +1403,65 @@
     var RegexOption$IGNORE_CASE_instance;
     var RegexOption$MULTILINE_instance;
     var Regex$Companion_instance = null;
+    function Appendable() {
+    }
+    Appendable.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Appendable', interfaces: []};
+    function StringBuilder(content) {
+      if (content === void 0)
+        content = '';
+      this.string_0 = content;
+    }
+    Object.defineProperty(StringBuilder.prototype, 'length', {get: function () {
+      return this.string_0.length;
+    }});
+    StringBuilder.prototype.charCodeAt = function (index) {
+      return this.string_0.charCodeAt(index);
+    };
+    StringBuilder.prototype.subSequence_vux9f0$ = function (start, end) {
+      return this.string_0.substring(start, end);
+    };
+    StringBuilder.prototype.append_s8itvh$ = function (c) {
+      this.string_0 += String.fromCharCode(c);
+      return this;
+    };
+    StringBuilder.prototype.append_gw00v9$ = function (csq) {
+      this.string_0 += toString(csq);
+      return this;
+    };
+    StringBuilder.prototype.append_ezbsdh$ = function (csq, start, end) {
+      this.string_0 += toString(csq).substring(start, end);
+      return this;
+    };
+    StringBuilder.prototype.append_s8jyv4$ = function (obj) {
+      this.string_0 += toString(obj);
+      return this;
+    };
+    StringBuilder.prototype.reverse = function () {
+      this.string_0 = this.string_0.split('').reverse().join('');
+      return this;
+    };
+    StringBuilder.prototype.toString = function () {
+      return this.string_0;
+    };
+    StringBuilder.$metadata$ = {kind: Kind_CLASS, simpleName: 'StringBuilder', interfaces: [CharSequence, Appendable]};
+    function asList$ObjectLiteral_0(this$asList) {
+      this.this$asList = this$asList;
+      AbstractList.call(this);
+    }
+    Object.defineProperty(asList$ObjectLiteral_0.prototype, 'size', {get: function () {
+      return this.this$asList.length;
+    }});
+    asList$ObjectLiteral_0.prototype.get_za3lpa$ = function (index) {
+      if (index >= 0 && index <= get_lastIndex_8(this)) {
+        return this.this$asList.item(index);
+      }
+       else
+        throw new IndexOutOfBoundsException('index ' + index + ' is not in range [0..' + get_lastIndex_8(this) + ']');
+    };
+    asList$ObjectLiteral_0.$metadata$ = {kind: Kind_CLASS, interfaces: [AbstractList]};
+    function asList_8($receiver) {
+      return new asList$ObjectLiteral_0($receiver);
+    }
     function get_js($receiver) {
       var tmp$;
       return (Kotlin.isType(tmp$ = $receiver, KClassImpl) ? tmp$ : throwCCE()).jClass;
@@ -1598,15 +1764,27 @@
       }
       return tmp$;
     }
+    function CharSequence() {
+    }
+    CharSequence.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'CharSequence', interfaces: []};
     function Iterable() {
     }
     Iterable.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Iterable', interfaces: []};
+    function Collection() {
+    }
+    Collection.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Collection', interfaces: [Iterable]};
+    function List() {
+    }
+    List.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'List', interfaces: [Collection]};
     function Function_0() {
     }
     Function_0.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Function', interfaces: []};
     function Iterator() {
     }
     Iterator.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Iterator', interfaces: []};
+    function ListIterator() {
+    }
+    ListIterator.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'ListIterator', interfaces: [Iterator]};
     function IntIterator() {
     }
     IntIterator.prototype.next = function () {
@@ -1951,15 +2129,246 @@
     var KVisibility$PROTECTED_instance;
     var KVisibility$INTERNAL_instance;
     var KVisibility$PRIVATE_instance;
+    function AbstractCollection() {
+    }
+    AbstractCollection.prototype.contains_11rb$ = function (element) {
+      var any$result;
+      any$break: do {
+        var tmp$;
+        if (Kotlin.isType(this, Collection) && this.isEmpty()) {
+          any$result = false;
+          break any$break;
+        }
+        tmp$ = this.iterator();
+        while (tmp$.hasNext()) {
+          var element_0 = tmp$.next();
+          if (equals(element_0, element)) {
+            any$result = true;
+            break any$break;
+          }
+        }
+        any$result = false;
+      }
+       while (false);
+      return any$result;
+    };
+    AbstractCollection.prototype.containsAll_brywnq$ = function (elements) {
+      var all$result;
+      all$break: do {
+        var tmp$;
+        if (Kotlin.isType(elements, Collection) && elements.isEmpty()) {
+          all$result = true;
+          break all$break;
+        }
+        tmp$ = elements.iterator();
+        while (tmp$.hasNext()) {
+          var element = tmp$.next();
+          if (!this.contains_11rb$(element)) {
+            all$result = false;
+            break all$break;
+          }
+        }
+        all$result = true;
+      }
+       while (false);
+      return all$result;
+    };
+    AbstractCollection.prototype.isEmpty = function () {
+      return this.size === 0;
+    };
+    function AbstractCollection$toString$lambda(this$AbstractCollection) {
+      return function (it) {
+        return it === this$AbstractCollection ? '(this Collection)' : toString(it);
+      };
+    }
+    AbstractCollection.prototype.toString = function () {
+      return joinToString_8(this, ', ', '[', ']', void 0, void 0, AbstractCollection$toString$lambda(this));
+    };
+    AbstractCollection.prototype.toArray = function () {
+      return copyToArrayImpl(this);
+    };
+    AbstractCollection.prototype.toArray_ro6dgy$ = function (array) {
+      return copyToArrayImpl_0(this, array);
+    };
+    AbstractCollection.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractCollection', interfaces: [Collection]};
     var State$Ready_instance;
     var State$NotReady_instance;
     var State$Done_instance;
     var State$Failed_instance;
+    function AbstractList() {
+      AbstractList$Companion_getInstance();
+      AbstractCollection.call(this);
+    }
+    AbstractList.prototype.iterator = function () {
+      return new AbstractList$IteratorImpl(this);
+    };
+    AbstractList.prototype.indexOf_11rb$ = function (element) {
+      var indexOfFirst$result;
+      indexOfFirst$break: do {
+        var tmp$;
+        var index = 0;
+        tmp$ = this.iterator();
+        while (tmp$.hasNext()) {
+          var item = tmp$.next();
+          if (equals(item, element)) {
+            indexOfFirst$result = index;
+            break indexOfFirst$break;
+          }
+          index = index + 1 | 0;
+        }
+        indexOfFirst$result = -1;
+      }
+       while (false);
+      return indexOfFirst$result;
+    };
+    AbstractList.prototype.lastIndexOf_11rb$ = function (element) {
+      var indexOfLast$result;
+      indexOfLast$break: do {
+        var iterator = this.listIterator_za3lpa$(this.size);
+        while (iterator.hasPrevious()) {
+          if (equals(iterator.previous(), element)) {
+            indexOfLast$result = iterator.nextIndex();
+            break indexOfLast$break;
+          }
+        }
+        indexOfLast$result = -1;
+      }
+       while (false);
+      return indexOfLast$result;
+    };
+    AbstractList.prototype.listIterator = function () {
+      return new AbstractList$ListIteratorImpl(this, 0);
+    };
+    AbstractList.prototype.listIterator_za3lpa$ = function (index) {
+      return new AbstractList$ListIteratorImpl(this, index);
+    };
+    AbstractList.prototype.subList_vux9f0$ = function (fromIndex, toIndex) {
+      return new AbstractList$SubList(this, fromIndex, toIndex);
+    };
+    function AbstractList$SubList(list, fromIndex, toIndex) {
+      AbstractList.call(this);
+      this.list_0 = list;
+      this.fromIndex_0 = fromIndex;
+      this._size_0 = 0;
+      AbstractList$Companion_getInstance().checkRangeIndexes_cub51b$(this.fromIndex_0, toIndex, this.list_0.size);
+      this._size_0 = toIndex - this.fromIndex_0 | 0;
+    }
+    AbstractList$SubList.prototype.get_za3lpa$ = function (index) {
+      AbstractList$Companion_getInstance().checkElementIndex_6xvm5r$(index, this._size_0);
+      return this.list_0.get_za3lpa$(this.fromIndex_0 + index | 0);
+    };
+    Object.defineProperty(AbstractList$SubList.prototype, 'size', {get: function () {
+      return this._size_0;
+    }});
+    AbstractList$SubList.$metadata$ = {kind: Kind_CLASS, simpleName: 'SubList', interfaces: [RandomAccess, AbstractList]};
+    AbstractList.prototype.equals = function (other) {
+      if (other === this)
+        return true;
+      if (!Kotlin.isType(other, List))
+        return false;
+      return AbstractList$Companion_getInstance().orderedEquals_e92ka7$(this, other);
+    };
+    AbstractList.prototype.hashCode = function () {
+      return AbstractList$Companion_getInstance().orderedHashCode_nykoif$(this);
+    };
+    function AbstractList$IteratorImpl($outer) {
+      this.$outer = $outer;
+      this.index_0 = 0;
+    }
+    AbstractList$IteratorImpl.prototype.hasNext = function () {
+      return this.index_0 < this.$outer.size;
+    };
+    AbstractList$IteratorImpl.prototype.next = function () {
+      var tmp$, tmp$_0;
+      if (!this.hasNext())
+        throw new NoSuchElementException();
+      tmp$_0 = (tmp$ = this.index_0, this.index_0 = tmp$ + 1 | 0, tmp$);
+      return this.$outer.get_za3lpa$(tmp$_0);
+    };
+    AbstractList$IteratorImpl.$metadata$ = {kind: Kind_CLASS, simpleName: 'IteratorImpl', interfaces: [Iterator]};
+    function AbstractList$ListIteratorImpl($outer, index) {
+      this.$outer = $outer;
+      AbstractList$IteratorImpl.call(this, this.$outer);
+      AbstractList$Companion_getInstance().checkPositionIndex_6xvm5r$(index, this.$outer.size);
+      this.index_0 = index;
+    }
+    AbstractList$ListIteratorImpl.prototype.hasPrevious = function () {
+      return this.index_0 > 0;
+    };
+    AbstractList$ListIteratorImpl.prototype.nextIndex = function () {
+      return this.index_0;
+    };
+    AbstractList$ListIteratorImpl.prototype.previous = function () {
+      if (!this.hasPrevious())
+        throw new NoSuchElementException();
+      return this.$outer.get_za3lpa$((this.index_0 = this.index_0 - 1 | 0, this.index_0));
+    };
+    AbstractList$ListIteratorImpl.prototype.previousIndex = function () {
+      return this.index_0 - 1 | 0;
+    };
+    AbstractList$ListIteratorImpl.$metadata$ = {kind: Kind_CLASS, simpleName: 'ListIteratorImpl', interfaces: [ListIterator, AbstractList$IteratorImpl]};
+    function AbstractList$Companion() {
+      AbstractList$Companion_instance = this;
+    }
+    AbstractList$Companion.prototype.checkElementIndex_6xvm5r$ = function (index, size) {
+      if (index < 0 || index >= size) {
+        throw new IndexOutOfBoundsException('index: ' + index + ', size: ' + size);
+      }
+    };
+    AbstractList$Companion.prototype.checkPositionIndex_6xvm5r$ = function (index, size) {
+      if (index < 0 || index > size) {
+        throw new IndexOutOfBoundsException('index: ' + index + ', size: ' + size);
+      }
+    };
+    AbstractList$Companion.prototype.checkRangeIndexes_cub51b$ = function (fromIndex, toIndex, size) {
+      if (fromIndex < 0 || toIndex > size) {
+        throw new IndexOutOfBoundsException('fromIndex: ' + fromIndex + ', toIndex: ' + toIndex + ', size: ' + size);
+      }
+      if (fromIndex > toIndex) {
+        throw new IllegalArgumentException('fromIndex: ' + fromIndex + ' > toIndex: ' + toIndex);
+      }
+    };
+    AbstractList$Companion.prototype.orderedHashCode_nykoif$ = function (c) {
+      var tmp$, tmp$_0;
+      var hashCode_0 = 1;
+      tmp$ = c.iterator();
+      while (tmp$.hasNext()) {
+        var e = tmp$.next();
+        hashCode_0 = (31 * hashCode_0 | 0) + ((tmp$_0 = e != null ? hashCode(e) : null) != null ? tmp$_0 : 0) | 0;
+      }
+      return hashCode_0;
+    };
+    AbstractList$Companion.prototype.orderedEquals_e92ka7$ = function (c, other) {
+      var tmp$;
+      if (c.size !== other.size)
+        return false;
+      var otherIterator = other.iterator();
+      tmp$ = c.iterator();
+      while (tmp$.hasNext()) {
+        var elem = tmp$.next();
+        var elemOther = otherIterator.next();
+        if (!equals(elem, elemOther)) {
+          return false;
+        }
+      }
+      return true;
+    };
+    AbstractList$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: []};
     var AbstractList$Companion_instance = null;
+    function AbstractList$Companion_getInstance() {
+      if (AbstractList$Companion_instance === null) {
+        new AbstractList$Companion();
+      }
+      return AbstractList$Companion_instance;
+    }
+    AbstractList.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractList', interfaces: [List, AbstractCollection]};
     var AbstractMap$Companion_instance = null;
     var AbstractSet$Companion_instance = null;
     var EmptyIterator_instance = null;
     var EmptyList_instance = null;
+    function get_lastIndex_8($receiver) {
+      return $receiver.size - 1 | 0;
+    }
     var EmptyMap_instance = null;
     var INT_MAX_POWER_OF_TWO;
     var EmptySequence_instance = null;
@@ -2021,6 +2430,16 @@
       if (unboxChar(String.fromCharCode($receiver).toLowerCase().charCodeAt(0)) === unboxChar(String.fromCharCode(other).toLowerCase().charCodeAt(0)))
         return true;
       return false;
+    }
+    function appendElement_0($receiver, element, transform) {
+      if (transform != null)
+        $receiver.append_gw00v9$(transform(element));
+      else if (element == null || Kotlin.isCharSequence(element))
+        $receiver.append_gw00v9$(element);
+      else if (Kotlin.isChar(element))
+        $receiver.append_s8itvh$(unboxChar(element));
+      else
+        $receiver.append_gw00v9$(toString(element));
     }
     function get_lastIndex_9($receiver) {
       return $receiver.length - 1 | 0;
@@ -2123,6 +2542,9 @@
     _.charArrayOf = charArrayOf;
     var package$text = package$kotlin.text || (package$kotlin.text = {});
     var package$collections = package$kotlin.collections || (package$kotlin.collections = {});
+    package$collections.copyToArrayImpl = copyToArrayImpl;
+    package$collections.copyToExistingArrayImpl = copyToArrayImpl_0;
+    package$collections.RandomAccess = RandomAccess;
     var package$io = package$kotlin.io || (package$kotlin.io = {});
     package$io.NodeJsOutput = NodeJsOutput;
     package$io.BufferedOutput = BufferedOutput;
@@ -2132,13 +2554,16 @@
     var package$experimental = package$coroutines.experimental || (package$coroutines.experimental = {});
     package$experimental.SafeContinuation_init_n4f53e$ = SafeContinuation_init;
     package$experimental.SafeContinuation = SafeContinuation;
+    _.throwNPE = throwNPE;
     _.throwCCE = throwCCE_0;
     package$kotlin.Error = Error_0;
     package$kotlin.Exception = Exception;
     package$kotlin.RuntimeException = RuntimeException;
     package$kotlin.IllegalArgumentException = IllegalArgumentException;
     package$kotlin.IllegalStateException = IllegalStateException;
+    package$kotlin.IndexOutOfBoundsException = IndexOutOfBoundsException;
     package$kotlin.UnsupportedOperationException = UnsupportedOperationException;
+    package$kotlin.NullPointerException = NullPointerException;
     package$kotlin.ClassCastException = ClassCastException;
     package$kotlin.NoSuchElementException = NoSuchElementException;
     package$collections.get_lastIndex_355ntz$ = get_lastIndex_7;
@@ -2146,10 +2571,20 @@
     package$collections.single_355ntz$ = single_7;
     var package$ranges = package$kotlin.ranges || (package$kotlin.ranges = {});
     package$ranges.coerceAtLeast_dqglrj$ = coerceAtLeast_2;
+    package$collections.get_lastIndex_55thoc$ = get_lastIndex_8;
+    package$collections.Collection = Collection;
+    package$collections.joinTo_gcc71v$ = joinTo_8;
+    package$collections.joinToString_fmv235$ = joinToString_8;
     package$ranges.downTo_dqglrj$ = downTo_4;
     package$ranges.coerceAtMost_dqglrj$ = coerceAtMost_2;
     package$text.get_lastIndex_gw00vp$ = get_lastIndex_9;
     package$kotlin.Serializable = Serializable;
+    package$text.Appendable = Appendable;
+    package$text.StringBuilder = StringBuilder;
+    var package$org = _.org || (_.org = {});
+    var package$w3c = package$org.w3c || (package$org.w3c = {});
+    var package$dom_0 = package$w3c.dom || (package$w3c.dom = {});
+    package$dom_0.asList_kt9thq$ = asList_8;
     package$js.get_js_1yb8b7$ = get_js;
     var package$reflect = package$kotlin.reflect || (package$kotlin.reflect = {});
     var package$js_0 = package$reflect.js || (package$reflect.js = {});
@@ -2161,9 +2596,12 @@
     Object.defineProperty(package$internal, 'PrimitiveClasses', {get: PrimitiveClasses_getInstance});
     _.getKClass = getKClass;
     _.getKClassFromExpression = getKClassFromExpression;
+    package$kotlin.CharSequence = CharSequence;
     package$collections.Iterable = Iterable;
+    package$collections.List = List;
     package$kotlin.Function = Function_0;
     package$collections.Iterator = Iterator;
+    package$collections.ListIterator = ListIterator;
     package$collections.IntIterator = IntIterator;
     package$collections.LongIterator = LongIterator;
     package$ranges.IntProgressionIterator = IntProgressionIterator;
@@ -2199,8 +2637,12 @@
     package$reflect.KProperty1 = KProperty1;
     KMutableProperty1.Setter = KMutableProperty1$Setter;
     package$reflect.KMutableProperty1 = KMutableProperty1;
+    package$collections.AbstractCollection = AbstractCollection;
+    Object.defineProperty(AbstractList, 'Companion', {get: AbstractList$Companion_getInstance});
+    package$collections.AbstractList = AbstractList;
     package$experimental.Continuation = Continuation;
     package$text.equals_4lte5s$ = equals_1;
+    package$text.appendElement_k2zgzt$ = appendElement_0;
     package$text.lastIndexOfAny_junqau$ = lastIndexOfAny;
     package$text.lastIndexOf_8eortd$ = lastIndexOf_11;
     package$kotlin.NotImplementedError = NotImplementedError;

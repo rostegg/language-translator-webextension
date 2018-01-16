@@ -1,15 +1,17 @@
 package com.rostegg.kotlin.webextensions
 
-import org.w3c.dom.HTMLButtonElement
-import org.w3c.dom.HTMLTextAreaElement
+import org.w3c.dom.*
+import org.w3c.dom.parsing.DOMParser
 import org.w3c.xhr.XMLHttpRequest
 import kotlin.browser.document
 
-
 val inputPanel = document.querySelector("#input-text") as HTMLTextAreaElement
 val outputPanel = document.querySelector("#output-text")  as HTMLTextAreaElement
+val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 
 fun main(args: Array<String>) {
+    getLanguages()
+
     var btn = document.querySelector("#translate-btn") as HTMLButtonElement
     btn.onclick = {
         var text = inputPanel.value
@@ -22,5 +24,32 @@ fun main(args: Array<String>) {
         }
         xhttp.send()
     }
+}
+
+fun getLanguages()
+{
+    var xhttp :dynamic= XMLHttpRequest()
+    var request = Endpoints.getLanguageEndpoint("en")
+    xhttp.open("GET",request )
+    xhttp.onload=fun(){
+        var xmlParser = DOMParser()
+        println("executing query $request")
+        var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
+
+        var availableTranslateList = xmlDoc.getElementsByTagName("string")
+
+        var languagesList = xmlDoc.getElementsByTagName("Item")
+        languagesList.asList().forEach { language->
+            println(language.getAttribute("key") + " - " + language.getAttribute("value") )
+            var option = document.createElement("option") as HTMLOptionElement
+            option.value= language.getAttribute("key")!!
+            option.text =  language.getAttribute("value")!!
+            languageToMenu.add(option)
+        }
+
+
+    }
+
+    xhttp.send()
 }
 

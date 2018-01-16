@@ -77,6 +77,7 @@
 
         /*dropdown menu*/
         .dropdown {
+            float: left;
             width:200px;
             overflow:hidden;
             height:40px;
@@ -101,7 +102,19 @@
         .dark {
             background:orange;
         }
-
+        #test-btn{
+            float: right;
+            margin: 0px;
+            border-radius: 0px;
+            line-height: 40px;
+            border: 0px;
+            background: #2ecc71;
+            color: white;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 300;
+            font-size: 14px;
+            padding: 0px 20px;
+        }
     </style>
 </head>
 <body>
@@ -116,12 +129,10 @@
         <div class="text-area-panel">
             <div class="text-area-header">
                 <div class="dropdown dark">
-                    <select class="selectbox">
-                        <option value="0">Выберите категорию</option>
-                        <option value="1">Photoshop</option>
-                        <option value="2">Wordpress</option>
+                    <select class="selectbox" id="language-to">
                     </select>
                 </div>
+                <button id="test-btn" >Get text</button>
             </div>
             <textarea class="text-area" id="output-text"></textarea>
         </div>

@@ -3,11 +3,8 @@ if (typeof kotlin === 'undefined') {
 }
 this['copy-module'] = function (_, Kotlin) {
   'use strict';
-  var toString = Kotlin.toString;
-  var println = Kotlin.kotlin.io.println_s8jyv4$;
   var Unit = Kotlin.kotlin.Unit;
   function main$lambda(message) {
-    println('action : ' + toString(message));
     if (message.action === 'copy-text') {
       var selectedText = window.getSelection().toString();
       console.log(selectedText);
