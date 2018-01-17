@@ -1,9 +1,6 @@
 package com.rostegg.kotlin.webextensions
 
-import org.w3c.dom.HTMLButtonElement
-import org.w3c.dom.HTMLOptionElement
-import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.HTMLTextAreaElement
+import org.w3c.dom.*
 import org.w3c.xhr.XMLHttpRequest
 import kotlin.browser.document
 
@@ -24,19 +21,9 @@ val languageFromMenu = document.querySelector("#language-from") as HTMLSelectEle
 fun main(args: Array<String>) {
     initLanguagesList()
 
-    var btn = document.querySelector("#translate-btn") as HTMLButtonElement
-    btn.onclick = {
-        var text = inputPanel.value
-        var xhttp :dynamic= XMLHttpRequest()
-        var request= Endpoints.getTranslateTextEndpoint("ru-en",text)
-        println("sending request : $request")
-        xhttp.open("GET", request)
-        xhttp.onload=fun(){
-            println(xhttp.responseText)
-            val response = JSON.parse<YandexResponse>(xhttp.responseText)
-            outputPanel.value = response.text
-        }
-        xhttp.send()
+    var translateBtn = document.querySelector("#translate-btn") as HTMLButtonElement
+    translateBtn.onclick = {
+        translateText()
     }
 
     var swapBtn = document.querySelector("#swap-btn") as HTMLButtonElement
@@ -44,6 +31,20 @@ fun main(args: Array<String>) {
     swapBtn.onclick = {
         swapLanguagesInMenu()
     }
+}
+
+fun translateText(){
+    var text = inputPanel.value
+    var xhttp :dynamic= XMLHttpRequest()
+    var request= Endpoints.getTranslateTextEndpoint("ru-en",text)
+    println("sending request : $request")
+    xhttp.open("GET", request)
+    xhttp.onload=fun(){
+        println(xhttp.responseText)
+        val response = JSON.parse<YandexResponse>(xhttp.responseText)
+        outputPanel.value = response.text
+    }
+    xhttp.send()
 }
 
 fun swapLanguagesInMenu() {
@@ -57,7 +58,17 @@ fun initLanguagesList() {
             insertIntoMenu(language.value, language.key, languageFromMenu)
             insertIntoMenu(language.value, language.key, languageToMenu)
         }
+        var languageTo = items["language-to"]
+        var languageFrom = items["language-from"]
+        val languagesCount = languageFromMenu.options.length
+        for (i in 0..languagesCount) {
+            if ((languageFromMenu.options[i] as HTMLOptionElement ).value == languageFrom.key)
+                languageFromMenu.selectedIndex = i
+            if ((languageToMenu.options[i] as HTMLOptionElement ).value == languageTo.key)
+                languageToMenu.selectedIndex = i
+        }
     })
+
 }
 
 fun insertIntoMenu(text:String, value:String, element:HTMLSelectElement){

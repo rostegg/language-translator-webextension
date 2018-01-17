@@ -6,8 +6,9 @@ this['panel-module'] = function (_, Kotlin) {
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var throwCCE = Kotlin.throwCCE;
-  var println = Kotlin.kotlin.io.println_s8jyv4$;
   var Unit = Kotlin.kotlin.Unit;
+  var println = Kotlin.kotlin.io.println_s8jyv4$;
+  var equals = Kotlin.equals;
   var YANDEX_API_KEY;
   function Endpoints() {
     Endpoints_instance = this;
@@ -30,21 +31,9 @@ this['panel-module'] = function (_, Kotlin) {
   var outputPanel;
   var languageToMenu;
   var languageFromMenu;
-  function main$lambda$lambda(closure$xhttp) {
-    return function () {
-      println(closure$xhttp.v.responseText);
-      var response = JSON.parse(closure$xhttp.v.responseText);
-      outputPanel.value = response.text;
-    };
-  }
   function main$lambda(it) {
-    var text = inputPanel.value;
-    var xhttp = {v: new XMLHttpRequest()};
-    var request = Endpoints_getInstance().getTranslateTextEndpoint_puj7f4$('ru-en', text);
-    println('sending request : ' + request);
-    xhttp.v.open('GET', request);
-    xhttp.v.onload = main$lambda$lambda(xhttp);
-    return xhttp.v.send();
+    translateText();
+    return Unit;
   }
   function main$lambda_0(it) {
     swapLanguagesInMenu();
@@ -53,10 +42,26 @@ this['panel-module'] = function (_, Kotlin) {
   function main(args) {
     var tmp$, tmp$_0;
     initLanguagesList();
-    var btn = Kotlin.isType(tmp$ = document.querySelector('#translate-btn'), HTMLButtonElement) ? tmp$ : throwCCE();
-    btn.onclick = main$lambda;
+    var translateBtn = Kotlin.isType(tmp$ = document.querySelector('#translate-btn'), HTMLButtonElement) ? tmp$ : throwCCE();
+    translateBtn.onclick = main$lambda;
     var swapBtn = Kotlin.isType(tmp$_0 = document.querySelector('#swap-btn'), HTMLButtonElement) ? tmp$_0 : throwCCE();
     swapBtn.onclick = main$lambda_0;
+  }
+  function translateText$lambda(closure$xhttp) {
+    return function () {
+      println(closure$xhttp.v.responseText);
+      var response = JSON.parse(closure$xhttp.v.responseText);
+      outputPanel.value = response.text;
+    };
+  }
+  function translateText() {
+    var text = inputPanel.value;
+    var xhttp = {v: new XMLHttpRequest()};
+    var request = Endpoints_getInstance().getTranslateTextEndpoint_puj7f4$('ru-en', text);
+    println('sending request : ' + request);
+    xhttp.v.open('GET', request);
+    xhttp.v.onload = translateText$lambda(xhttp);
+    xhttp.v.send();
   }
   function swapLanguagesInMenu() {
     var tmp$ = languageToMenu;
@@ -65,12 +70,21 @@ this['panel-module'] = function (_, Kotlin) {
     tmp$.selectedIndex = $receiver;
   }
   function initLanguagesList$lambda(items) {
-    var tmp$, tmp$_0;
+    var tmp$, tmp$_0, tmp$_1, tmp$_2;
     var languages = Kotlin.isArray(tmp$ = items['languages-list']) ? tmp$ : throwCCE();
     for (tmp$_0 = 0; tmp$_0 !== languages.length; ++tmp$_0) {
       var language = languages[tmp$_0];
       insertIntoMenu(language.value, language.key, languageFromMenu);
       insertIntoMenu(language.value, language.key, languageToMenu);
+    }
+    var languageTo = items['language-to'];
+    var languageFrom = items['language-from'];
+    var languagesCount = languageFromMenu.options.length;
+    for (var i = 0; i <= languagesCount; i++) {
+      if (equals((Kotlin.isType(tmp$_1 = languageFromMenu.options[i], HTMLOptionElement) ? tmp$_1 : throwCCE()).value, languageFrom.key))
+        languageFromMenu.selectedIndex = i;
+      if (equals((Kotlin.isType(tmp$_2 = languageToMenu.options[i], HTMLOptionElement) ? tmp$_2 : throwCCE()).value, languageTo.key))
+        languageToMenu.selectedIndex = i;
     }
     return Unit;
   }
@@ -90,6 +104,7 @@ this['panel-module'] = function (_, Kotlin) {
   var package$webextensions = package$kotlin.webextensions || (package$kotlin.webextensions = {});
   Object.defineProperty(package$webextensions, 'Endpoints', {get: Endpoints_getInstance});
   package$webextensions.main_kand9s$ = main;
+  package$webextensions.translateText = translateText;
   package$webextensions.swapLanguagesInMenu = swapLanguagesInMenu;
   package$webextensions.initLanguagesList = initLanguagesList;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
