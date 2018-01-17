@@ -30,14 +30,10 @@ fun initLanguagesList() {
 
 fun initDefaultLanguages(){
     browser.storage.local.get().then({ items ->
-        console.log(items)
         var languageTo = items["language-to"]
-        console.log(languageTo.key)
         var languageFrom = items["language-from"]
-        console.log(languageFrom.key)
         val languagesCount = languageFromMenu.options.length
         for (i in 0..languagesCount) {
-            console.log("geting : " + (languageFromMenu.options[i] as HTMLOptionElement ).value)
             if ((languageFromMenu.options[i] as HTMLOptionElement ).value == languageFrom.key)
                 languageFromMenu.selectedIndex = i
             if ((languageToMenu.options[i] as HTMLOptionElement ).value == languageTo.key)

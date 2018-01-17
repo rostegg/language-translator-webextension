@@ -59,9 +59,9 @@ fun createDefaultLanguageSettings(){
     val languageFrom: dynamic = object{}
     languageFrom["language-from"] = Language("ru","Russian")
     browser.storage.local.set(languageFrom)
+
     val languageTo: dynamic = object{}
     languageTo["language-to"] = Language("en","English")
     browser.storage.local.set(languageTo)
-
 }
 
