@@ -21,38 +21,48 @@ fun main(args: Array<String>) {
 
 fun initPlugin() {
     browser.storage.local.clear()
+    initDefaultLocalization()
     updateLanguagesList()
     createDefaultLanguageSettings()
 }
 
+fun initDefaultLocalization() {
+    val localization: dynamic = object{}
+    localization["localization"] = "en"
+    browser.storage.local.set(localization)
+}
 
 fun updateLanguagesList() {
 
     var xhttp :dynamic= XMLHttpRequest()
-    var request = Endpoints.getLanguageEndpoint("en")
-    xhttp.open("GET",request )
-    println("executing query $request")
-    xhttp.onload=fun(){
-        var xmlParser = DOMParser()
+    browser.storage.local.get().then({ items ->
+        var loczlization = items["localization"]
+        var request = Endpoints.getLanguageEndpoint(loczlization)
+        xhttp.open("GET",request )
+        println("executing query $request")
+        xhttp.onload=fun(){
+            var xmlParser = DOMParser()
 
-        var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
-        var languagesList = xmlDoc.getElementsByTagName("Item")
-        val languagesStrorageList = hashSetOf<Language>()
-        languagesList.asList().forEach { language->
-            println("loaded : " + language.getAttribute("key") + " - " + language.getAttribute("value"))
-            languagesStrorageList.add(
-                    Language(language.getAttribute("key")!!,language.getAttribute("value")!!)
-            )
+            var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
+            var languagesList = xmlDoc.getElementsByTagName("Item")
+            val languagesStrorageList = hashSetOf<Language>()
+            languagesList.asList().forEach { language->
+                println("loaded : " + language.getAttribute("key") + " - " + language.getAttribute("value"))
+                languagesStrorageList.add(
+                        Language(language.getAttribute("key")!!,language.getAttribute("value")!!)
+                )
+            }
+            val languages: dynamic = object{}
+            // convert Set to Array, because kotlin.collections not mapped to any js type
+            // more info https://kotlinlang.org/docs/reference/js-to-kotlin-interop.html
+            val langArray = languagesStrorageList.toTypedArray()
+            languages["languages-list"] = langArray
+            browser.storage.local.set(languages)
+
         }
-        val languages: dynamic = object{}
-        // convert Set to Array, because kotlin.collections not mapped to any js type
-        // more info https://kotlinlang.org/docs/reference/js-to-kotlin-interop.html
-        val langArray = languagesStrorageList.toTypedArray()
-        languages["languages-list"] = langArray
-        browser.storage.local.set(languages)
+        xhttp.send()
+    })
 
-    }
-    xhttp.send()
 }
 
 fun createDefaultLanguageSettings(){

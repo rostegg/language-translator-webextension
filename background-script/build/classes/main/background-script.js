@@ -89,18 +89,30 @@ this['background-script'] = function (_, Kotlin) {
   }
   function initPlugin() {
     browser.storage.local.clear();
+    initDefaultLocalization();
     updateLanguagesList();
     createDefaultLanguageSettings();
   }
-  function updateLanguagesList$lambda$ObjectLiteral() {
+  function initDefaultLocalization$ObjectLiteral() {
   }
-  updateLanguagesList$lambda$ObjectLiteral.$metadata$ = {
+  initDefaultLocalization$ObjectLiteral.$metadata$ = {
+    kind: Kind_CLASS,
+    interfaces: []
+  };
+  function initDefaultLocalization() {
+    var localization = new initDefaultLocalization$ObjectLiteral();
+    localization['localization'] = 'en';
+    browser.storage.local.set(localization);
+  }
+  function updateLanguagesList$lambda$lambda$ObjectLiteral() {
+  }
+  updateLanguagesList$lambda$lambda$ObjectLiteral.$metadata$ = {
     kind: Kind_CLASS,
     interfaces: []
   };
   var HashSet_init = Kotlin.kotlin.collections.HashSet_init_287e2$;
   var copyToArray = Kotlin.kotlin.collections.copyToArray;
-  function updateLanguagesList$lambda(closure$xhttp) {
+  function updateLanguagesList$lambda$lambda(closure$xhttp) {
     return function () {
       var xmlParser = new DOMParser();
       var xmlDoc = xmlParser.parseFromString(closure$xhttp.v.responseText, 'text/xml');
@@ -113,19 +125,25 @@ this['background-script'] = function (_, Kotlin) {
         println('loaded : ' + element.getAttribute('key') + ' - ' + element.getAttribute('value'));
         languagesStrorageList.add_11rb$(new Language(ensureNotNull(element.getAttribute('key')), ensureNotNull(element.getAttribute('value'))));
       }
-      var languages = new updateLanguagesList$lambda$ObjectLiteral();
+      var languages = new updateLanguagesList$lambda$lambda$ObjectLiteral();
       var langArray = copyToArray(languagesStrorageList);
       languages['languages-list'] = langArray;
       browser.storage.local.set(languages);
     };
   }
+  function updateLanguagesList$lambda(closure$xhttp) {
+    return function (items) {
+      var loczlization = items['localization'];
+      var request = Endpoints_getInstance().getLanguageEndpoint_61zpoe$(loczlization);
+      closure$xhttp.v.open('GET', request);
+      println('executing query ' + request);
+      closure$xhttp.v.onload = updateLanguagesList$lambda$lambda(closure$xhttp);
+      return closure$xhttp.v.send();
+    };
+  }
   function updateLanguagesList() {
     var xhttp = {v: new XMLHttpRequest()};
-    var request = Endpoints_getInstance().getLanguageEndpoint_61zpoe$('en');
-    xhttp.v.open('GET', request);
-    println('executing query ' + request);
-    xhttp.v.onload = updateLanguagesList$lambda(xhttp);
-    xhttp.v.send();
+    browser.storage.local.get().then(updateLanguagesList$lambda(xhttp));
   }
   function createDefaultLanguageSettings$ObjectLiteral() {
   }
@@ -164,6 +182,7 @@ this['background-script'] = function (_, Kotlin) {
   package$webextensions.Language = Language;
   package$webextensions.main_kand9s$ = main;
   package$webextensions.initPlugin = initPlugin;
+  package$webextensions.initDefaultLocalization = initDefaultLocalization;
   package$webextensions.updateLanguagesList = updateLanguagesList;
   package$webextensions.createDefaultLanguageSettings = createDefaultLanguageSettings;
   YANDEX_API_KEY = 'YOUR_API_KEY';
