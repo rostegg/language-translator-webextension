@@ -16,7 +16,6 @@ object Endpoints{
         return  "https://translate.yandex.net/api/v1.5/tr.json/translate?key=$YANDEX_API_KEY&text=$text&lang=$lang"
     }
 
-
     fun getLanguageEndpoint(ui:String):String {
         return "https://translate.yandex.net/api/v1.5/tr/getLangs?key=$YANDEX_API_KEY&ui=$ui"
     }

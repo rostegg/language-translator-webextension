@@ -50,8 +50,7 @@ fun swapLanguagesInMenu() {
     languageToMenu.selectedIndex = languageFromMenu.selectedIndex.also { languageFromMenu.selectedIndex = languageToMenu.selectedIndex }
 }
 
-fun initLanguagesList()
-{
+fun initLanguagesList() {
     browser.storage.local.get().then({ items ->
         var languages = items["languages-list"] as Array<Language>
         for (language in languages) {

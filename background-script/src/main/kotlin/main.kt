@@ -5,8 +5,7 @@ import org.w3c.dom.parsing.DOMParser
 import org.w3c.xhr.XMLHttpRequest
 
 fun main(args: Array<String>) {
-    console.log("running background script")
-
+    console.log("running background script..")
     initPlugin()
     browser.commands.onCommand.addListener { command ->
         if (command == "fast-translate") {
@@ -17,24 +16,25 @@ fun main(args: Array<String>) {
             })
         }
     }
+
 }
 
-fun initPlugin()
-{
+fun initPlugin() {
     browser.storage.local.clear()
     updateLanguagesList()
     createDefaultLanguageSettings()
 }
 
 
-fun updateLanguagesList()
-{
+fun updateLanguagesList() {
+
     var xhttp :dynamic= XMLHttpRequest()
     var request = Endpoints.getLanguageEndpoint("en")
     xhttp.open("GET",request )
+    println("executing query $request")
     xhttp.onload=fun(){
         var xmlParser = DOMParser()
-        println("executing query $request")
+
         var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
         var languagesList = xmlDoc.getElementsByTagName("Item")
         val languagesStrorageList = hashSetOf<Language>()
@@ -43,9 +43,7 @@ fun updateLanguagesList()
             languagesStrorageList.add(
                     Language(language.getAttribute("key")!!,language.getAttribute("value")!!)
             )
-
         }
-
         val languages: dynamic = object{}
         // convert Set to Array, because kotlin.collections not mapped to any js type
         // more info https://kotlinlang.org/docs/reference/js-to-kotlin-interop.html
@@ -58,6 +56,12 @@ fun updateLanguagesList()
 }
 
 fun createDefaultLanguageSettings(){
+    val languageFrom: dynamic = object{}
+    languageFrom["language-from"] = Language("ru","Russian")
+    browser.storage.local.set(languageFrom)
+    val languageTo: dynamic = object{}
+    languageTo["language-to"] = Language("en","English")
+    browser.storage.local.set(languageTo)
 
 }
 

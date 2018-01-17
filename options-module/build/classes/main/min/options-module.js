@@ -3,9 +3,10 @@ if (typeof kotlin === 'undefined') {
 }
 this['options-module'] = function (_, Kotlin) {
   'use strict';
+  var Kind_CLASS = Kotlin.Kind.CLASS;
   var throwCCE = Kotlin.throwCCE;
   var Unit = Kotlin.kotlin.Unit;
-  var Kind_CLASS = Kotlin.Kind.CLASS;
+  var equals = Kotlin.equals;
   var languageFromMenu;
   var languageToMenu;
   var apiKeyEdit;
@@ -23,6 +24,27 @@ this['options-module'] = function (_, Kotlin) {
   function initLanguagesList() {
     browser.storage.local.get().then(initLanguagesList$lambda);
   }
+  function initDefaultLanguages$lambda(items) {
+    var tmp$, tmp$_0, tmp$_1, tmp$_2;
+    console.log(items);
+    var languageTo = items['language-to'];
+    console.log(languageTo.key);
+    var languageFrom = items['language-from'];
+    console.log(languageFrom.key);
+    var languagesCount = languageFromMenu.options.length;
+    for (var i = 0; i <= languagesCount; i++) {
+      tmp$_0 = (Kotlin.isType(tmp$ = languageFromMenu.options[i], HTMLOptionElement) ? tmp$ : throwCCE()).value;
+      console.log('geting : ' + tmp$_0);
+      if (equals((Kotlin.isType(tmp$_1 = languageFromMenu.options[i], HTMLOptionElement) ? tmp$_1 : throwCCE()).value, languageFrom.key))
+        languageFromMenu.selectedIndex = i;
+      if (equals((Kotlin.isType(tmp$_2 = languageToMenu.options[i], HTMLOptionElement) ? tmp$_2 : throwCCE()).value, languageTo.key))
+        languageToMenu.selectedIndex = i;
+    }
+    return Unit;
+  }
+  function initDefaultLanguages() {
+    browser.storage.local.get().then(initDefaultLanguages$lambda);
+  }
   function insertIntoMenu(text, value, element) {
     var tmp$;
     var option = Kotlin.isType(tmp$ = document.createElement('option'), HTMLOptionElement) ? tmp$ : throwCCE();
@@ -32,11 +54,13 @@ this['options-module'] = function (_, Kotlin) {
   }
   function main(args) {
     initLanguagesList();
+    initDefaultLanguages();
   }
   var package$com = _.com || (_.com = {});
   var package$rostegg = package$com.rostegg || (package$com.rostegg = {});
   var package$test = package$rostegg.test || (package$rostegg.test = {});
   package$test.initLanguagesList = initLanguagesList;
+  package$test.initDefaultLanguages = initDefaultLanguages;
   package$test.insertIntoMenu_j755s4$ = insertIntoMenu;
   package$test.main_kand9s$ = main;
   var tmp$, tmp$_0, tmp$_1, tmp$_2;

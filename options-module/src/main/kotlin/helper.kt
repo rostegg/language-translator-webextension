@@ -3,9 +3,12 @@ package com.rostegg.test
 import org.w3c.dom.HTMLInputElement
 import org.w3c.dom.HTMLOptionElement
 import org.w3c.dom.HTMLSelectElement
+import org.w3c.dom.get
 import kotlin.browser.document
 
 external val browser: dynamic
+
+data class Language(val key:String, val value:String)
 
 
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
@@ -15,13 +18,30 @@ val proxyServerEdit = document.querySelector("#proxy-edit") as HTMLInputElement
 
 
 
-fun initLanguagesList()
-{
+fun initLanguagesList() {
     browser.storage.local.get().then({ items ->
         var languages = items["languages-list"] as Array<Language>
         for (language in languages) {
             insertIntoMenu(language.value, language.key, languageFromMenu)
             insertIntoMenu(language.value, language.key, languageToMenu)
+        }
+    })
+}
+
+fun initDefaultLanguages(){
+    browser.storage.local.get().then({ items ->
+        console.log(items)
+        var languageTo = items["language-to"]
+        console.log(languageTo.key)
+        var languageFrom = items["language-from"]
+        console.log(languageFrom.key)
+        val languagesCount = languageFromMenu.options.length
+        for (i in 0..languagesCount) {
+            console.log("geting : " + (languageFromMenu.options[i] as HTMLOptionElement ).value)
+            if ((languageFromMenu.options[i] as HTMLOptionElement ).value == languageFrom.key)
+                languageFromMenu.selectedIndex = i
+            if ((languageToMenu.options[i] as HTMLOptionElement ).value == languageTo.key)
+                languageToMenu.selectedIndex = i
         }
     })
 }
@@ -32,5 +52,3 @@ fun insertIntoMenu(text:String, value:String, element: HTMLSelectElement){
     option.text = text
     element.add(option)
 }
-
-data class Language(val key:String, val value:String)

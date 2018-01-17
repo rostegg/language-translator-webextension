@@ -72,7 +72,7 @@ this['background-script'] = function (_, Kotlin) {
     return Unit;
   }
   function main(args) {
-    console.log('running background script');
+    console.log('running background script..');
     initPlugin();
     browser.commands.onCommand.addListener(main$lambda);
   }
@@ -86,10 +86,9 @@ this['background-script'] = function (_, Kotlin) {
   updateLanguagesList$lambda$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: []};
   var HashSet_init = Kotlin.kotlin.collections.HashSet_init_287e2$;
   var copyToArray = Kotlin.kotlin.collections.copyToArray;
-  function updateLanguagesList$lambda(closure$request, closure$xhttp) {
+  function updateLanguagesList$lambda(closure$xhttp) {
     return function () {
       var xmlParser = new DOMParser();
-      println('executing query ' + closure$request.v);
       var xmlDoc = xmlParser.parseFromString(closure$xhttp.v.responseText, 'text/xml');
       var languagesList = xmlDoc.getElementsByTagName('Item');
       var languagesStrorageList = HashSet_init();
@@ -108,12 +107,25 @@ this['background-script'] = function (_, Kotlin) {
   }
   function updateLanguagesList() {
     var xhttp = {v: new XMLHttpRequest()};
-    var request = {v: Endpoints_getInstance().getLanguageEndpoint_61zpoe$('en')};
-    xhttp.v.open('GET', request.v);
-    xhttp.v.onload = updateLanguagesList$lambda(request, xhttp);
+    var request = Endpoints_getInstance().getLanguageEndpoint_61zpoe$('en');
+    xhttp.v.open('GET', request);
+    println('executing query ' + request);
+    xhttp.v.onload = updateLanguagesList$lambda(xhttp);
     xhttp.v.send();
   }
+  function createDefaultLanguageSettings$ObjectLiteral() {
+  }
+  createDefaultLanguageSettings$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: []};
+  function createDefaultLanguageSettings$ObjectLiteral_0() {
+  }
+  createDefaultLanguageSettings$ObjectLiteral_0.$metadata$ = {kind: Kind_CLASS, interfaces: []};
   function createDefaultLanguageSettings() {
+    var languageFrom = new createDefaultLanguageSettings$ObjectLiteral();
+    languageFrom['language-from'] = new Language('ru', 'Russian');
+    browser.storage.local.set(languageFrom);
+    var languageTo = new createDefaultLanguageSettings$ObjectLiteral_0();
+    languageTo['language-to'] = new Language('en', 'English');
+    browser.storage.local.set(languageTo);
   }
   var package$com = _.com || (_.com = {});
   var package$rostegg = package$com.rostegg || (package$com.rostegg = {});
