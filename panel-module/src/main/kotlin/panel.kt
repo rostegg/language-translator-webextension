@@ -1,7 +1,9 @@
 package com.rostegg.kotlin.webextensions
 
-import org.w3c.dom.*
-import org.w3c.dom.parsing.DOMParser
+import org.w3c.dom.HTMLButtonElement
+import org.w3c.dom.HTMLOptionElement
+import org.w3c.dom.HTMLSelectElement
+import org.w3c.dom.HTMLTextAreaElement
 import org.w3c.xhr.XMLHttpRequest
 import kotlin.browser.document
 
@@ -10,8 +12,17 @@ val outputPanel = document.querySelector("#output-text")  as HTMLTextAreaElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 
+
+// TODO options, proxy, copy to textarea, design, save default languages, list with available translates
+/*
+    options:
+    default localization
+    default translate languages
+    use proxy
+    api key
+ */
 fun main(args: Array<String>) {
-    setupLanguagesList()
+    initLanguagesList()
 
     var btn = document.querySelector("#translate-btn") as HTMLButtonElement
     btn.onclick = {
@@ -39,23 +50,15 @@ fun swapLanguagesInMenu() {
     languageToMenu.selectedIndex = languageFromMenu.selectedIndex.also { languageFromMenu.selectedIndex = languageToMenu.selectedIndex }
 }
 
-fun setupLanguagesList()
+fun initLanguagesList()
 {
-    var xhttp :dynamic= XMLHttpRequest()
-    var request = Endpoints.getLanguageEndpoint("en")
-    xhttp.open("GET",request )
-    xhttp.onload=fun(){
-        var xmlParser = DOMParser()
-        println("executing query $request")
-        var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
-        var languagesList = xmlDoc.getElementsByTagName("Item")
-        languagesList.asList().forEach { language->
-            println(language.getAttribute("key") + " - " + language.getAttribute("value"))
-            insertIntoMenu(language.getAttribute("value")!!,language.getAttribute("key")!!, languageToMenu)
-            insertIntoMenu(language.getAttribute("value")!!,language.getAttribute("key")!!, languageFromMenu)
+    browser.storage.local.get().then({ items ->
+        var languages = items["languages-list"] as Array<Language>
+        for (language in languages) {
+            insertIntoMenu(language.value, language.key, languageFromMenu)
+            insertIntoMenu(language.value, language.key, languageToMenu)
         }
-    }
-    xhttp.send()
+    })
 }
 
 fun insertIntoMenu(text:String, value:String, element:HTMLSelectElement){

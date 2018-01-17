@@ -449,6 +449,9 @@
   Kotlin.isChar = function (value) {
     return value instanceof Kotlin.BoxedChar;
   };
+  Kotlin.isCharSequence = function (value) {
+    return typeof value === 'string' || Kotlin.isType(value, Kotlin.kotlin.CharSequence);
+  };
   Kotlin.Long = function (low, high) {
     this.low_ = low | 0;
     this.high_ = high | 0;
@@ -1006,6 +1009,22 @@
     var Throwable = Error;
     var unboxChar = Kotlin.unboxChar;
     var kotlin_js_internal_IntCompanionObject = Kotlin.kotlin.js.internal.IntCompanionObject;
+    AbstractMutableCollection.prototype = Object.create(AbstractCollection.prototype);
+    AbstractMutableCollection.prototype.constructor = AbstractMutableCollection;
+    AbstractMutableSet.prototype = Object.create(AbstractMutableCollection.prototype);
+    AbstractMutableSet.prototype.constructor = AbstractMutableSet;
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype = Object.create(AbstractMutableSet.prototype);
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype.constructor = AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral;
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype = Object.create(AbstractMutableCollection.prototype);
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.constructor = AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral;
+    AbstractMutableMap.prototype = Object.create(AbstractMap.prototype);
+    AbstractMutableMap.prototype.constructor = AbstractMutableMap;
+    HashMap$EntrySet.prototype = Object.create(AbstractMutableSet.prototype);
+    HashMap$EntrySet.prototype.constructor = HashMap$EntrySet;
+    HashMap.prototype = Object.create(AbstractMutableMap.prototype);
+    HashMap.prototype.constructor = HashMap;
+    HashSet.prototype = Object.create(AbstractMutableSet.prototype);
+    HashSet.prototype.constructor = HashSet;
     NodeJsOutput.prototype = Object.create(BaseOutput.prototype);
     NodeJsOutput.prototype.constructor = NodeJsOutput;
     BufferedOutput.prototype = Object.create(BaseOutput.prototype);
@@ -1022,6 +1041,8 @@
     IllegalArgumentException.prototype.constructor = IllegalArgumentException;
     IllegalStateException.prototype = Object.create(RuntimeException.prototype);
     IllegalStateException.prototype.constructor = IllegalStateException;
+    IndexOutOfBoundsException.prototype = Object.create(RuntimeException.prototype);
+    IndexOutOfBoundsException.prototype.constructor = IndexOutOfBoundsException;
     UnsupportedOperationException.prototype = Object.create(RuntimeException.prototype);
     UnsupportedOperationException.prototype.constructor = UnsupportedOperationException;
     NullPointerException.prototype = Object.create(RuntimeException.prototype);
@@ -1030,6 +1051,10 @@
     ClassCastException.prototype.constructor = ClassCastException;
     NoSuchElementException.prototype = Object.create(Exception.prototype);
     NoSuchElementException.prototype.constructor = NoSuchElementException;
+    AbstractList.prototype = Object.create(AbstractCollection.prototype);
+    AbstractList.prototype.constructor = AbstractList;
+    asList$ObjectLiteral_0.prototype = Object.create(AbstractList.prototype);
+    asList$ObjectLiteral_0.prototype.constructor = asList$ObjectLiteral_0;
     SimpleKClassImpl.prototype = Object.create(KClassImpl.prototype);
     SimpleKClassImpl.prototype.constructor = SimpleKClassImpl;
     PrimitiveKClassImpl.prototype = Object.create(KClassImpl.prototype);
@@ -1044,6 +1069,16 @@
     IntRange.prototype.constructor = IntRange;
     LongRange.prototype = Object.create(LongProgression.prototype);
     LongRange.prototype.constructor = LongRange;
+    AbstractList$SubList.prototype = Object.create(AbstractList.prototype);
+    AbstractList$SubList.prototype.constructor = AbstractList$SubList;
+    AbstractList$ListIteratorImpl.prototype = Object.create(AbstractList$IteratorImpl.prototype);
+    AbstractList$ListIteratorImpl.prototype.constructor = AbstractList$ListIteratorImpl;
+    AbstractSet.prototype = Object.create(AbstractCollection.prototype);
+    AbstractSet.prototype.constructor = AbstractSet;
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral.prototype = Object.create(AbstractSet.prototype);
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral.prototype.constructor = AbstractMap$get_AbstractMap$keys$ObjectLiteral;
+    AbstractMap$get_AbstractMap$values$ObjectLiteral.prototype = Object.create(AbstractCollection.prototype);
+    AbstractMap$get_AbstractMap$values$ObjectLiteral.prototype.constructor = AbstractMap$get_AbstractMap$values$ObjectLiteral;
     NotImplementedError.prototype = Object.create(Error_0.prototype);
     NotImplementedError.prototype.constructor = NotImplementedError;
     function captureStack(baseClass, instance) {
@@ -1079,8 +1114,623 @@
       array.$type$ = type;
       return array;
     }
+    function copyToArray(collection) {
+      return collection.toArray !== undefined ? collection.toArray() : copyToArrayImpl(collection);
+    }
+    function copyToArrayImpl(collection) {
+      var array = [];
+      var iterator = collection.iterator();
+      while (iterator.hasNext())
+        array.push(iterator.next());
+      return array;
+    }
+    function copyToArrayImpl_0(collection, array) {
+      var tmp$;
+      if (array.length < collection.size) {
+        return copyToArrayImpl(collection);
+      }
+      var iterator = collection.iterator();
+      var index = 0;
+      while (iterator.hasNext()) {
+        array[tmp$ = index, index = tmp$ + 1 | 0, tmp$] = iterator.next();
+      }
+      if (index < array.length) {
+        array[index] = null;
+      }
+      return array;
+    }
     var Math_0 = Math;
+    function AbstractMutableCollection() {
+      AbstractCollection.call(this);
+    }
+    AbstractMutableCollection.prototype.remove_11rb$ = function (element) {
+      var iterator = this.iterator();
+      while (iterator.hasNext()) {
+        if (equals(iterator.next(), element)) {
+          iterator.remove();
+          return true;
+        }
+      }
+      return false;
+    };
+    AbstractMutableCollection.prototype.addAll_brywnq$ = function (elements) {
+      var tmp$;
+      var modified = false;
+      tmp$ = elements.iterator();
+      while (tmp$.hasNext()) {
+        var element = tmp$.next();
+        if (this.add_11rb$(element))
+          modified = true;
+      }
+      return modified;
+    };
+    function AbstractMutableCollection$removeAll$lambda(closure$elements) {
+      return function (it) {
+        return closure$elements.contains_11rb$(it);
+      };
+    }
+    AbstractMutableCollection.prototype.removeAll_brywnq$ = function (elements) {
+      var tmp$;
+      return removeAll_0(Kotlin.isType(tmp$ = this, MutableIterable) ? tmp$ : throwCCE(), AbstractMutableCollection$removeAll$lambda(elements));
+    };
+    function AbstractMutableCollection$retainAll$lambda(closure$elements) {
+      return function (it) {
+        return !closure$elements.contains_11rb$(it);
+      };
+    }
+    AbstractMutableCollection.prototype.retainAll_brywnq$ = function (elements) {
+      var tmp$;
+      return removeAll_0(Kotlin.isType(tmp$ = this, MutableIterable) ? tmp$ : throwCCE(), AbstractMutableCollection$retainAll$lambda(elements));
+    };
+    AbstractMutableCollection.prototype.clear = function () {
+      var iterator = this.iterator();
+      while (iterator.hasNext()) {
+        iterator.next();
+        iterator.remove();
+      }
+    };
+    AbstractMutableCollection.prototype.toJSON = function () {
+      return this.toArray();
+    };
+    AbstractMutableCollection.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractMutableCollection', interfaces: [MutableCollection, AbstractCollection]};
+    function AbstractMutableMap() {
+      AbstractMap.call(this);
+      this._keys_qe2m0n$_0 = null;
+      this._values_kxdlqh$_0 = null;
+    }
+    function AbstractMutableMap$SimpleEntry(key, value) {
+      this.key_5xhq3d$_0 = key;
+      this._value_0 = value;
+    }
+    Object.defineProperty(AbstractMutableMap$SimpleEntry.prototype, 'key', {get: function () {
+      return this.key_5xhq3d$_0;
+    }});
+    Object.defineProperty(AbstractMutableMap$SimpleEntry.prototype, 'value', {get: function () {
+      return this._value_0;
+    }});
+    AbstractMutableMap$SimpleEntry.prototype.setValue_11rc$ = function (newValue) {
+      var oldValue = this._value_0;
+      this._value_0 = newValue;
+      return oldValue;
+    };
+    AbstractMutableMap$SimpleEntry.prototype.hashCode = function () {
+      return AbstractMap$Companion_getInstance().entryHashCode_9fthdn$(this);
+    };
+    AbstractMutableMap$SimpleEntry.prototype.toString = function () {
+      return AbstractMap$Companion_getInstance().entryToString_9fthdn$(this);
+    };
+    AbstractMutableMap$SimpleEntry.prototype.equals = function (other) {
+      return AbstractMap$Companion_getInstance().entryEquals_js7fox$(this, other);
+    };
+    AbstractMutableMap$SimpleEntry.$metadata$ = {kind: Kind_CLASS, simpleName: 'SimpleEntry', interfaces: [MutableMap$MutableEntry]};
+    function AbstractMutableMap$AbstractMutableMap$SimpleEntry_init(entry, $this) {
+      $this = $this || Object.create(AbstractMutableMap$SimpleEntry.prototype);
+      AbstractMutableMap$SimpleEntry.call($this, entry.key, entry.value);
+      return $this;
+    }
+    AbstractMutableMap.prototype.clear = function () {
+      this.entries.clear();
+    };
+    function AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral(this$AbstractMutableMap) {
+      this.this$AbstractMutableMap = this$AbstractMutableMap;
+      AbstractMutableSet.call(this);
+    }
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype.add_11rb$ = function (element) {
+      throw new UnsupportedOperationException('Add is not supported on keys');
+    };
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype.clear = function () {
+      this.this$AbstractMutableMap.clear();
+    };
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype.contains_11rb$ = function (element) {
+      return this.this$AbstractMutableMap.containsKey_11rb$(element);
+    };
+    function AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral$iterator$ObjectLiteral(closure$entryIterator) {
+      this.closure$entryIterator = closure$entryIterator;
+    }
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral$iterator$ObjectLiteral.prototype.hasNext = function () {
+      return this.closure$entryIterator.hasNext();
+    };
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral$iterator$ObjectLiteral.prototype.next = function () {
+      return this.closure$entryIterator.next().key;
+    };
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral$iterator$ObjectLiteral.prototype.remove = function () {
+      this.closure$entryIterator.remove();
+    };
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral$iterator$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [MutableIterator]};
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype.iterator = function () {
+      var entryIterator = this.this$AbstractMutableMap.entries.iterator();
+      return new AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral$iterator$ObjectLiteral(entryIterator);
+    };
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype.remove_11rb$ = function (element) {
+      if (this.this$AbstractMutableMap.containsKey_11rb$(element)) {
+        this.this$AbstractMutableMap.remove_11rb$(element);
+        return true;
+      }
+      return false;
+    };
+    Object.defineProperty(AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.prototype, 'size', {get: function () {
+      return this.this$AbstractMutableMap.size;
+    }});
+    AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [AbstractMutableSet]};
+    Object.defineProperty(AbstractMutableMap.prototype, 'keys', {get: function () {
+      var tmp$;
+      if (this._keys_qe2m0n$_0 == null) {
+        this._keys_qe2m0n$_0 = new AbstractMutableMap$get_AbstractMutableMap$keys$ObjectLiteral(this);
+      }
+      return (tmp$ = this._keys_qe2m0n$_0) != null ? tmp$ : throwNPE();
+    }});
+    AbstractMutableMap.prototype.putAll_a2k3zr$ = function (from) {
+      var tmp$;
+      tmp$ = from.entries.iterator();
+      while (tmp$.hasNext()) {
+        var tmp$_0 = tmp$.next();
+        var key = tmp$_0.key;
+        var value = tmp$_0.value;
+        this.put_xwzc9p$(key, value);
+      }
+    };
+    function AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral(this$AbstractMutableMap) {
+      this.this$AbstractMutableMap = this$AbstractMutableMap;
+      AbstractMutableCollection.call(this);
+    }
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.add_11rb$ = function (element) {
+      throw new UnsupportedOperationException('Add is not supported on values');
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.clear = function () {
+      this.this$AbstractMutableMap.clear();
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.contains_11rb$ = function (element) {
+      return this.this$AbstractMutableMap.containsValue_11rc$(element);
+    };
+    function AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral$iterator$ObjectLiteral(closure$entryIterator) {
+      this.closure$entryIterator = closure$entryIterator;
+    }
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral$iterator$ObjectLiteral.prototype.hasNext = function () {
+      return this.closure$entryIterator.hasNext();
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral$iterator$ObjectLiteral.prototype.next = function () {
+      return this.closure$entryIterator.next().value;
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral$iterator$ObjectLiteral.prototype.remove = function () {
+      this.closure$entryIterator.remove();
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral$iterator$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [MutableIterator]};
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.iterator = function () {
+      var entryIterator = this.this$AbstractMutableMap.entries.iterator();
+      return new AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral$iterator$ObjectLiteral(entryIterator);
+    };
+    Object.defineProperty(AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype, 'size', {get: function () {
+      return this.this$AbstractMutableMap.size;
+    }});
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.equals = function (other) {
+      if (this === other)
+        return true;
+      if (!Kotlin.isType(other, Collection))
+        return false;
+      return AbstractList$Companion_getInstance().orderedEquals_e92ka7$(this, other);
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.prototype.hashCode = function () {
+      return AbstractList$Companion_getInstance().orderedHashCode_nykoif$(this);
+    };
+    AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [AbstractMutableCollection]};
+    Object.defineProperty(AbstractMutableMap.prototype, 'values', {get: function () {
+      var tmp$;
+      if (this._values_kxdlqh$_0 == null) {
+        this._values_kxdlqh$_0 = new AbstractMutableMap$get_AbstractMutableMap$values$ObjectLiteral(this);
+      }
+      return (tmp$ = this._values_kxdlqh$_0) != null ? tmp$ : throwNPE();
+    }});
+    AbstractMutableMap.prototype.remove_11rb$ = function (key) {
+      var iter = this.entries.iterator();
+      while (iter.hasNext()) {
+        var entry = iter.next();
+        var k = entry.key;
+        if (equals(key, k)) {
+          var value = entry.value;
+          iter.remove();
+          return value;
+        }
+      }
+      return null;
+    };
+    AbstractMutableMap.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractMutableMap', interfaces: [MutableMap, AbstractMap]};
+    function AbstractMutableSet() {
+      AbstractMutableCollection.call(this);
+    }
+    AbstractMutableSet.prototype.equals = function (other) {
+      if (other === this)
+        return true;
+      if (!Kotlin.isType(other, Set))
+        return false;
+      return AbstractSet$Companion_getInstance().setEquals_y8f7en$(this, other);
+    };
+    AbstractMutableSet.prototype.hashCode = function () {
+      return AbstractSet$Companion_getInstance().unorderedHashCode_nykoif$(this);
+    };
+    AbstractMutableSet.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractMutableSet', interfaces: [MutableSet, AbstractMutableCollection]};
+    function EqualityComparator() {
+    }
+    function EqualityComparator$HashCode() {
+      EqualityComparator$HashCode_instance = this;
+    }
+    EqualityComparator$HashCode.prototype.equals_oaftn8$ = function (value1, value2) {
+      return equals(value1, value2);
+    };
+    EqualityComparator$HashCode.prototype.getHashCode_s8jyv4$ = function (value) {
+      var tmp$;
+      return (tmp$ = value != null ? hashCode(value) : null) != null ? tmp$ : 0;
+    };
+    EqualityComparator$HashCode.$metadata$ = {kind: Kind_OBJECT, simpleName: 'HashCode', interfaces: [EqualityComparator]};
     var EqualityComparator$HashCode_instance = null;
+    function EqualityComparator$HashCode_getInstance() {
+      if (EqualityComparator$HashCode_instance === null) {
+        new EqualityComparator$HashCode();
+      }
+      return EqualityComparator$HashCode_instance;
+    }
+    EqualityComparator.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'EqualityComparator', interfaces: []};
+    function HashMap() {
+      this.internalMap_uxhen5$_0 = null;
+      this.equality_vgh6cm$_0 = null;
+      this._entries_7ih87x$_0 = null;
+    }
+    function HashMap$EntrySet($outer) {
+      this.$outer = $outer;
+      AbstractMutableSet.call(this);
+    }
+    HashMap$EntrySet.prototype.add_11rb$ = function (element) {
+      throw new UnsupportedOperationException('Add is not supported on entries');
+    };
+    HashMap$EntrySet.prototype.clear = function () {
+      this.$outer.clear();
+    };
+    HashMap$EntrySet.prototype.contains_11rb$ = function (element) {
+      return this.$outer.containsEntry_8hxqw4$(element);
+    };
+    HashMap$EntrySet.prototype.iterator = function () {
+      return this.$outer.internalMap_uxhen5$_0.iterator();
+    };
+    HashMap$EntrySet.prototype.remove_11rb$ = function (element) {
+      if (this.contains_11rb$(element)) {
+        this.$outer.remove_11rb$(element.key);
+        return true;
+      }
+      return false;
+    };
+    Object.defineProperty(HashMap$EntrySet.prototype, 'size', {get: function () {
+      return this.$outer.size;
+    }});
+    HashMap$EntrySet.$metadata$ = {kind: Kind_CLASS, simpleName: 'EntrySet', interfaces: [AbstractMutableSet]};
+    HashMap.prototype.clear = function () {
+      this.internalMap_uxhen5$_0.clear();
+    };
+    HashMap.prototype.containsKey_11rb$ = function (key) {
+      return this.internalMap_uxhen5$_0.contains_11rb$(key);
+    };
+    HashMap.prototype.containsValue_11rc$ = function (value) {
+      var $receiver = this.internalMap_uxhen5$_0;
+      var any$result;
+      any$break: do {
+        var tmp$;
+        if (Kotlin.isType($receiver, Collection) && $receiver.isEmpty()) {
+          any$result = false;
+          break any$break;
+        }
+        tmp$ = $receiver.iterator();
+        while (tmp$.hasNext()) {
+          var element = tmp$.next();
+          if (this.equality_vgh6cm$_0.equals_oaftn8$(element.value, value)) {
+            any$result = true;
+            break any$break;
+          }
+        }
+        any$result = false;
+      }
+       while (false);
+      return any$result;
+    };
+    Object.defineProperty(HashMap.prototype, 'entries', {get: function () {
+      var tmp$;
+      if (this._entries_7ih87x$_0 == null) {
+        this._entries_7ih87x$_0 = this.createEntrySet();
+      }
+      return (tmp$ = this._entries_7ih87x$_0) != null ? tmp$ : throwNPE();
+    }});
+    HashMap.prototype.createEntrySet = function () {
+      return new HashMap$EntrySet(this);
+    };
+    HashMap.prototype.get_11rb$ = function (key) {
+      return this.internalMap_uxhen5$_0.get_11rb$(key);
+    };
+    HashMap.prototype.put_xwzc9p$ = function (key, value) {
+      return this.internalMap_uxhen5$_0.put_xwzc9p$(key, value);
+    };
+    HashMap.prototype.remove_11rb$ = function (key) {
+      return this.internalMap_uxhen5$_0.remove_11rb$(key);
+    };
+    Object.defineProperty(HashMap.prototype, 'size', {get: function () {
+      return this.internalMap_uxhen5$_0.size;
+    }});
+    HashMap.$metadata$ = {kind: Kind_CLASS, simpleName: 'HashMap', interfaces: [AbstractMutableMap]};
+    function HashMap_init(internalMap, $this) {
+      $this = $this || Object.create(HashMap.prototype);
+      AbstractMutableMap.call($this);
+      HashMap.call($this);
+      $this.internalMap_uxhen5$_0 = internalMap;
+      $this.equality_vgh6cm$_0 = internalMap.equality;
+      return $this;
+    }
+    function HashMap_init_0($this) {
+      $this = $this || Object.create(HashMap.prototype);
+      HashMap_init(new InternalHashCodeMap(EqualityComparator$HashCode_getInstance()), $this);
+      return $this;
+    }
+    function HashSet() {
+      this.map_eot64i$_0 = null;
+    }
+    HashSet.prototype.add_11rb$ = function (element) {
+      var old = this.map_eot64i$_0.put_xwzc9p$(element, this);
+      return old == null;
+    };
+    HashSet.prototype.clear = function () {
+      this.map_eot64i$_0.clear();
+    };
+    HashSet.prototype.contains_11rb$ = function (element) {
+      return this.map_eot64i$_0.containsKey_11rb$(element);
+    };
+    HashSet.prototype.isEmpty = function () {
+      return this.map_eot64i$_0.isEmpty();
+    };
+    HashSet.prototype.iterator = function () {
+      return this.map_eot64i$_0.keys.iterator();
+    };
+    HashSet.prototype.remove_11rb$ = function (element) {
+      return this.map_eot64i$_0.remove_11rb$(element) != null;
+    };
+    Object.defineProperty(HashSet.prototype, 'size', {get: function () {
+      return this.map_eot64i$_0.size;
+    }});
+    HashSet.$metadata$ = {kind: Kind_CLASS, simpleName: 'HashSet', interfaces: [AbstractMutableSet]};
+    function HashSet_init($this) {
+      $this = $this || Object.create(HashSet.prototype);
+      AbstractMutableSet.call($this);
+      HashSet.call($this);
+      $this.map_eot64i$_0 = HashMap_init_0();
+      return $this;
+    }
+    function InternalHashCodeMap(equality) {
+      this.equality_mamlu8$_0 = equality;
+      this.backingMap_0 = this.createJsMap();
+      this.size_x3bm7r$_0 = 0;
+    }
+    Object.defineProperty(InternalHashCodeMap.prototype, 'equality', {get: function () {
+      return this.equality_mamlu8$_0;
+    }});
+    Object.defineProperty(InternalHashCodeMap.prototype, 'size', {get: function () {
+      return this.size_x3bm7r$_0;
+    }, set: function (size) {
+      this.size_x3bm7r$_0 = size;
+    }});
+    InternalHashCodeMap.prototype.put_xwzc9p$ = function (key, value) {
+      var hashCode = this.equality.getHashCode_s8jyv4$(key);
+      var chainOrEntry = this.getChainOrEntryOrNull_0(hashCode);
+      if (chainOrEntry == null) {
+        this.backingMap_0[hashCode] = new AbstractMutableMap$SimpleEntry(key, value);
+      }
+       else {
+        if (!Kotlin.isArray(chainOrEntry)) {
+          var entry = chainOrEntry;
+          if (this.equality.equals_oaftn8$(entry.key, key)) {
+            return entry.setValue_11rc$(value);
+          }
+           else {
+            this.backingMap_0[hashCode] = [entry, new AbstractMutableMap$SimpleEntry(key, value)];
+            this.size = this.size + 1 | 0;
+            return null;
+          }
+        }
+         else {
+          var chain = chainOrEntry;
+          var entry_0 = this.findEntryInChain_0(chain, key);
+          if (entry_0 != null) {
+            return entry_0.setValue_11rc$(value);
+          }
+          chain.push(new AbstractMutableMap$SimpleEntry(key, value));
+        }
+      }
+      this.size = this.size + 1 | 0;
+      return null;
+    };
+    InternalHashCodeMap.prototype.remove_11rb$ = function (key) {
+      var tmp$, tmp$_0;
+      var hashCode = this.equality.getHashCode_s8jyv4$(key);
+      tmp$ = this.getChainOrEntryOrNull_0(hashCode);
+      if (tmp$ == null) {
+        return null;
+      }
+      var chainOrEntry = tmp$;
+      if (!Kotlin.isArray(chainOrEntry)) {
+        var entry = chainOrEntry;
+        if (this.equality.equals_oaftn8$(entry.key, key)) {
+          delete this.backingMap_0[hashCode];
+          this.size = this.size - 1 | 0;
+          return entry.value;
+        }
+         else {
+          return null;
+        }
+      }
+       else {
+        var chain = chainOrEntry;
+        tmp$_0 = chain.length - 1 | 0;
+        for (var index = 0; index <= tmp$_0; index++) {
+          var entry_0 = chain[index];
+          if (this.equality.equals_oaftn8$(key, entry_0.key)) {
+            if (chain.length === 1) {
+              chain.length = 0;
+              delete this.backingMap_0[hashCode];
+            }
+             else {
+              chain.splice(index, 1);
+            }
+            this.size = this.size - 1 | 0;
+            return entry_0.value;
+          }
+        }
+      }
+      return null;
+    };
+    InternalHashCodeMap.prototype.clear = function () {
+      this.backingMap_0 = this.createJsMap();
+      this.size = 0;
+    };
+    InternalHashCodeMap.prototype.contains_11rb$ = function (key) {
+      return this.getEntry_0(key) != null;
+    };
+    InternalHashCodeMap.prototype.get_11rb$ = function (key) {
+      var tmp$;
+      return (tmp$ = this.getEntry_0(key)) != null ? tmp$.value : null;
+    };
+    InternalHashCodeMap.prototype.getEntry_0 = function (key) {
+      var tmp$;
+      tmp$ = this.getChainOrEntryOrNull_0(this.equality.getHashCode_s8jyv4$(key));
+      if (tmp$ == null) {
+        return null;
+      }
+      var chainOrEntry = tmp$;
+      if (!Kotlin.isArray(chainOrEntry)) {
+        var entry = chainOrEntry;
+        if (this.equality.equals_oaftn8$(entry.key, key)) {
+          return entry;
+        }
+         else {
+          return null;
+        }
+      }
+       else {
+        var chain = chainOrEntry;
+        return this.findEntryInChain_0(chain, key);
+      }
+    };
+    InternalHashCodeMap.prototype.findEntryInChain_0 = function ($receiver, key) {
+      var firstOrNull$result;
+      firstOrNull$break: do {
+        var tmp$;
+        for (tmp$ = 0; tmp$ !== $receiver.length; ++tmp$) {
+          var element = $receiver[tmp$];
+          if (this.equality.equals_oaftn8$(element.key, key)) {
+            firstOrNull$result = element;
+            break firstOrNull$break;
+          }
+        }
+        firstOrNull$result = null;
+      }
+       while (false);
+      return firstOrNull$result;
+    };
+    function InternalHashCodeMap$iterator$ObjectLiteral(this$InternalHashCodeMap) {
+      this.this$InternalHashCodeMap = this$InternalHashCodeMap;
+      this.state = -1;
+      this.keys = Object.keys(this$InternalHashCodeMap.backingMap_0);
+      this.keyIndex = -1;
+      this.chainOrEntry = null;
+      this.isChain = false;
+      this.itemIndex = -1;
+      this.lastEntry = null;
+    }
+    InternalHashCodeMap$iterator$ObjectLiteral.prototype.computeNext_0 = function () {
+      if (this.chainOrEntry != null && this.isChain) {
+        var chainSize = this.chainOrEntry.length;
+        if ((this.itemIndex = this.itemIndex + 1 | 0, this.itemIndex) < chainSize)
+          return 0;
+      }
+      if ((this.keyIndex = this.keyIndex + 1 | 0, this.keyIndex) < this.keys.length) {
+        this.chainOrEntry = this.this$InternalHashCodeMap.backingMap_0[this.keys[this.keyIndex]];
+        this.isChain = Kotlin.isArray(this.chainOrEntry);
+        this.itemIndex = 0;
+        return 0;
+      }
+       else {
+        this.chainOrEntry = null;
+        return 1;
+      }
+    };
+    InternalHashCodeMap$iterator$ObjectLiteral.prototype.hasNext = function () {
+      if (this.state === -1)
+        this.state = this.computeNext_0();
+      return this.state === 0;
+    };
+    InternalHashCodeMap$iterator$ObjectLiteral.prototype.next = function () {
+      var tmp$;
+      if (!this.hasNext())
+        throw new NoSuchElementException();
+      if (this.isChain) {
+        tmp$ = this.chainOrEntry[this.itemIndex];
+      }
+       else {
+        tmp$ = this.chainOrEntry;
+      }
+      var lastEntry = tmp$;
+      this.lastEntry = lastEntry;
+      this.state = -1;
+      return lastEntry;
+    };
+    InternalHashCodeMap$iterator$ObjectLiteral.prototype.remove = function () {
+      var tmp$;
+      if (this.lastEntry == null) {
+        var message = 'Required value was null.';
+        throw new IllegalStateException(message.toString());
+      }
+      this.this$InternalHashCodeMap.remove_11rb$(((tmp$ = this.lastEntry) != null ? tmp$ : throwNPE()).key);
+      this.lastEntry = null;
+      this.itemIndex = this.itemIndex - 1 | 0;
+    };
+    InternalHashCodeMap$iterator$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [MutableIterator]};
+    InternalHashCodeMap.prototype.iterator = function () {
+      return new InternalHashCodeMap$iterator$ObjectLiteral(this);
+    };
+    InternalHashCodeMap.prototype.getChainOrEntryOrNull_0 = function (hashCode) {
+      var chainOrEntry = this.backingMap_0[hashCode];
+      return chainOrEntry === undefined ? null : chainOrEntry;
+    };
+    InternalHashCodeMap.$metadata$ = {kind: Kind_CLASS, simpleName: 'InternalHashCodeMap', interfaces: [InternalMap]};
+    function InternalMap() {
+    }
+    InternalMap.prototype.createJsMap = function () {
+      var result = Object.create(null);
+      result['foo'] = 1;
+      delete result['foo'];
+      return result;
+    };
+    InternalMap.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'InternalMap', interfaces: [MutableIterable]};
+    function InternalStringMap(equality) {
+      this.equality_qma612$_0 = equality;
+      this.backingMap_0 = this.createJsMap();
+      this.size_6u3ykz$_0 = 0;
+    }
+    function RandomAccess() {
+    }
+    RandomAccess.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'RandomAccess', interfaces: []};
     function BaseOutput() {
     }
     BaseOutput.prototype.println = function () {
@@ -1131,6 +1781,9 @@
     };
     BufferedOutputToConsoleLog.$metadata$ = {kind: Kind_CLASS, simpleName: 'BufferedOutputToConsoleLog', interfaces: [BufferedOutput]};
     var output;
+    function println_0(message) {
+      output.println_s8jyv4$(message);
+    }
     var throwCCE = Kotlin.throwCCE;
     var UNDECIDED;
     var RESUMED;
@@ -1247,6 +1900,13 @@
       this.name = 'IllegalStateException';
     }
     IllegalStateException.$metadata$ = {kind: Kind_CLASS, simpleName: 'IllegalStateException', interfaces: [RuntimeException]};
+    function IndexOutOfBoundsException(message) {
+      if (message === void 0)
+        message = null;
+      RuntimeException.call(this, message);
+      this.name = 'IndexOutOfBoundsException';
+    }
+    IndexOutOfBoundsException.$metadata$ = {kind: Kind_CLASS, simpleName: 'IndexOutOfBoundsException', interfaces: [RuntimeException]};
     function UnsupportedOperationException(message) {
       if (message === void 0)
         message = null;
@@ -1291,6 +1951,53 @@
     function get_lastIndex_7($receiver) {
       return $receiver.length - 1 | 0;
     }
+    function joinTo_8($receiver, buffer, separator, prefix, postfix, limit, truncated, transform) {
+      if (separator === void 0)
+        separator = ', ';
+      if (prefix === void 0)
+        prefix = '';
+      if (postfix === void 0)
+        postfix = '';
+      if (limit === void 0)
+        limit = -1;
+      if (truncated === void 0)
+        truncated = '...';
+      if (transform === void 0)
+        transform = null;
+      var tmp$;
+      buffer.append_gw00v9$(prefix);
+      var count = 0;
+      tmp$ = $receiver.iterator();
+      while (tmp$.hasNext()) {
+        var element = tmp$.next();
+        if ((count = count + 1 | 0, count) > 1)
+          buffer.append_gw00v9$(separator);
+        if (limit < 0 || count <= limit) {
+          appendElement_0(buffer, element, transform);
+        }
+         else
+          break;
+      }
+      if (limit >= 0 && count > limit)
+        buffer.append_gw00v9$(truncated);
+      buffer.append_gw00v9$(postfix);
+      return buffer;
+    }
+    function joinToString_8($receiver, separator, prefix, postfix, limit, truncated, transform) {
+      if (separator === void 0)
+        separator = ', ';
+      if (prefix === void 0)
+        prefix = '';
+      if (postfix === void 0)
+        postfix = '';
+      if (limit === void 0)
+        limit = -1;
+      if (truncated === void 0)
+        truncated = '...';
+      if (transform === void 0)
+        transform = null;
+      return joinTo_8($receiver, new StringBuilder(), separator, prefix, postfix, limit, truncated, transform).toString();
+    }
     function downTo_4($receiver, to) {
       return IntProgression$Companion_getInstance().fromClosedRange_qt1dr2$($receiver, to, -1);
     }
@@ -1308,6 +2015,65 @@
     var RegexOption$IGNORE_CASE_instance;
     var RegexOption$MULTILINE_instance;
     var Regex$Companion_instance = null;
+    function Appendable() {
+    }
+    Appendable.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Appendable', interfaces: []};
+    function StringBuilder(content) {
+      if (content === void 0)
+        content = '';
+      this.string_0 = content;
+    }
+    Object.defineProperty(StringBuilder.prototype, 'length', {get: function () {
+      return this.string_0.length;
+    }});
+    StringBuilder.prototype.charCodeAt = function (index) {
+      return this.string_0.charCodeAt(index);
+    };
+    StringBuilder.prototype.subSequence_vux9f0$ = function (start, end) {
+      return this.string_0.substring(start, end);
+    };
+    StringBuilder.prototype.append_s8itvh$ = function (c) {
+      this.string_0 += String.fromCharCode(c);
+      return this;
+    };
+    StringBuilder.prototype.append_gw00v9$ = function (csq) {
+      this.string_0 += toString(csq);
+      return this;
+    };
+    StringBuilder.prototype.append_ezbsdh$ = function (csq, start, end) {
+      this.string_0 += toString(csq).substring(start, end);
+      return this;
+    };
+    StringBuilder.prototype.append_s8jyv4$ = function (obj) {
+      this.string_0 += toString(obj);
+      return this;
+    };
+    StringBuilder.prototype.reverse = function () {
+      this.string_0 = this.string_0.split('').reverse().join('');
+      return this;
+    };
+    StringBuilder.prototype.toString = function () {
+      return this.string_0;
+    };
+    StringBuilder.$metadata$ = {kind: Kind_CLASS, simpleName: 'StringBuilder', interfaces: [CharSequence, Appendable]};
+    function asList$ObjectLiteral_0(this$asList) {
+      this.this$asList = this$asList;
+      AbstractList.call(this);
+    }
+    Object.defineProperty(asList$ObjectLiteral_0.prototype, 'size', {get: function () {
+      return this.this$asList.length;
+    }});
+    asList$ObjectLiteral_0.prototype.get_za3lpa$ = function (index) {
+      if (index >= 0 && index <= get_lastIndex_8(this)) {
+        return this.this$asList.item(index);
+      }
+       else
+        throw new IndexOutOfBoundsException('index ' + index + ' is not in range [0..' + get_lastIndex_8(this) + ']');
+    };
+    asList$ObjectLiteral_0.$metadata$ = {kind: Kind_CLASS, interfaces: [AbstractList]};
+    function asList_8($receiver) {
+      return new asList$ObjectLiteral_0($receiver);
+    }
     function get_js($receiver) {
       var tmp$;
       return (Kotlin.isType(tmp$ = $receiver, KClassImpl) ? tmp$ : throwCCE()).jClass;
@@ -1610,15 +2376,61 @@
       }
       return tmp$;
     }
+    function CharSequence() {
+    }
+    CharSequence.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'CharSequence', interfaces: []};
     function Iterable() {
     }
     Iterable.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Iterable', interfaces: []};
+    function MutableIterable() {
+    }
+    MutableIterable.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'MutableIterable', interfaces: [Iterable]};
+    function Collection() {
+    }
+    Collection.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Collection', interfaces: [Iterable]};
+    function MutableCollection() {
+    }
+    MutableCollection.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'MutableCollection', interfaces: [MutableIterable, Collection]};
+    function List() {
+    }
+    List.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'List', interfaces: [Collection]};
+    function Set() {
+    }
+    Set.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Set', interfaces: [Collection]};
+    function MutableSet() {
+    }
+    MutableSet.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'MutableSet', interfaces: [MutableCollection, Set]};
+    function Map() {
+    }
+    Map.prototype.getOrDefault_xwzc9p$ = function (key, defaultValue) {
+      var tmp$;
+      return (tmp$ = null) == null || Kotlin.isType(tmp$, Any) ? tmp$ : throwCCE();
+    };
+    function Map$Entry() {
+    }
+    Map$Entry.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Entry', interfaces: []};
+    Map.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Map', interfaces: []};
+    function MutableMap() {
+    }
+    MutableMap.prototype.remove_xwzc9p$ = function (key, value) {
+      return true;
+    };
+    function MutableMap$MutableEntry() {
+    }
+    MutableMap$MutableEntry.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'MutableEntry', interfaces: [Map$Entry]};
+    MutableMap.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'MutableMap', interfaces: [Map]};
     function Function_0() {
     }
     Function_0.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Function', interfaces: []};
     function Iterator() {
     }
     Iterator.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'Iterator', interfaces: []};
+    function MutableIterator() {
+    }
+    MutableIterator.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'MutableIterator', interfaces: [Iterator]};
+    function ListIterator() {
+    }
+    ListIterator.$metadata$ = {kind: Kind_INTERFACE, simpleName: 'ListIterator', interfaces: [Iterator]};
     function IntIterator() {
     }
     IntIterator.prototype.next = function () {
@@ -1976,17 +2788,528 @@
     var KVisibility$PROTECTED_instance;
     var KVisibility$INTERNAL_instance;
     var KVisibility$PRIVATE_instance;
+    function AbstractCollection() {
+    }
+    AbstractCollection.prototype.contains_11rb$ = function (element) {
+      var any$result;
+      any$break: do {
+        var tmp$;
+        if (Kotlin.isType(this, Collection) && this.isEmpty()) {
+          any$result = false;
+          break any$break;
+        }
+        tmp$ = this.iterator();
+        while (tmp$.hasNext()) {
+          var element_0 = tmp$.next();
+          if (equals(element_0, element)) {
+            any$result = true;
+            break any$break;
+          }
+        }
+        any$result = false;
+      }
+       while (false);
+      return any$result;
+    };
+    AbstractCollection.prototype.containsAll_brywnq$ = function (elements) {
+      var all$result;
+      all$break: do {
+        var tmp$;
+        if (Kotlin.isType(elements, Collection) && elements.isEmpty()) {
+          all$result = true;
+          break all$break;
+        }
+        tmp$ = elements.iterator();
+        while (tmp$.hasNext()) {
+          var element = tmp$.next();
+          if (!this.contains_11rb$(element)) {
+            all$result = false;
+            break all$break;
+          }
+        }
+        all$result = true;
+      }
+       while (false);
+      return all$result;
+    };
+    AbstractCollection.prototype.isEmpty = function () {
+      return this.size === 0;
+    };
+    function AbstractCollection$toString$lambda(this$AbstractCollection) {
+      return function (it) {
+        return it === this$AbstractCollection ? '(this Collection)' : toString(it);
+      };
+    }
+    AbstractCollection.prototype.toString = function () {
+      return joinToString_8(this, ', ', '[', ']', void 0, void 0, AbstractCollection$toString$lambda(this));
+    };
+    AbstractCollection.prototype.toArray = function () {
+      return copyToArrayImpl(this);
+    };
+    AbstractCollection.prototype.toArray_ro6dgy$ = function (array) {
+      return copyToArrayImpl_0(this, array);
+    };
+    AbstractCollection.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractCollection', interfaces: [Collection]};
     var State$Ready_instance;
     var State$NotReady_instance;
     var State$Done_instance;
     var State$Failed_instance;
+    function AbstractList() {
+      AbstractList$Companion_getInstance();
+      AbstractCollection.call(this);
+    }
+    AbstractList.prototype.iterator = function () {
+      return new AbstractList$IteratorImpl(this);
+    };
+    AbstractList.prototype.indexOf_11rb$ = function (element) {
+      var indexOfFirst$result;
+      indexOfFirst$break: do {
+        var tmp$;
+        var index = 0;
+        tmp$ = this.iterator();
+        while (tmp$.hasNext()) {
+          var item = tmp$.next();
+          if (equals(item, element)) {
+            indexOfFirst$result = index;
+            break indexOfFirst$break;
+          }
+          index = index + 1 | 0;
+        }
+        indexOfFirst$result = -1;
+      }
+       while (false);
+      return indexOfFirst$result;
+    };
+    AbstractList.prototype.lastIndexOf_11rb$ = function (element) {
+      var indexOfLast$result;
+      indexOfLast$break: do {
+        var iterator = this.listIterator_za3lpa$(this.size);
+        while (iterator.hasPrevious()) {
+          if (equals(iterator.previous(), element)) {
+            indexOfLast$result = iterator.nextIndex();
+            break indexOfLast$break;
+          }
+        }
+        indexOfLast$result = -1;
+      }
+       while (false);
+      return indexOfLast$result;
+    };
+    AbstractList.prototype.listIterator = function () {
+      return new AbstractList$ListIteratorImpl(this, 0);
+    };
+    AbstractList.prototype.listIterator_za3lpa$ = function (index) {
+      return new AbstractList$ListIteratorImpl(this, index);
+    };
+    AbstractList.prototype.subList_vux9f0$ = function (fromIndex, toIndex) {
+      return new AbstractList$SubList(this, fromIndex, toIndex);
+    };
+    function AbstractList$SubList(list, fromIndex, toIndex) {
+      AbstractList.call(this);
+      this.list_0 = list;
+      this.fromIndex_0 = fromIndex;
+      this._size_0 = 0;
+      AbstractList$Companion_getInstance().checkRangeIndexes_cub51b$(this.fromIndex_0, toIndex, this.list_0.size);
+      this._size_0 = toIndex - this.fromIndex_0 | 0;
+    }
+    AbstractList$SubList.prototype.get_za3lpa$ = function (index) {
+      AbstractList$Companion_getInstance().checkElementIndex_6xvm5r$(index, this._size_0);
+      return this.list_0.get_za3lpa$(this.fromIndex_0 + index | 0);
+    };
+    Object.defineProperty(AbstractList$SubList.prototype, 'size', {get: function () {
+      return this._size_0;
+    }});
+    AbstractList$SubList.$metadata$ = {kind: Kind_CLASS, simpleName: 'SubList', interfaces: [RandomAccess, AbstractList]};
+    AbstractList.prototype.equals = function (other) {
+      if (other === this)
+        return true;
+      if (!Kotlin.isType(other, List))
+        return false;
+      return AbstractList$Companion_getInstance().orderedEquals_e92ka7$(this, other);
+    };
+    AbstractList.prototype.hashCode = function () {
+      return AbstractList$Companion_getInstance().orderedHashCode_nykoif$(this);
+    };
+    function AbstractList$IteratorImpl($outer) {
+      this.$outer = $outer;
+      this.index_0 = 0;
+    }
+    AbstractList$IteratorImpl.prototype.hasNext = function () {
+      return this.index_0 < this.$outer.size;
+    };
+    AbstractList$IteratorImpl.prototype.next = function () {
+      var tmp$, tmp$_0;
+      if (!this.hasNext())
+        throw new NoSuchElementException();
+      tmp$_0 = (tmp$ = this.index_0, this.index_0 = tmp$ + 1 | 0, tmp$);
+      return this.$outer.get_za3lpa$(tmp$_0);
+    };
+    AbstractList$IteratorImpl.$metadata$ = {kind: Kind_CLASS, simpleName: 'IteratorImpl', interfaces: [Iterator]};
+    function AbstractList$ListIteratorImpl($outer, index) {
+      this.$outer = $outer;
+      AbstractList$IteratorImpl.call(this, this.$outer);
+      AbstractList$Companion_getInstance().checkPositionIndex_6xvm5r$(index, this.$outer.size);
+      this.index_0 = index;
+    }
+    AbstractList$ListIteratorImpl.prototype.hasPrevious = function () {
+      return this.index_0 > 0;
+    };
+    AbstractList$ListIteratorImpl.prototype.nextIndex = function () {
+      return this.index_0;
+    };
+    AbstractList$ListIteratorImpl.prototype.previous = function () {
+      if (!this.hasPrevious())
+        throw new NoSuchElementException();
+      return this.$outer.get_za3lpa$((this.index_0 = this.index_0 - 1 | 0, this.index_0));
+    };
+    AbstractList$ListIteratorImpl.prototype.previousIndex = function () {
+      return this.index_0 - 1 | 0;
+    };
+    AbstractList$ListIteratorImpl.$metadata$ = {kind: Kind_CLASS, simpleName: 'ListIteratorImpl', interfaces: [ListIterator, AbstractList$IteratorImpl]};
+    function AbstractList$Companion() {
+      AbstractList$Companion_instance = this;
+    }
+    AbstractList$Companion.prototype.checkElementIndex_6xvm5r$ = function (index, size) {
+      if (index < 0 || index >= size) {
+        throw new IndexOutOfBoundsException('index: ' + index + ', size: ' + size);
+      }
+    };
+    AbstractList$Companion.prototype.checkPositionIndex_6xvm5r$ = function (index, size) {
+      if (index < 0 || index > size) {
+        throw new IndexOutOfBoundsException('index: ' + index + ', size: ' + size);
+      }
+    };
+    AbstractList$Companion.prototype.checkRangeIndexes_cub51b$ = function (fromIndex, toIndex, size) {
+      if (fromIndex < 0 || toIndex > size) {
+        throw new IndexOutOfBoundsException('fromIndex: ' + fromIndex + ', toIndex: ' + toIndex + ', size: ' + size);
+      }
+      if (fromIndex > toIndex) {
+        throw new IllegalArgumentException('fromIndex: ' + fromIndex + ' > toIndex: ' + toIndex);
+      }
+    };
+    AbstractList$Companion.prototype.orderedHashCode_nykoif$ = function (c) {
+      var tmp$, tmp$_0;
+      var hashCode_0 = 1;
+      tmp$ = c.iterator();
+      while (tmp$.hasNext()) {
+        var e = tmp$.next();
+        hashCode_0 = (31 * hashCode_0 | 0) + ((tmp$_0 = e != null ? hashCode(e) : null) != null ? tmp$_0 : 0) | 0;
+      }
+      return hashCode_0;
+    };
+    AbstractList$Companion.prototype.orderedEquals_e92ka7$ = function (c, other) {
+      var tmp$;
+      if (c.size !== other.size)
+        return false;
+      var otherIterator = other.iterator();
+      tmp$ = c.iterator();
+      while (tmp$.hasNext()) {
+        var elem = tmp$.next();
+        var elemOther = otherIterator.next();
+        if (!equals(elem, elemOther)) {
+          return false;
+        }
+      }
+      return true;
+    };
+    AbstractList$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: []};
     var AbstractList$Companion_instance = null;
+    function AbstractList$Companion_getInstance() {
+      if (AbstractList$Companion_instance === null) {
+        new AbstractList$Companion();
+      }
+      return AbstractList$Companion_instance;
+    }
+    AbstractList.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractList', interfaces: [List, AbstractCollection]};
+    function AbstractMap() {
+      AbstractMap$Companion_getInstance();
+      this._keys_up5z3z$_0 = null;
+      this._values_6nw1f1$_0 = null;
+    }
+    AbstractMap.prototype.containsKey_11rb$ = function (key) {
+      return this.implFindEntry_8k1i24$_0(key) != null;
+    };
+    AbstractMap.prototype.containsValue_11rc$ = function (value) {
+      var $receiver = this.entries;
+      var any$result;
+      any$break: do {
+        var tmp$;
+        if (Kotlin.isType($receiver, Collection) && $receiver.isEmpty()) {
+          any$result = false;
+          break any$break;
+        }
+        tmp$ = $receiver.iterator();
+        while (tmp$.hasNext()) {
+          var element = tmp$.next();
+          if (equals(element.value, value)) {
+            any$result = true;
+            break any$break;
+          }
+        }
+        any$result = false;
+      }
+       while (false);
+      return any$result;
+    };
+    AbstractMap.prototype.containsEntry_8hxqw4$ = function (entry) {
+      if (!Kotlin.isType(entry, Map$Entry))
+        return false;
+      var key = entry.key;
+      var value = entry.value;
+      var tmp$;
+      var ourValue = (Kotlin.isType(tmp$ = this, Map) ? tmp$ : throwCCE()).get_11rb$(key);
+      if (!equals(value, ourValue)) {
+        return false;
+      }
+      var tmp$_0 = ourValue == null;
+      if (tmp$_0) {
+        var tmp$_1;
+        tmp$_0 = !(Kotlin.isType(tmp$_1 = this, Map) ? tmp$_1 : throwCCE()).containsKey_11rb$(key);
+      }
+      if (tmp$_0) {
+        return false;
+      }
+      return true;
+    };
+    AbstractMap.prototype.equals = function (other) {
+      if (other === this)
+        return true;
+      if (!Kotlin.isType(other, Map))
+        return false;
+      if (this.size !== other.size)
+        return false;
+      var $receiver = other.entries;
+      var all$result;
+      all$break: do {
+        var tmp$;
+        if (Kotlin.isType($receiver, Collection) && $receiver.isEmpty()) {
+          all$result = true;
+          break all$break;
+        }
+        tmp$ = $receiver.iterator();
+        while (tmp$.hasNext()) {
+          var element = tmp$.next();
+          if (!this.containsEntry_8hxqw4$(element)) {
+            all$result = false;
+            break all$break;
+          }
+        }
+        all$result = true;
+      }
+       while (false);
+      return all$result;
+    };
+    AbstractMap.prototype.get_11rb$ = function (key) {
+      var tmp$;
+      return (tmp$ = this.implFindEntry_8k1i24$_0(key)) != null ? tmp$.value : null;
+    };
+    AbstractMap.prototype.hashCode = function () {
+      return hashCode(this.entries);
+    };
+    AbstractMap.prototype.isEmpty = function () {
+      return this.size === 0;
+    };
+    Object.defineProperty(AbstractMap.prototype, 'size', {get: function () {
+      return this.entries.size;
+    }});
+    function AbstractMap$get_AbstractMap$keys$ObjectLiteral(this$AbstractMap) {
+      this.this$AbstractMap = this$AbstractMap;
+      AbstractSet.call(this);
+    }
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral.prototype.contains_11rb$ = function (element) {
+      return this.this$AbstractMap.containsKey_11rb$(element);
+    };
+    function AbstractMap$get_AbstractMap$keys$ObjectLiteral$iterator$ObjectLiteral(closure$entryIterator) {
+      this.closure$entryIterator = closure$entryIterator;
+    }
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral$iterator$ObjectLiteral.prototype.hasNext = function () {
+      return this.closure$entryIterator.hasNext();
+    };
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral$iterator$ObjectLiteral.prototype.next = function () {
+      return this.closure$entryIterator.next().key;
+    };
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral$iterator$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [Iterator]};
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral.prototype.iterator = function () {
+      var entryIterator = this.this$AbstractMap.entries.iterator();
+      return new AbstractMap$get_AbstractMap$keys$ObjectLiteral$iterator$ObjectLiteral(entryIterator);
+    };
+    Object.defineProperty(AbstractMap$get_AbstractMap$keys$ObjectLiteral.prototype, 'size', {get: function () {
+      return this.this$AbstractMap.size;
+    }});
+    AbstractMap$get_AbstractMap$keys$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [AbstractSet]};
+    Object.defineProperty(AbstractMap.prototype, 'keys', {get: function () {
+      var tmp$;
+      if (this._keys_up5z3z$_0 == null) {
+        this._keys_up5z3z$_0 = new AbstractMap$get_AbstractMap$keys$ObjectLiteral(this);
+      }
+      return (tmp$ = this._keys_up5z3z$_0) != null ? tmp$ : throwNPE();
+    }});
+    function AbstractMap$toString$lambda(this$AbstractMap) {
+      return function (it) {
+        return this$AbstractMap.toString_55he67$_0(it);
+      };
+    }
+    AbstractMap.prototype.toString = function () {
+      return joinToString_8(this.entries, ', ', '{', '}', void 0, void 0, AbstractMap$toString$lambda(this));
+    };
+    AbstractMap.prototype.toString_55he67$_0 = function (entry) {
+      return this.toString_kthv8s$_0(entry.key) + '=' + this.toString_kthv8s$_0(entry.value);
+    };
+    AbstractMap.prototype.toString_kthv8s$_0 = function (o) {
+      return o === this ? '(this Map)' : toString(o);
+    };
+    function AbstractMap$get_AbstractMap$values$ObjectLiteral(this$AbstractMap) {
+      this.this$AbstractMap = this$AbstractMap;
+      AbstractCollection.call(this);
+    }
+    AbstractMap$get_AbstractMap$values$ObjectLiteral.prototype.contains_11rb$ = function (element) {
+      return this.this$AbstractMap.containsValue_11rc$(element);
+    };
+    function AbstractMap$get_AbstractMap$values$ObjectLiteral$iterator$ObjectLiteral(closure$entryIterator) {
+      this.closure$entryIterator = closure$entryIterator;
+    }
+    AbstractMap$get_AbstractMap$values$ObjectLiteral$iterator$ObjectLiteral.prototype.hasNext = function () {
+      return this.closure$entryIterator.hasNext();
+    };
+    AbstractMap$get_AbstractMap$values$ObjectLiteral$iterator$ObjectLiteral.prototype.next = function () {
+      return this.closure$entryIterator.next().value;
+    };
+    AbstractMap$get_AbstractMap$values$ObjectLiteral$iterator$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [Iterator]};
+    AbstractMap$get_AbstractMap$values$ObjectLiteral.prototype.iterator = function () {
+      var entryIterator = this.this$AbstractMap.entries.iterator();
+      return new AbstractMap$get_AbstractMap$values$ObjectLiteral$iterator$ObjectLiteral(entryIterator);
+    };
+    Object.defineProperty(AbstractMap$get_AbstractMap$values$ObjectLiteral.prototype, 'size', {get: function () {
+      return this.this$AbstractMap.size;
+    }});
+    AbstractMap$get_AbstractMap$values$ObjectLiteral.$metadata$ = {kind: Kind_CLASS, interfaces: [AbstractCollection]};
+    Object.defineProperty(AbstractMap.prototype, 'values', {get: function () {
+      var tmp$;
+      if (this._values_6nw1f1$_0 == null) {
+        this._values_6nw1f1$_0 = new AbstractMap$get_AbstractMap$values$ObjectLiteral(this);
+      }
+      return (tmp$ = this._values_6nw1f1$_0) != null ? tmp$ : throwNPE();
+    }});
+    AbstractMap.prototype.implFindEntry_8k1i24$_0 = function (key) {
+      var $receiver = this.entries;
+      var firstOrNull$result;
+      firstOrNull$break: do {
+        var tmp$;
+        tmp$ = $receiver.iterator();
+        while (tmp$.hasNext()) {
+          var element = tmp$.next();
+          if (equals(element.key, key)) {
+            firstOrNull$result = element;
+            break firstOrNull$break;
+          }
+        }
+        firstOrNull$result = null;
+      }
+       while (false);
+      return firstOrNull$result;
+    };
+    function AbstractMap$Companion() {
+      AbstractMap$Companion_instance = this;
+    }
+    AbstractMap$Companion.prototype.entryHashCode_9fthdn$ = function (e) {
+      var tmp$, tmp$_0, tmp$_1, tmp$_2;
+      return ((tmp$_0 = (tmp$ = e.key) != null ? hashCode(tmp$) : null) != null ? tmp$_0 : 0) ^ ((tmp$_2 = (tmp$_1 = e.value) != null ? hashCode(tmp$_1) : null) != null ? tmp$_2 : 0);
+    };
+    AbstractMap$Companion.prototype.entryToString_9fthdn$ = function (e) {
+      return toString(e.key) + '=' + toString(e.value);
+    };
+    AbstractMap$Companion.prototype.entryEquals_js7fox$ = function (e, other) {
+      if (!Kotlin.isType(other, Map$Entry))
+        return false;
+      return equals(e.key, other.key) && equals(e.value, other.value);
+    };
+    AbstractMap$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: []};
     var AbstractMap$Companion_instance = null;
+    function AbstractMap$Companion_getInstance() {
+      if (AbstractMap$Companion_instance === null) {
+        new AbstractMap$Companion();
+      }
+      return AbstractMap$Companion_instance;
+    }
+    AbstractMap.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractMap', interfaces: [Map]};
+    function AbstractSet() {
+      AbstractSet$Companion_getInstance();
+      AbstractCollection.call(this);
+    }
+    AbstractSet.prototype.equals = function (other) {
+      if (other === this)
+        return true;
+      if (!Kotlin.isType(other, Set))
+        return false;
+      return AbstractSet$Companion_getInstance().setEquals_y8f7en$(this, other);
+    };
+    AbstractSet.prototype.hashCode = function () {
+      return AbstractSet$Companion_getInstance().unorderedHashCode_nykoif$(this);
+    };
+    function AbstractSet$Companion() {
+      AbstractSet$Companion_instance = this;
+    }
+    AbstractSet$Companion.prototype.unorderedHashCode_nykoif$ = function (c) {
+      var tmp$;
+      var hashCode_0 = 0;
+      tmp$ = c.iterator();
+      while (tmp$.hasNext()) {
+        var element = tmp$.next();
+        var tmp$_0;
+        hashCode_0 = hashCode_0 + ((tmp$_0 = element != null ? hashCode(element) : null) != null ? tmp$_0 : 0) | 0;
+      }
+      return hashCode_0;
+    };
+    AbstractSet$Companion.prototype.setEquals_y8f7en$ = function (c, other) {
+      if (c.size !== other.size)
+        return false;
+      return c.containsAll_brywnq$(other);
+    };
+    AbstractSet$Companion.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Companion', interfaces: []};
     var AbstractSet$Companion_instance = null;
+    function AbstractSet$Companion_getInstance() {
+      if (AbstractSet$Companion_instance === null) {
+        new AbstractSet$Companion();
+      }
+      return AbstractSet$Companion_instance;
+    }
+    AbstractSet.$metadata$ = {kind: Kind_CLASS, simpleName: 'AbstractSet', interfaces: [Set, AbstractCollection]};
     var EmptyIterator_instance = null;
     var EmptyList_instance = null;
+    function get_lastIndex_8($receiver) {
+      return $receiver.size - 1 | 0;
+    }
+    function MapWithDefault() {
+    }
+    function MutableMapWithDefault() {
+    }
+    function MapWithDefaultImpl(map, default_0) {
+      this.map_tyjeqh$_0 = map;
+      this.default_0 = default_0;
+    }
+    function MutableMapWithDefaultImpl(map, default_0) {
+      this.map_a09uzx$_0 = map;
+      this.default_0 = default_0;
+    }
+    function EmptyMap() {
+      EmptyMap_instance = this;
+      this.serialVersionUID_0 = new Kotlin.Long(-888910638, 1920087921);
+    }
     var EmptyMap_instance = null;
     var INT_MAX_POWER_OF_TWO;
+    function removeAll_0($receiver, predicate) {
+      return filterInPlace($receiver, predicate, true);
+    }
+    function filterInPlace($receiver, predicate, predicateResultToRemove) {
+      var result = {v: false};
+      var $receiver_0 = $receiver.iterator();
+      while ($receiver_0.hasNext())
+        if (predicate($receiver_0.next()) === predicateResultToRemove) {
+          $receiver_0.remove();
+          result.v = true;
+        }
+      return result.v;
+    }
     var EmptySequence_instance = null;
     var EmptySet_instance = null;
     var NaturalOrderComparator_instance = null;
@@ -2048,6 +3371,16 @@
       return false;
     }
     var Unit_0 = Kotlin.kotlin.Unit;
+    function appendElement_0($receiver, element, transform) {
+      if (transform != null)
+        $receiver.append_gw00v9$(transform(element));
+      else if (element == null || Kotlin.isCharSequence(element))
+        $receiver.append_gw00v9$(element);
+      else if (Kotlin.isChar(element))
+        $receiver.append_s8itvh$(unboxChar(element));
+      else
+        $receiver.append_gw00v9$(toString(element));
+    }
     function get_lastIndex_9($receiver) {
       return $receiver.length - 1 | 0;
     }
@@ -2149,10 +3482,30 @@
     _.charArrayOf = charArrayOf;
     var package$text = package$kotlin.text || (package$kotlin.text = {});
     var package$collections = package$kotlin.collections || (package$kotlin.collections = {});
+    package$collections.copyToArray = copyToArray;
+    package$collections.copyToArrayImpl = copyToArrayImpl;
+    package$collections.copyToExistingArrayImpl = copyToArrayImpl_0;
+    package$collections.AbstractMutableCollection = AbstractMutableCollection;
+    AbstractMutableMap.SimpleEntry_init_trwmqg$ = AbstractMutableMap$AbstractMutableMap$SimpleEntry_init;
+    AbstractMutableMap.SimpleEntry = AbstractMutableMap$SimpleEntry;
+    package$collections.AbstractMutableMap = AbstractMutableMap;
+    package$collections.AbstractMutableSet = AbstractMutableSet;
+    Object.defineProperty(EqualityComparator, 'HashCode', {get: EqualityComparator$HashCode_getInstance});
+    package$collections.EqualityComparator = EqualityComparator;
+    package$collections.HashMap_init_va96d4$ = HashMap_init;
+    package$collections.HashMap_init_q3lmfv$ = HashMap_init_0;
+    package$collections.HashMap = HashMap;
+    package$collections.HashSet_init_287e2$ = HashSet_init;
+    package$collections.HashSet = HashSet;
+    package$collections.InternalHashCodeMap = InternalHashCodeMap;
+    package$collections.InternalMap = InternalMap;
+    package$collections.InternalStringMap = InternalStringMap;
+    package$collections.RandomAccess = RandomAccess;
     var package$io = package$kotlin.io || (package$kotlin.io = {});
     package$io.NodeJsOutput = NodeJsOutput;
     package$io.BufferedOutput = BufferedOutput;
     package$io.BufferedOutputToConsoleLog = BufferedOutputToConsoleLog;
+    package$io.println_s8jyv4$ = println_0;
     var package$coroutines = package$kotlin.coroutines || (package$kotlin.coroutines = {});
     var package$experimental = package$coroutines.experimental || (package$coroutines.experimental = {});
     package$experimental.SafeContinuation_init_n4f53e$ = SafeContinuation_init;
@@ -2164,6 +3517,7 @@
     package$kotlin.RuntimeException = RuntimeException;
     package$kotlin.IllegalArgumentException = IllegalArgumentException;
     package$kotlin.IllegalStateException = IllegalStateException;
+    package$kotlin.IndexOutOfBoundsException = IndexOutOfBoundsException;
     package$kotlin.UnsupportedOperationException = UnsupportedOperationException;
     package$kotlin.NullPointerException = NullPointerException;
     package$kotlin.ClassCastException = ClassCastException;
@@ -2173,10 +3527,20 @@
     package$collections.single_355ntz$ = single_7;
     var package$ranges = package$kotlin.ranges || (package$kotlin.ranges = {});
     package$ranges.coerceAtLeast_dqglrj$ = coerceAtLeast_2;
+    package$collections.get_lastIndex_55thoc$ = get_lastIndex_8;
+    package$collections.Collection = Collection;
+    package$collections.joinTo_gcc71v$ = joinTo_8;
+    package$collections.joinToString_fmv235$ = joinToString_8;
     package$ranges.downTo_dqglrj$ = downTo_4;
     package$ranges.coerceAtMost_dqglrj$ = coerceAtMost_2;
     package$text.get_lastIndex_gw00vp$ = get_lastIndex_9;
     package$kotlin.Serializable = Serializable;
+    package$text.Appendable = Appendable;
+    package$text.StringBuilder = StringBuilder;
+    var package$org = _.org || (_.org = {});
+    var package$w3c = package$org.w3c || (package$org.w3c = {});
+    var package$dom_0 = package$w3c.dom || (package$w3c.dom = {});
+    package$dom_0.asList_kt9thq$ = asList_8;
     package$js.get_js_1yb8b7$ = get_js;
     var package$reflect = package$kotlin.reflect || (package$kotlin.reflect = {});
     var package$js_0 = package$reflect.js || (package$reflect.js = {});
@@ -2188,9 +3552,21 @@
     Object.defineProperty(package$internal, 'PrimitiveClasses', {get: PrimitiveClasses_getInstance});
     _.getKClass = getKClass;
     _.getKClassFromExpression = getKClassFromExpression;
+    package$kotlin.CharSequence = CharSequence;
     package$collections.Iterable = Iterable;
+    package$collections.MutableIterable = MutableIterable;
+    package$collections.MutableCollection = MutableCollection;
+    package$collections.List = List;
+    package$collections.Set = Set;
+    package$collections.MutableSet = MutableSet;
+    Map.Entry = Map$Entry;
+    package$collections.Map = Map;
+    MutableMap.MutableEntry = MutableMap$MutableEntry;
+    package$collections.MutableMap = MutableMap;
     package$kotlin.Function = Function_0;
     package$collections.Iterator = Iterator;
+    package$collections.MutableIterator = MutableIterator;
+    package$collections.ListIterator = ListIterator;
     package$collections.IntIterator = IntIterator;
     package$collections.LongIterator = LongIterator;
     package$ranges.IntProgressionIterator = IntProgressionIterator;
@@ -2227,13 +3603,32 @@
     package$reflect.KProperty1 = KProperty1;
     KMutableProperty1.Setter = KMutableProperty1$Setter;
     package$reflect.KMutableProperty1 = KMutableProperty1;
+    package$collections.AbstractCollection = AbstractCollection;
+    Object.defineProperty(AbstractList, 'Companion', {get: AbstractList$Companion_getInstance});
+    package$collections.AbstractList = AbstractList;
+    Object.defineProperty(AbstractMap, 'Companion', {get: AbstractMap$Companion_getInstance});
+    package$collections.AbstractMap = AbstractMap;
+    Object.defineProperty(AbstractSet, 'Companion', {get: AbstractSet$Companion_getInstance});
+    package$collections.AbstractSet = AbstractSet;
+    package$collections.removeAll_uhyeqt$ = removeAll_0;
     package$experimental.Continuation = Continuation;
     package$text.equals_4lte5s$ = equals_1;
+    package$text.appendElement_k2zgzt$ = appendElement_0;
     package$text.lastIndexOfAny_junqau$ = lastIndexOfAny;
     package$text.lastIndexOf_8eortd$ = lastIndexOf_11;
     package$kotlin.NotImplementedError = NotImplementedError;
     package$kotlin.Pair = Pair;
     package$kotlin.to_ujzrz7$ = to;
+    AbstractMap.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
+    AbstractMutableMap.prototype.remove_xwzc9p$ = MutableMap.prototype.remove_xwzc9p$;
+    InternalHashCodeMap.prototype.createJsMap = InternalMap.prototype.createJsMap;
+    InternalStringMap.prototype.createJsMap = InternalMap.prototype.createJsMap;
+    MutableMap.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
+    MapWithDefault.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
+    MutableMapWithDefault.prototype.remove_xwzc9p$ = MutableMap.prototype.remove_xwzc9p$;
+    MapWithDefaultImpl.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
+    MutableMapWithDefaultImpl.prototype.remove_xwzc9p$ = MutableMap.prototype.remove_xwzc9p$;
+    EmptyMap.prototype.getOrDefault_xwzc9p$ = Map.prototype.getOrDefault_xwzc9p$;
     ComparableRange.prototype.isEmpty = ClosedRange.prototype.isEmpty;
     ComparableRange.prototype.contains_mef7kx$ = ClosedRange.prototype.contains_mef7kx$;
     var isNode = typeof process !== 'undefined' && process.versions && !!process.versions.node;

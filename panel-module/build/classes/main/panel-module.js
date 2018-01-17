@@ -8,8 +8,6 @@ this['panel-module'] = function (_, Kotlin) {
   var throwCCE = Kotlin.throwCCE;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var Unit = Kotlin.kotlin.Unit;
-  var asList = Kotlin.org.w3c.dom.asList_kt9thq$;
-  var ensureNotNull = Kotlin.ensureNotNull;
   function YandexResponse(code, lang, text) {
     this.code = code;
     this.lang = lang;
@@ -67,6 +65,36 @@ this['panel-module'] = function (_, Kotlin) {
     }
     return Endpoints_instance;
   }
+  function Language(key, value) {
+    this.key = key;
+    this.value = value;
+  }
+  Language.$metadata$ = {
+    kind: Kind_CLASS,
+    simpleName: 'Language',
+    interfaces: []
+  };
+  Language.prototype.component1 = function () {
+    return this.key;
+  };
+  Language.prototype.component2 = function () {
+    return this.value;
+  };
+  Language.prototype.copy_puj7f4$ = function (key, value) {
+    return new Language(key === void 0 ? this.key : key, value === void 0 ? this.value : value);
+  };
+  Language.prototype.toString = function () {
+    return 'Language(key=' + Kotlin.toString(this.key) + (', value=' + Kotlin.toString(this.value)) + ')';
+  };
+  Language.prototype.hashCode = function () {
+    var result = 0;
+    result = result * 31 + Kotlin.hashCode(this.key) | 0;
+    result = result * 31 + Kotlin.hashCode(this.value) | 0;
+    return result;
+  };
+  Language.prototype.equals = function (other) {
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value)))));
+  };
   var inputPanel;
   var outputPanel;
   var languageToMenu;
@@ -93,7 +121,7 @@ this['panel-module'] = function (_, Kotlin) {
   }
   function main(args) {
     var tmp$, tmp$_0;
-    setupLanguagesList();
+    initLanguagesList();
     var btn = Kotlin.isType(tmp$ = document.querySelector('#translate-btn'), HTMLButtonElement) ? tmp$ : throwCCE();
     btn.onclick = main$lambda;
     var swapBtn = Kotlin.isType(tmp$_0 = document.querySelector('#swap-btn'), HTMLButtonElement) ? tmp$_0 : throwCCE();
@@ -105,28 +133,18 @@ this['panel-module'] = function (_, Kotlin) {
     languageFromMenu.selectedIndex = languageToMenu.selectedIndex;
     tmp$.selectedIndex = $receiver;
   }
-  function setupLanguagesList$lambda(closure$request, closure$xhttp) {
-    return function () {
-      var xmlParser = new DOMParser();
-      println('executing query ' + closure$request.v);
-      var xmlDoc = xmlParser.parseFromString(closure$xhttp.v.responseText, 'text/xml');
-      var languagesList = xmlDoc.getElementsByTagName('Item');
-      var tmp$;
-      tmp$ = asList(languagesList).iterator();
-      while (tmp$.hasNext()) {
-        var element = tmp$.next();
-        println(element.getAttribute('key') + ' - ' + element.getAttribute('value'));
-        insertIntoMenu(ensureNotNull(element.getAttribute('value')), ensureNotNull(element.getAttribute('key')), languageToMenu);
-        insertIntoMenu(ensureNotNull(element.getAttribute('value')), ensureNotNull(element.getAttribute('key')), languageFromMenu);
-      }
-    };
+  function initLanguagesList$lambda(items) {
+    var tmp$, tmp$_0;
+    var languages = Kotlin.isArray(tmp$ = items['languages-list']) ? tmp$ : throwCCE();
+    for (tmp$_0 = 0; tmp$_0 !== languages.length; ++tmp$_0) {
+      var language = languages[tmp$_0];
+      insertIntoMenu(language.value, language.key, languageFromMenu);
+      insertIntoMenu(language.value, language.key, languageToMenu);
+    }
+    return Unit;
   }
-  function setupLanguagesList() {
-    var xhttp = {v: new XMLHttpRequest()};
-    var request = {v: Endpoints_getInstance().getLanguageEndpoint_61zpoe$('en')};
-    xhttp.v.open('GET', request.v);
-    xhttp.v.onload = setupLanguagesList$lambda(request, xhttp);
-    xhttp.v.send();
+  function initLanguagesList() {
+    browser.storage.local.get().then(initLanguagesList$lambda);
   }
   function insertIntoMenu(text, value, element) {
     var tmp$;
@@ -148,6 +166,7 @@ this['panel-module'] = function (_, Kotlin) {
   Object.defineProperty(package$webextensions, 'Endpoints', {
     get: Endpoints_getInstance
   });
+  package$webextensions.Language = Language;
   Object.defineProperty(package$webextensions, 'inputPanel', {
     get: function () {
       return inputPanel;
@@ -170,7 +189,7 @@ this['panel-module'] = function (_, Kotlin) {
   });
   package$webextensions.main_kand9s$ = main;
   package$webextensions.swapLanguagesInMenu = swapLanguagesInMenu;
-  package$webextensions.setupLanguagesList = setupLanguagesList;
+  package$webextensions.initLanguagesList = initLanguagesList;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
   YANDEX_API_KEY = 'YOUR_API_KEY';
   var tmp$, tmp$_0, tmp$_1, tmp$_2;

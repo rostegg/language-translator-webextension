@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <style>
         body {
-            width: 35em;
+            width: 25em;
             font-family: "Open Sans Light", sans-serif;
             font-size: 0.9em;
             font-weight: 300;
@@ -30,15 +30,174 @@
             background-color: #EAEFF2;
         }
 
+
+
+        .email-field {
+            width: 80px;
+            display: inline-block;
+            color: black;
+            text-align: center;
+            background-color: #d0c3b3;
+            padding: .9em 1.8em;
+            border: none;
+            cursor: pointer;
+            outline: none;
+            -webkit-border-radius: 4px;
+            -moz-border-radius: 4px;
+            border-radius: 4px;
+            -webkit-transition: all .1s linear;
+            -moz-transition: all .1s linear;
+            transition: all .1s linear;
+        }
+        .email-field:hover {
+            background-color: #d0c3b3;
+        }
+
+        /* after button is clicked */
+        .email-field.active {
+            width: 200px;
+            outline: none;
+            color: black;
+            text-align: left;
+            cursor: inherit;
+        }
+
+        /* Email submit button */
+        #subscribe-button {
+            width: 35px;
+            height: 35px;
+            border: none;
+            text-indent: -9999px;
+            opacity: .25;
+            background: url(http://helixpowered.com/assets/img/arrow-circle-on-right.svg) no-repeat;
+            background-size: 13px;
+            background-position: 0 1px;
+            -webkit-transition: all .2s linear;
+            -moz-transition: all .2s linear;
+            transition: all .2s linear;
+
+            cursor: pointer; /* for demo only */
+
+            display: none;
+        }
+        #subscribe-button:hover {
+            opacity: .33;
+        }
+
+        #subscribe-button.show {
+            display: inline-block;
+            background-size: 33px;
+        }
+
+
+        /*new*/
+
+
+
+        .text-input{
+            position: relative;
+            margin-top: 50px;
+            margin-left: 30px;
+        }
+        input[type="text"]{
+            display: inline-block;
+            width: 500px;
+            height: 40px;
+            box-sizing: border-box;
+            outline: none;
+            border: 1px solid lightgray;
+            border-radius: 3px;
+            padding: 10px 10px 10px 200px;
+            transition: all 0.1s ease-out;
+        }
+
+        input[type="text"] + label{
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            height: 40px;
+            line-height: 40px;
+            color: white;
+            border-radius: 3px 0 0 3px;
+            padding: 0 20px;
+            background: #E03616;
+            transform: translateZ(0) translateX(0);
+            transition: all 0.3s ease-in;
+            transition-delay: 0.2s;
+        }
+
+        input[type="text"]:focus + label{
+            transform: translateY(-120%) translateX(0%);
+            border-radius: 3px;
+            transition: all 0.1s ease-out;
+        }
+
+        input[type="text"]:focus{
+            padding: 10px;
+            transition: all 0.3s ease-out;
+            transition-delay: 0.2s;
+        }
+
+        /*dropdown menu*/
+        .dropdown {
+            float: left;
+            width:200px;
+            background: #E03616;
+            margin-top: 30px;
+            margin-left: 30px;
+            overflow:hidden;
+            height:40px;
+        }
+        .select-box {
+            width:250px;
+            background: none;
+            border:none;
+            -webkit-appearance: none;
+            padding:10px 15px;
+            color:white;
+        }
+        .dropdown:after {
+            content: "▼";
+            position: relative;
+            top:-30px;
+            left:170px;
+            font-size:10px;
+            color: white;
+            width: 20px;
+        }
     </style>
 </head>
 <body>
-<section class="proxy-options data-types">
+
+
+
+<div class="text-input">
+    <input type="text" id="api-key-edit" placeholder="Type here Yandex key!">
+    <label for="api-key-edit">API key</label>
+</div>
+
+<div class="text-input">
+    <input type="text" id="proxy-edit" placeholder="Type in format IP:PORT">
+    <label for="proxy-edit">Proxy URL</label>
+</div>
+
+<div class="dropdown">
+    <select class="select-box" id="language-from">
+    </select>
+</div>
+
+<div class="dropdown">
+    <select class="select-box" id="language-to">
+    </select>
+</div>
+
+<!--<section class="proxy-options data-types">
     <label>Enable proxy:<input type="checkbox" checked="false" data-type="enable-proxy"/></label>
     <label>Proxy URL (IP:PORT):<input type="text"  data-type="proxy-url"/></label>
 </section>
 
-<input type="button" value="Save preferences" id="save-button"/>
+<input type="button" value="Save preferences" id="save-button"/>-->
 <script src="../../../build/classes/main/min/kotlin.js"></script>
 <script src="../../../build/classes/main/min/options-module.js"></script>
 </body>
