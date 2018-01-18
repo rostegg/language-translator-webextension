@@ -1,9 +1,6 @@
 package com.rostegg.test
 
-import org.w3c.dom.HTMLInputElement
-import org.w3c.dom.HTMLOptionElement
-import org.w3c.dom.HTMLSelectElement
-import org.w3c.dom.get
+import org.w3c.dom.*
 import kotlin.browser.document
 
 external val browser: dynamic
@@ -14,9 +11,10 @@ data class Language(val key:String, val value:String)
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val apiKeyEdit = document.querySelector("#api-key-edit") as HTMLInputElement
-val proxyServerEdit = document.querySelector("#proxy-edit") as HTMLInputElement
+val proxySereverUrlEdit = document.querySelector("#proxy-edit") as HTMLInputElement
 
-
+val saveApiKeyBtn = document.querySelector("saveApiKeyBtn") as HTMLButtonElement
+val saveProxyUrlBtn = document.querySelector("saveProxy Btn") as HTMLButtonElement
 
 fun initLanguagesList() {
     browser.storage.local.get().then({ items ->
