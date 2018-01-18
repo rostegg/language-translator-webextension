@@ -15,6 +15,7 @@ buildscript {
 allprojects {
     apply plugin: 'kotlin2js'
     apply plugin: 'kotlin-dce-js'
+    apply plugin: 'java'
 
     repositories {
         mavenCentral()
