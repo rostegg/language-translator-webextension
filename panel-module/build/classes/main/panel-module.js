@@ -4,8 +4,8 @@ if (typeof kotlin === 'undefined') {
 this['panel-module'] = function (_, Kotlin) {
   'use strict';
   var Kind_CLASS = Kotlin.Kind.CLASS;
-  var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var throwCCE = Kotlin.throwCCE;
+  var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var Unit = Kotlin.kotlin.Unit;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var equals = Kotlin.equals;
@@ -44,6 +44,10 @@ this['panel-module'] = function (_, Kotlin) {
   YandexResponse.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.code, other.code) && Kotlin.equals(this.lang, other.lang) && Kotlin.equals(this.text, other.text)))));
   };
+  var inputPanel;
+  var outputPanel;
+  var languageToMenu;
+  var languageFromMenu;
   function Endpoints() {
     Endpoints_instance = this;
   }
@@ -92,10 +96,6 @@ this['panel-module'] = function (_, Kotlin) {
   Language.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value)))));
   };
-  var inputPanel;
-  var outputPanel;
-  var languageToMenu;
-  var languageFromMenu;
   function main$lambda(it) {
     translateText();
     return Unit;
@@ -120,10 +120,13 @@ this['panel-module'] = function (_, Kotlin) {
     };
   }
   function translateText$lambda(items) {
+    var tmp$, tmp$_0;
     var apiKey = items['apiKey'];
     var text = inputPanel.value;
     var xhttp = {v: new XMLHttpRequest()};
-    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, 'ru-en', text);
+    var fromLanguage = (Kotlin.isType(tmp$ = languageFromMenu.options[languageFromMenu.selectedIndex], HTMLOptionElement) ? tmp$ : throwCCE()).value;
+    var toLanguage = (Kotlin.isType(tmp$_0 = languageToMenu.options[languageToMenu.selectedIndex], HTMLOptionElement) ? tmp$_0 : throwCCE()).value;
+    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text);
     println('sending request : ' + request);
     xhttp.v.open('GET', request);
     xhttp.v.onload = translateText$lambda$lambda(xhttp);
@@ -172,10 +175,6 @@ this['panel-module'] = function (_, Kotlin) {
   var package$kotlin = package$rostegg.kotlin || (package$rostegg.kotlin = {});
   var package$webextensions = package$kotlin.webextensions || (package$kotlin.webextensions = {});
   package$webextensions.YandexResponse = YandexResponse;
-  Object.defineProperty(package$webextensions, 'Endpoints', {
-    get: Endpoints_getInstance
-  });
-  package$webextensions.Language = Language;
   Object.defineProperty(package$webextensions, 'inputPanel', {
     get: function () {
       return inputPanel;
@@ -196,6 +195,10 @@ this['panel-module'] = function (_, Kotlin) {
       return languageFromMenu;
     }
   });
+  Object.defineProperty(package$webextensions, 'Endpoints', {
+    get: Endpoints_getInstance
+  });
+  package$webextensions.Language = Language;
   package$webextensions.main_kand9s$ = main;
   package$webextensions.translateText = translateText;
   package$webextensions.swapLanguagesInMenu = swapLanguagesInMenu;

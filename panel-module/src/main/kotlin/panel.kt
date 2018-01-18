@@ -1,16 +1,14 @@
 package com.rostegg.kotlin.webextensions
 
-import org.w3c.dom.*
+import org.w3c.dom.HTMLButtonElement
+import org.w3c.dom.HTMLOptionElement
+import org.w3c.dom.HTMLSelectElement
+import org.w3c.dom.get
 import org.w3c.xhr.XMLHttpRequest
 import kotlin.browser.document
 
-val inputPanel = document.querySelector("#input-text") as HTMLTextAreaElement
-val outputPanel = document.querySelector("#output-text")  as HTMLTextAreaElement
-val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
-val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 
-
-// TODO proxy, copy to textarea, design
+// TODO proxy, copy to textarea, ui
 fun main(args: Array<String>) {
     initLanguagesList()
 
@@ -20,7 +18,6 @@ fun main(args: Array<String>) {
     }
 
     var swapBtn = document.querySelector("#swap-btn") as HTMLButtonElement
-
     swapBtn.onclick = {
         swapLanguagesInMenu()
     }
@@ -31,7 +28,9 @@ fun translateText(){
         var apiKey = items["apiKey"]
         var text = inputPanel.value
         var xhttp :dynamic= XMLHttpRequest()
-        var request= Endpoints.getTranslateTextEndpoint(apiKey,"ru-en",text)
+        var fromLanguage = (languageFromMenu.options[languageFromMenu.selectedIndex] as HTMLOptionElement).value
+        var toLanguage = (languageToMenu.options[languageToMenu.selectedIndex] as HTMLOptionElement).value
+        var request= Endpoints.getTranslateTextEndpoint(apiKey,"$fromLanguage-$toLanguage",text)
         println("sending request : $request")
         xhttp.open("GET", request)
         xhttp.onload=fun(){

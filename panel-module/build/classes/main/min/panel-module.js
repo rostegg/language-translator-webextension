@@ -4,11 +4,15 @@ if (typeof kotlin === 'undefined') {
 this['panel-module'] = function (_, Kotlin) {
   'use strict';
   var Kind_CLASS = Kotlin.Kind.CLASS;
-  var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var throwCCE = Kotlin.throwCCE;
+  var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var Unit = Kotlin.kotlin.Unit;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var equals = Kotlin.equals;
+  var inputPanel;
+  var outputPanel;
+  var languageToMenu;
+  var languageFromMenu;
   function Endpoints() {
     Endpoints_instance = this;
   }
@@ -23,10 +27,6 @@ this['panel-module'] = function (_, Kotlin) {
     }
     return Endpoints_instance;
   }
-  var inputPanel;
-  var outputPanel;
-  var languageToMenu;
-  var languageFromMenu;
   function main$lambda(it) {
     translateText();
     return Unit;
@@ -51,10 +51,13 @@ this['panel-module'] = function (_, Kotlin) {
     };
   }
   function translateText$lambda(items) {
+    var tmp$, tmp$_0;
     var apiKey = items['apiKey'];
     var text = inputPanel.value;
     var xhttp = {v: new XMLHttpRequest()};
-    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, 'ru-en', text);
+    var fromLanguage = (Kotlin.isType(tmp$ = languageFromMenu.options[languageFromMenu.selectedIndex], HTMLOptionElement) ? tmp$ : throwCCE()).value;
+    var toLanguage = (Kotlin.isType(tmp$_0 = languageToMenu.options[languageToMenu.selectedIndex], HTMLOptionElement) ? tmp$_0 : throwCCE()).value;
+    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text);
     println('sending request : ' + request);
     xhttp.v.open('GET', request);
     xhttp.v.onload = translateText$lambda$lambda(xhttp);
