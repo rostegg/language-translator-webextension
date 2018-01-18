@@ -1,4 +1,4 @@
-package com.rostegg.test
+package com.rostegg.kotlin.webextensions
 
 import org.w3c.dom.HTMLOptionElement
 import org.w3c.dom.get
@@ -20,5 +20,19 @@ fun main(args: Array<String>) {
         languageTo["language-to"] = Language(selectedOption.value,selectedOption.text)
         browser.storage.local.set(languageTo)
     }
+
+
+    saveApiKeyBtn.onclick = {
+        val apiKey: dynamic = object{}
+        apiKey["apiKey"] = apiKeyEdit.value
+        browser.storage.local.set(apiKey)
+    }
+
+    saveProxyUrlBtn.onclick = {
+        val proxyUrl: dynamic = object{}
+        proxyUrl["proxyUrl"] = proxySereverUrlEdit.value
+        browser.storage.local.set(proxyUrl)
+    }
+
 }
 

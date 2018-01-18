@@ -8,7 +8,7 @@ inline fun jsObject(init: dynamic.() -> Unit): dynamic {
     return o
 }
 
-const val YANDEX_API_KEY = "YOUR_API_KEY"
+const val YANDEX_API_KEY = "YOUR_API_KEYs"
 
 object Endpoints{
 

@@ -113,8 +113,8 @@ this['background-script'] = function (_, Kotlin) {
   }
   function updateLanguagesList$lambda(closure$xhttp) {
     return function (items) {
-      var loczlization = items['localization'];
-      var request = Endpoints_getInstance().getLanguageEndpoint_61zpoe$(loczlization);
+      var localization = items['localization'];
+      var request = Endpoints_getInstance().getLanguageEndpoint_61zpoe$(localization);
       closure$xhttp.v.open('GET', request);
       println('executing query ' + request);
       closure$xhttp.v.onload = updateLanguagesList$lambda$lambda(closure$xhttp);
@@ -150,7 +150,7 @@ this['background-script'] = function (_, Kotlin) {
   package$webextensions.initDefaultLocalization = initDefaultLocalization;
   package$webextensions.updateLanguagesList = updateLanguagesList;
   package$webextensions.createDefaultLanguageSettings = createDefaultLanguageSettings;
-  YANDEX_API_KEY = 'YOUR_API_KEY';
+  YANDEX_API_KEY = 'YOUR_API_KEYs';
   main([]);
   return _;
 }(typeof this['background-script'] === 'undefined' ? {} : this['background-script'], kotlin);

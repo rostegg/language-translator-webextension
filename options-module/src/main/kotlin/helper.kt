@@ -1,4 +1,4 @@
-package com.rostegg.test
+package com.rostegg.kotlin.webextensions
 
 import org.w3c.dom.*
 import kotlin.browser.document
@@ -13,8 +13,8 @@ val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val apiKeyEdit = document.querySelector("#api-key-edit") as HTMLInputElement
 val proxySereverUrlEdit = document.querySelector("#proxy-edit") as HTMLInputElement
 
-val saveApiKeyBtn = document.querySelector("saveApiKeyBtn") as HTMLButtonElement
-val saveProxyUrlBtn = document.querySelector("saveProxy Btn") as HTMLButtonElement
+val saveApiKeyBtn = document.querySelector("#save-api-btn") as HTMLAnchorElement
+val saveProxyUrlBtn = document.querySelector("#save-proxy-btn") as HTMLAnchorElement
 
 fun initLanguagesList() {
     browser.storage.local.get().then({ items ->
@@ -28,10 +28,12 @@ fun initLanguagesList() {
 
 fun initDefaultLanguages(){
     browser.storage.local.get().then({ items ->
+
         var languageTo = items["language-to"]
         var languageFrom = items["language-from"]
         val languagesCount = languageFromMenu.options.length
         for (i in 0..languagesCount) {
+
             if ((languageFromMenu.options[i] as HTMLOptionElement ).value == languageFrom.key)
                 languageFromMenu.selectedIndex = i
             if ((languageToMenu.options[i] as HTMLOptionElement ).value == languageTo.key)

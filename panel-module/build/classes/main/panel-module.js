@@ -51,9 +51,6 @@ this['panel-module'] = function (_, Kotlin) {
   Endpoints.prototype.getTranslateTextEndpoint_puj7f4$ = function (lang, text) {
     return 'https://translate.yandex.net/api/v1.5/tr.json/translate?key=' + YANDEX_API_KEY + '&text=' + text + '&lang=' + lang;
   };
-  Endpoints.prototype.getLanguageEndpoint_61zpoe$ = function (ui) {
-    return 'https://translate.yandex.net/api/v1.5/tr/getLangs?key=' + YANDEX_API_KEY + '&ui=' + ui;
-  };
   Endpoints.$metadata$ = {
     kind: Kind_OBJECT,
     simpleName: 'Endpoints',

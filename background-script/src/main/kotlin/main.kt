@@ -36,8 +36,8 @@ fun updateLanguagesList() {
 
     var xhttp :dynamic= XMLHttpRequest()
     browser.storage.local.get().then({ items ->
-        var loczlization = items["localization"]
-        var request = Endpoints.getLanguageEndpoint(loczlization)
+        var localization = items["localization"]
+        var request = Endpoints.getLanguageEndpoint(localization)
         xhttp.open("GET",request )
         println("executing query $request")
         xhttp.onload=fun(){

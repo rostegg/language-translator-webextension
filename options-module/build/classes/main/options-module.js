@@ -40,7 +40,9 @@ this['options-module'] = function (_, Kotlin) {
   var languageFromMenu;
   var languageToMenu;
   var apiKeyEdit;
-  var proxyServerEdit;
+  var proxySereverUrlEdit;
+  var saveApiKeyBtn;
+  var saveProxyUrlBtn;
   function initLanguagesList$lambda(items) {
     var tmp$, tmp$_0;
     var languages = Kotlin.isArray(tmp$ = items['languages-list']) ? tmp$ : throwCCE();
@@ -103,45 +105,82 @@ this['options-module'] = function (_, Kotlin) {
     languageTo['language-to'] = new Language(selectedOption.value, selectedOption.text);
     return browser.storage.local.set(languageTo);
   }
+  function main$lambda$ObjectLiteral_1() {
+  }
+  main$lambda$ObjectLiteral_1.$metadata$ = {
+    kind: Kind_CLASS,
+    interfaces: []
+  };
+  function main$lambda_1(it) {
+    var apiKey = new main$lambda$ObjectLiteral_1();
+    apiKey['apiKey'] = apiKeyEdit.value;
+    return browser.storage.local.set(apiKey);
+  }
+  function main$lambda$ObjectLiteral_2() {
+  }
+  main$lambda$ObjectLiteral_2.$metadata$ = {
+    kind: Kind_CLASS,
+    interfaces: []
+  };
+  function main$lambda_2(it) {
+    var proxyUrl = new main$lambda$ObjectLiteral_2();
+    proxyUrl['proxyUrl'] = proxySereverUrlEdit.value;
+    return browser.storage.local.set(proxyUrl);
+  }
   function main(args) {
     initLanguagesList();
     initDefaultLanguages();
     languageFromMenu.onclick = main$lambda;
     languageToMenu.onclick = main$lambda_0;
+    saveApiKeyBtn.onclick = main$lambda_1;
+    saveProxyUrlBtn.onclick = main$lambda_2;
   }
   var package$com = _.com || (_.com = {});
   var package$rostegg = package$com.rostegg || (package$com.rostegg = {});
-  var package$test = package$rostegg.test || (package$rostegg.test = {});
-  package$test.Language = Language;
-  Object.defineProperty(package$test, 'languageFromMenu', {
+  var package$kotlin = package$rostegg.kotlin || (package$rostegg.kotlin = {});
+  var package$webextensions = package$kotlin.webextensions || (package$kotlin.webextensions = {});
+  package$webextensions.Language = Language;
+  Object.defineProperty(package$webextensions, 'languageFromMenu', {
     get: function () {
       return languageFromMenu;
     }
   });
-  Object.defineProperty(package$test, 'languageToMenu', {
+  Object.defineProperty(package$webextensions, 'languageToMenu', {
     get: function () {
       return languageToMenu;
     }
   });
-  Object.defineProperty(package$test, 'apiKeyEdit', {
+  Object.defineProperty(package$webextensions, 'apiKeyEdit', {
     get: function () {
       return apiKeyEdit;
     }
   });
-  Object.defineProperty(package$test, 'proxyServerEdit', {
+  Object.defineProperty(package$webextensions, 'proxySereverUrlEdit', {
     get: function () {
-      return proxyServerEdit;
+      return proxySereverUrlEdit;
     }
   });
-  package$test.initLanguagesList = initLanguagesList;
-  package$test.initDefaultLanguages = initDefaultLanguages;
-  package$test.insertIntoMenu_j755s4$ = insertIntoMenu;
-  package$test.main_kand9s$ = main;
-  var tmp$, tmp$_0, tmp$_1, tmp$_2;
+  Object.defineProperty(package$webextensions, 'saveApiKeyBtn', {
+    get: function () {
+      return saveApiKeyBtn;
+    }
+  });
+  Object.defineProperty(package$webextensions, 'saveProxyUrlBtn', {
+    get: function () {
+      return saveProxyUrlBtn;
+    }
+  });
+  package$webextensions.initLanguagesList = initLanguagesList;
+  package$webextensions.initDefaultLanguages = initDefaultLanguages;
+  package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
+  package$webextensions.main_kand9s$ = main;
+  var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4;
   languageFromMenu = Kotlin.isType(tmp$ = document.querySelector('#language-from'), HTMLSelectElement) ? tmp$ : throwCCE();
   languageToMenu = Kotlin.isType(tmp$_0 = document.querySelector('#language-to'), HTMLSelectElement) ? tmp$_0 : throwCCE();
   apiKeyEdit = Kotlin.isType(tmp$_1 = document.querySelector('#api-key-edit'), HTMLInputElement) ? tmp$_1 : throwCCE();
-  proxyServerEdit = Kotlin.isType(tmp$_2 = document.querySelector('#proxy-edit'), HTMLInputElement) ? tmp$_2 : throwCCE();
+  proxySereverUrlEdit = Kotlin.isType(tmp$_2 = document.querySelector('#proxy-edit'), HTMLInputElement) ? tmp$_2 : throwCCE();
+  saveApiKeyBtn = Kotlin.isType(tmp$_3 = document.querySelector('#save-api-btn'), HTMLAnchorElement) ? tmp$_3 : throwCCE();
+  saveProxyUrlBtn = Kotlin.isType(tmp$_4 = document.querySelector('#save-proxy-btn'), HTMLAnchorElement) ? tmp$_4 : throwCCE();
   main([]);
   Kotlin.defineModule('options-module', _);
   return _;
