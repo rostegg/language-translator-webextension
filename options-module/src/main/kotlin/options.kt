@@ -6,8 +6,7 @@ import org.w3c.dom.get
 fun main(args: Array<String>) {
     initLanguagesList()
     initDefaultLanguages()
-    initProxyIfExist()
-    initApiKeyIfExist()
+    initProxyAndKeyIfExist()
 
     languageFromMenu.onclick = {
         val languageFrom: dynamic = object{}

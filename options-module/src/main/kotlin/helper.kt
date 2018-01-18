@@ -49,10 +49,13 @@ fun insertIntoMenu(text:String, value:String, element: HTMLSelectElement){
     element.add(option)
 }
 
-fun initProxyIfExist(){
-
-}
-
-fun initApiKeyIfExist(){
-
+fun initProxyAndKeyIfExist(){
+    browser.storage.local.get().then({ items ->
+        var proxyUrl = items["proxyUrl"]
+        var apiKey = items["apiKey"]
+        if (proxyUrl != undefined)
+            proxySereverUrlEdit.value = proxyUrl
+        if (apiKey != undefined)
+            apiKeyEdit.value = apiKey
+    })
 }

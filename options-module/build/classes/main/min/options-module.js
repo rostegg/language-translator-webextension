@@ -75,9 +75,17 @@ this['options-module'] = function (_, Kotlin) {
     option.text = text;
     element.add(option);
   }
-  function initProxyIfExist() {
+  function initProxyAndKeyIfExist$lambda(items) {
+    var proxyUrl = items['proxyUrl'];
+    var apiKey = items['apiKey'];
+    if (proxyUrl != undefined)
+      proxySereverUrlEdit.value = proxyUrl;
+    if (apiKey != undefined)
+      apiKeyEdit.value = apiKey;
+    return Unit;
   }
-  function initApiKeyIfExist() {
+  function initProxyAndKeyIfExist() {
+    browser.storage.local.get().then(initProxyAndKeyIfExist$lambda);
   }
   function main$lambda$ObjectLiteral() {
   }
@@ -120,8 +128,7 @@ this['options-module'] = function (_, Kotlin) {
   function main(args) {
     initLanguagesList();
     initDefaultLanguages();
-    initProxyIfExist();
-    initApiKeyIfExist();
+    initProxyAndKeyIfExist();
     languageFromMenu.onclick = main$lambda;
     languageToMenu.onclick = main$lambda_0;
     saveApiKeyBtn.onclick = main$lambda_1;
@@ -135,8 +142,7 @@ this['options-module'] = function (_, Kotlin) {
   package$webextensions.initLanguagesList = initLanguagesList;
   package$webextensions.initDefaultLanguages = initDefaultLanguages;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
-  package$webextensions.initProxyIfExist = initProxyIfExist;
-  package$webextensions.initApiKeyIfExist = initApiKeyIfExist;
+  package$webextensions.initProxyAndKeyIfExist = initProxyAndKeyIfExist;
   package$webextensions.main_kand9s$ = main;
   var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4;
   languageFromMenu = Kotlin.isType(tmp$ = document.querySelector('#language-from'), HTMLSelectElement) ? tmp$ : throwCCE();

@@ -27,17 +27,21 @@ fun main(args: Array<String>) {
 }
 
 fun translateText(){
-    var text = inputPanel.value
-    var xhttp :dynamic= XMLHttpRequest()
-    var request= Endpoints.getTranslateTextEndpoint("ru-en",text)
-    println("sending request : $request")
-    xhttp.open("GET", request)
-    xhttp.onload=fun(){
-        println(xhttp.responseText)
-        val response = JSON.parse<YandexResponse>(xhttp.responseText)
-        outputPanel.value = response.text
-    }
-    xhttp.send()
+    browser.storage.local.get().then({ items ->
+        var apiKey = items["apiKey"]
+        var text = inputPanel.value
+        var xhttp :dynamic= XMLHttpRequest()
+        var request= Endpoints.getTranslateTextEndpoint(apiKey,"ru-en",text)
+        println("sending request : $request")
+        xhttp.open("GET", request)
+        xhttp.onload=fun(){
+            println(xhttp.responseText)
+            val response = JSON.parse<YandexResponse>(xhttp.responseText)
+            outputPanel.value = response.text
+        }
+        xhttp.send()
+    })
+
 }
 
 fun swapLanguagesInMenu() {

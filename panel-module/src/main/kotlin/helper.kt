@@ -6,15 +6,12 @@ response example
 */
 data class YandexResponse(val code:String, val lang:String, val text: String)
 
-const val YANDEX_API_KEY = "YOUR_API_KEY"
-
-
 external val browser: dynamic
 
 object Endpoints{
 
-    fun getTranslateTextEndpoint(lang:String,text:String): String {
-        return  "https://translate.yandex.net/api/v1.5/tr.json/translate?key=$YANDEX_API_KEY&text=$text&lang=$lang"
+    fun getTranslateTextEndpoint(apiKey:String,lang:String,text:String): String {
+        return  "https://translate.yandex.net/api/v1.5/tr.json/translate?key=$apiKey&text=$text&lang=$lang"
     }
 }
 

@@ -9,12 +9,11 @@ this['panel-module'] = function (_, Kotlin) {
   var Unit = Kotlin.kotlin.Unit;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var equals = Kotlin.equals;
-  var YANDEX_API_KEY;
   function Endpoints() {
     Endpoints_instance = this;
   }
-  Endpoints.prototype.getTranslateTextEndpoint_puj7f4$ = function (lang, text) {
-    return 'https://translate.yandex.net/api/v1.5/tr.json/translate?key=' + YANDEX_API_KEY + '&text=' + text + '&lang=' + lang;
+  Endpoints.prototype.getTranslateTextEndpoint_6hosri$ = function (apiKey, lang, text) {
+    return 'https://translate.yandex.net/api/v1.5/tr.json/translate?key=' + apiKey + '&text=' + text + '&lang=' + lang;
   };
   Endpoints.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Endpoints', interfaces: []};
   var Endpoints_instance = null;
@@ -44,21 +43,25 @@ this['panel-module'] = function (_, Kotlin) {
     var swapBtn = Kotlin.isType(tmp$_0 = document.querySelector('#swap-btn'), HTMLButtonElement) ? tmp$_0 : throwCCE();
     swapBtn.onclick = main$lambda_0;
   }
-  function translateText$lambda(closure$xhttp) {
+  function translateText$lambda$lambda(closure$xhttp) {
     return function () {
       println(closure$xhttp.v.responseText);
       var response = JSON.parse(closure$xhttp.v.responseText);
       outputPanel.value = response.text;
     };
   }
-  function translateText() {
+  function translateText$lambda(items) {
+    var apiKey = items['apiKey'];
     var text = inputPanel.value;
     var xhttp = {v: new XMLHttpRequest()};
-    var request = Endpoints_getInstance().getTranslateTextEndpoint_puj7f4$('ru-en', text);
+    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, 'ru-en', text);
     println('sending request : ' + request);
     xhttp.v.open('GET', request);
-    xhttp.v.onload = translateText$lambda(xhttp);
-    xhttp.v.send();
+    xhttp.v.onload = translateText$lambda$lambda(xhttp);
+    return xhttp.v.send();
+  }
+  function translateText() {
+    browser.storage.local.get().then(translateText$lambda);
   }
   function swapLanguagesInMenu() {
     var tmp$ = languageToMenu;
@@ -105,7 +108,6 @@ this['panel-module'] = function (_, Kotlin) {
   package$webextensions.swapLanguagesInMenu = swapLanguagesInMenu;
   package$webextensions.initLanguagesList = initLanguagesList;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
-  YANDEX_API_KEY = 'YOUR_API_KEY';
   var tmp$, tmp$_0, tmp$_1, tmp$_2;
   inputPanel = Kotlin.isType(tmp$ = document.querySelector('#input-text'), HTMLTextAreaElement) ? tmp$ : throwCCE();
   outputPanel = Kotlin.isType(tmp$_0 = document.querySelector('#output-text'), HTMLTextAreaElement) ? tmp$_0 : throwCCE();
