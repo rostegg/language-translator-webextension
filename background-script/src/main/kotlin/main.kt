@@ -7,6 +7,8 @@ import org.w3c.xhr.XMLHttpRequest
 fun main(args: Array<String>) {
     console.log("running background script..")
     initPlugin()
+
+    // listen for shortcuts
     browser.commands.onCommand.addListener { command ->
         if (command == "fast-translate") {
             browser.tabs.query(jsObject {active = true; currentWindow = true}).then({tabs ->
@@ -17,6 +19,17 @@ fun main(args: Array<String>) {
         }
     }
 
+    // listen for options changes
+    browser.runtime.onMessage.addListener{ command ->
+        if (command == "api-key-changed"){
+            console.log("updating languages")
+            updateLanguagesList()
+            createDefaultLanguageSettings()
+        }
+        else if (command == "proxy-changed") {
+            // in progress
+        }
+    }
 }
 
 fun initPlugin() {
@@ -37,7 +50,8 @@ fun updateLanguagesList() {
     var xhttp :dynamic= XMLHttpRequest()
     browser.storage.local.get().then({ items ->
         var localization = items["localization"]
-        var request = Endpoints.getLanguageEndpoint(localization)
+        var apiKey = items["apiKey"]
+        var request = Endpoints.getLanguageEndpoint(apiKey,localization)
         xhttp.open("GET",request )
         println("executing query $request")
         xhttp.onload=fun(){

@@ -6,6 +6,8 @@ import org.w3c.dom.get
 fun main(args: Array<String>) {
     initLanguagesList()
     initDefaultLanguages()
+    initProxyIfExist()
+    initApiKeyIfExist()
 
     languageFromMenu.onclick = {
         val languageFrom: dynamic = object{}
@@ -26,12 +28,14 @@ fun main(args: Array<String>) {
         val apiKey: dynamic = object{}
         apiKey["apiKey"] = apiKeyEdit.value
         browser.storage.local.set(apiKey)
+        browser.runtime.sendMessage("api-key-changed")
     }
 
     saveProxyUrlBtn.onclick = {
         val proxyUrl: dynamic = object{}
         proxyUrl["proxyUrl"] = proxySereverUrlEdit.value
         browser.storage.local.set(proxyUrl)
+        browser.runtime.sendMessage("proxy-changed")
     }
 
 }

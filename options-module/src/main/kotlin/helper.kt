@@ -48,3 +48,11 @@ fun insertIntoMenu(text:String, value:String, element: HTMLSelectElement){
     option.text = text
     element.add(option)
 }
+
+fun initProxyIfExist(){
+
+}
+
+fun initApiKeyIfExist(){
+
+}

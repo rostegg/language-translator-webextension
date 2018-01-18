@@ -10,14 +10,7 @@ val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 
 
-// TODO options, proxy, copy to textarea, design, save default languages, list with available translates
-/*
-    options:
-    default localization
-    default translate languages
-    use proxy
-    api key
- */
+// TODO proxy, copy to textarea, design
 fun main(args: Array<String>) {
     initLanguagesList()
 

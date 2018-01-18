@@ -10,12 +10,11 @@ this['background-script'] = function (_, Kotlin) {
   var ensureNotNull = Kotlin.ensureNotNull;
   var println = Kotlin.kotlin.io.println_s8jyv4$;
   var asList = Kotlin.org.w3c.dom.asList_kt9thq$;
-  var YANDEX_API_KEY;
   function Endpoints() {
     Endpoints_instance = this;
   }
-  Endpoints.prototype.getLanguageEndpoint_61zpoe$ = function (ui) {
-    return 'https://translate.yandex.net/api/v1.5/tr/getLangs?key=' + YANDEX_API_KEY + '&ui=' + ui;
+  Endpoints.prototype.getLanguageEndpoint_puj7f4$ = function (apiKey, ui) {
+    return 'https://translate.yandex.net/api/v1.5/tr/getLangs?key=' + apiKey + '&ui=' + ui;
   };
   Endpoints.$metadata$ = {kind: Kind_OBJECT, simpleName: 'Endpoints', interfaces: []};
   var Endpoints_instance = null;
@@ -68,10 +67,19 @@ this['background-script'] = function (_, Kotlin) {
     }
     return Unit;
   }
+  function main$lambda_0(command) {
+    if (command == 'api-key-changed') {
+      console.log('updating languages');
+      updateLanguagesList();
+      createDefaultLanguageSettings();
+    }
+    return Unit;
+  }
   function main(args) {
     console.log('running background script..');
     initPlugin();
     browser.commands.onCommand.addListener(main$lambda);
+    browser.runtime.onMessage.addListener(main$lambda_0);
   }
   function initPlugin() {
     browser.storage.local.clear();
@@ -114,7 +122,8 @@ this['background-script'] = function (_, Kotlin) {
   function updateLanguagesList$lambda(closure$xhttp) {
     return function (items) {
       var localization = items['localization'];
-      var request = Endpoints_getInstance().getLanguageEndpoint_61zpoe$(localization);
+      var apiKey = items['apiKey'];
+      var request = Endpoints_getInstance().getLanguageEndpoint_puj7f4$(apiKey, localization);
       closure$xhttp.v.open('GET', request);
       println('executing query ' + request);
       closure$xhttp.v.onload = updateLanguagesList$lambda$lambda(closure$xhttp);
@@ -150,7 +159,6 @@ this['background-script'] = function (_, Kotlin) {
   package$webextensions.initDefaultLocalization = initDefaultLocalization;
   package$webextensions.updateLanguagesList = updateLanguagesList;
   package$webextensions.createDefaultLanguageSettings = createDefaultLanguageSettings;
-  YANDEX_API_KEY = 'YOUR_API_KEYs';
   main([]);
   return _;
 }(typeof this['background-script'] === 'undefined' ? {} : this['background-script'], kotlin);
