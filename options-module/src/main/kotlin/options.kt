@@ -22,7 +22,6 @@ fun main(args: Array<String>) {
         browser.storage.local.set(languageTo)
     }
 
-
     saveApiKeyBtn.onclick = {
         val apiKey: dynamic = object{}
         apiKey["apiKey"] = apiKeyEdit.value
