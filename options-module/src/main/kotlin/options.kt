@@ -5,8 +5,7 @@ import org.w3c.dom.get
 
 fun main(args: Array<String>) {
     initLanguagesList()
-    initDefaultLanguages()
-    initProxyAndKeyIfExist()
+    initOptionsElements()
 
     languageFromMenu.onclick = {
         val languageFrom: dynamic = object{}
@@ -34,6 +33,12 @@ fun main(args: Array<String>) {
         proxyUrl["proxyUrl"] = proxyServerUrlEdit.value
         browser.storage.local.set(proxyUrl)
         browser.runtime.sendMessage("proxy-changed")
+    }
+
+    enableMouseUpEventCheckBox.onclick = {
+        val mouseEvent: dynamic = object{}
+        mouseEvent["mouse-event"] = enableMouseUpEventCheckBox.checked
+        browser.storage.local.set(mouseEvent)
     }
 
 }

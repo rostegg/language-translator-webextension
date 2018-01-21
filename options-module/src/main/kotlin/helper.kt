@@ -11,6 +11,7 @@ val languageFromMenu = document.querySelector("#language-from") as HTMLSelectEle
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val apiKeyEdit = document.querySelector("#api-key-edit") as HTMLInputElement
 val proxyServerUrlEdit = document.querySelector("#proxy-edit") as HTMLInputElement
+val enableMouseUpEventCheckBox = document.querySelector("#enable-mouse-up") as HTMLInputElement
 
 val saveApiKeyBtn = document.querySelector("#save-api-btn") as HTMLAnchorElement
 val saveProxyUrlBtn = document.querySelector("#save-proxy-btn") as HTMLAnchorElement
@@ -24,7 +25,10 @@ fun initLanguagesList() {
         }
     })
 }
-
+fun initOptionsElements(){
+    initDefaultLanguages()
+    initValuesIfExist()
+}
 fun initDefaultLanguages(){
     browser.storage.local.get().then({ items ->
 
@@ -47,13 +51,16 @@ fun insertIntoMenu(text:String, value:String, element: HTMLSelectElement){
     element.add(option)
 }
 
-fun initProxyAndKeyIfExist(){
+fun initValuesIfExist(){
     browser.storage.local.get().then({ items ->
         var proxyUrl = items["proxyUrl"]
         var apiKey = items["apiKey"]
+        var enabledMouseUpEvent = items["mouse-event"]
         if (proxyUrl != undefined)
             proxyServerUrlEdit.value = proxyUrl
         if (apiKey != undefined)
             apiKeyEdit.value = apiKey
+        if (enabledMouseUpEvent != undefined)
+            enableMouseUpEventCheckBox.checked = enabledMouseUpEvent
     })
 }
