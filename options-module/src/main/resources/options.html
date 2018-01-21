@@ -88,7 +88,6 @@
 
         /*buttons*/
         a {
-            display:inline;
             border: none;
             cursor:pointer;
             border-radius:0;
@@ -113,9 +112,20 @@
         }
 
         /*toggle switch*/
+
+        .toggle-container{
+            margin-top: 50px;
+            margin-left: 30px;
+            display:inline-block;
+            width: 600px;
+        }
+        .toggle-container label{
+            margin-top: 5px;
+            float: left;
+            width: 250px
+        }
         .checkbox {
             display:inline-block;
-            position:relative;
             text-align:left;
             width:60px;
             height:30px;
@@ -124,7 +134,6 @@
             -webkit-border-radius:20px;
             -moz-border-radius:20px;
             border-radius:20px;
-            margin:10px;
         }
 
         .checkbox input {
@@ -188,7 +197,6 @@
     <label for="proxy-edit">Proxy URL</label>
     <a class="save-btn" id="save-proxy-btn">Save</a>
 </div>
-
 <div class="dropdown">
     <select class="select-box" id="language-from">
     </select>
@@ -199,11 +207,12 @@
     </select>
 </div>
 
-<div>
-<span class="checkbox">
-    <input type="checkbox">
-    <label data-on="ON" data-off="OFF"></label>
-</span>
+<div class="toggle-container">
+    <label>Copy selected text when mouse up?</label>
+    <span class="checkbox">
+        <input type="checkbox">
+        <label data-on="ON" data-off="OFF"></label>
+    </span>
 </div>
 
 <script src="../../../build/classes/main/min/kotlin.js"></script>
