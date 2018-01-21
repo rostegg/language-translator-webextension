@@ -32,7 +32,7 @@ fun main(args: Array<String>) {
 
     saveProxyUrlBtn.onclick = {
         val proxyUrl: dynamic = object{}
-        proxyUrl["proxyUrl"] = proxySereverUrlEdit.value
+        proxyUrl["proxyUrl"] = proxyServerUrlEdit.value
         browser.storage.local.set(proxyUrl)
         browser.runtime.sendMessage("proxy-changed")
     }

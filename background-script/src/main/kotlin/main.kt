@@ -21,12 +21,12 @@ fun main(args: Array<String>) {
 
     // listen for options changes
     browser.runtime.onMessage.addListener{ command ->
-        if (command == "api-key-changed"){
+        if (command === "api-key-changed"){
             console.log("updating languages")
             updateLanguagesList()
             createDefaultLanguageSettings()
         }
-        else if (command == "proxy-changed") {
+        else if (command === "proxy-changed") {
             // in progress
         }
     }
@@ -72,7 +72,6 @@ fun updateLanguagesList() {
             val langArray = languagesStrorageList.toTypedArray()
             languages["languages-list"] = langArray
             browser.storage.local.set(languages)
-
         }
         xhttp.send()
     })

@@ -9,11 +9,9 @@ inline fun jsObject(init: dynamic.() -> Unit): dynamic {
 }
 
 object Endpoints{
-
     fun getLanguageEndpoint(apiKey:String,ui:String):String {
         return "https://translate.yandex.net/api/v1.5/tr/getLangs?key=$apiKey&ui=$ui"
     }
-
 }
 
 data class Language(val key:String, val value:String)

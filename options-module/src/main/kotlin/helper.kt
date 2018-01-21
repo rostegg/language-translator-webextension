@@ -7,11 +7,10 @@ external val browser: dynamic
 
 data class Language(val key:String, val value:String)
 
-
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val apiKeyEdit = document.querySelector("#api-key-edit") as HTMLInputElement
-val proxySereverUrlEdit = document.querySelector("#proxy-edit") as HTMLInputElement
+val proxyServerUrlEdit = document.querySelector("#proxy-edit") as HTMLInputElement
 
 val saveApiKeyBtn = document.querySelector("#save-api-btn") as HTMLAnchorElement
 val saveProxyUrlBtn = document.querySelector("#save-proxy-btn") as HTMLAnchorElement
@@ -33,7 +32,6 @@ fun initDefaultLanguages(){
         var languageFrom = items["language-from"]
         val languagesCount = languageFromMenu.options.length
         for (i in 0..languagesCount) {
-
             if ((languageFromMenu.options[i] as HTMLOptionElement ).value == languageFrom.key)
                 languageFromMenu.selectedIndex = i
             if ((languageToMenu.options[i] as HTMLOptionElement ).value == languageTo.key)
@@ -54,7 +52,7 @@ fun initProxyAndKeyIfExist(){
         var proxyUrl = items["proxyUrl"]
         var apiKey = items["apiKey"]
         if (proxyUrl != undefined)
-            proxySereverUrlEdit.value = proxyUrl
+            proxyServerUrlEdit.value = proxyUrl
         if (apiKey != undefined)
             apiKeyEdit.value = apiKey
     })
