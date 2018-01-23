@@ -20,12 +20,16 @@ fun main(args: Array<String>) {
 
     // listen for options changes
     browser.runtime.onMessage.addListener{ command ->
-        if (command === "api-key-changed"){
-            updateLanguagesList()
-            createDefaultLanguageSettings()
-        }
-        else if (command === "proxy-changed") {
-            // in progress
+        when {
+            command === "api-key-changed" -> {
+                updateLanguagesList()
+                createDefaultLanguageSettings()
+            }
+            command === "proxy-changed" -> {
+                // in progress
+            }
+            command === "error-translating" -> printNotification("Error", "An error occurred while translating. Could not send request.")
+            command.errorType === "translation-api-error" -> printNotification("Error", "An error occurred while translating.\nCode: ${command.code}\nStatus: ${command.message}")
         }
     }
 }

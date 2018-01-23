@@ -2,223 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="15b3196a-3b66-4f4f-9010-9a48661e10c5" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_jetbrains_kotlin_kotlin_stdlib_js_1_2_10.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin.meta.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/jquery/jquery.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/jquery/ui/ui.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/annotation/annotation.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/browser/browser.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/collections/collections.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/comparisons/comparisons.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/intrinsics/intrinsics.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/contracts/contracts.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/io/io.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/js/js.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/jvm/jvm.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/kotlin.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/math/math.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/properties/properties.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/ranges/ranges.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/js/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/reflect.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/sequences/sequences.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/kotlin/text/text.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/khronos/webgl/webgl.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/css/css.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/events/events.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/parsing/parsing.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/svg/svg.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/url/url.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/fetch/fetch.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/files/files.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/notifications/notifications.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/performance/performance.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/workers/workers.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/org/w3c/xhr/xhr.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies-tmp/kotlin/root-package.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/dependencies/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/min/background-script.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/min/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/background-script/build/classes/main/min/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module/com/rostegg/kotlin/webextensions/copy_module/copy_module.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module/root-package.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin.meta.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/jquery/jquery.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/jquery/ui/ui.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/annotation/annotation.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/browser/browser.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/collections/collections.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/comparisons/comparisons.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/intrinsics/intrinsics.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/contracts/contracts.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/io/io.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/js/js.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/jvm/jvm.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/kotlin.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/math/math.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/properties/properties.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/ranges/ranges.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/js/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/reflect.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/sequences/sequences.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/kotlin/text/text.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/khronos/webgl/webgl.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/css/css.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/events/events.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/parsing/parsing.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/svg/svg.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/url/url.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/fetch/fetch.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/files/files.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/notifications/notifications.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/performance/performance.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/workers/workers.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/xhr/xhr.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies-tmp/kotlin/root-package.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/dependencies/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/min/copy-module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/min/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/min/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin.meta.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/jquery/jquery.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/jquery/ui/ui.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/annotation/annotation.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/browser/browser.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/collections/collections.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/comparisons/comparisons.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/intrinsics/intrinsics.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/contracts/contracts.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/io/io.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/js/js.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/jvm/jvm.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/kotlin.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/math/math.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/properties/properties.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/ranges/ranges.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/js/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/reflect.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/sequences/sequences.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/kotlin/text/text.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/khronos/webgl/webgl.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/css/css.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/events/events.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/parsing/parsing.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/svg/svg.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/url/url.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/fetch/fetch.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/files/files.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/notifications/notifications.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/performance/performance.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/workers/workers.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/xhr/xhr.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies-tmp/kotlin/root-package.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/dependencies/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/min/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/min/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/options-module/build/classes/main/min/options-module.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/META-INF/MANIFEST.MF" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin.meta.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/jquery/jquery.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/jquery/ui/ui.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/annotation/annotation.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/browser/browser.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/collections/collections.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/comparisons/comparisons.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/coroutines/experimental/intrinsics/intrinsics.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/experimental/experimental.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/contracts/contracts.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/io/io.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/js/js.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/jvm/jvm.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/kotlin.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/math/math.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/properties/properties.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/ranges/ranges.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/js/internal/internal.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/reflect/reflect.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/sequences/sequences.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/kotlin/text/text.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/khronos/webgl/webgl.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/css/css.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/dom.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/events/events.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/parsing/parsing.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/svg/svg.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/dom/url/url.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/fetch/fetch.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/files/files.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/notifications/notifications.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/performance/performance.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/workers/workers.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/org/w3c/xhr/xhr.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies-tmp/kotlin/root-package.kjsm" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/dependencies/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/min/kotlin.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/min/kotlin.js.map" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/min/panel-module.js" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileHashes.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/build/classes/main/background-script/com/rostegg/kotlin/webextensions/webextensions.kjsm" afterPath="$PROJECT_DIR$/background-script/build/classes/main/background-script/com/rostegg/kotlin/webextensions/webextensions.kjsm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module/com/rostegg/kotlin/webextensions/webextensions.kjsm" afterPath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module/com/rostegg/kotlin/webextensions/webextensions.kjsm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/background-script.iml" afterPath="$PROJECT_DIR$/.idea/modules/background-script.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/copy-module.iml" afterPath="$PROJECT_DIR$/.idea/modules/copy-module.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/options-module.iml" afterPath="$PROJECT_DIR$/.idea/modules/options-module.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/panel-module.iml" afterPath="$PROJECT_DIR$/.idea/modules/panel-module.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules/translation-plugin.iml" afterPath="$PROJECT_DIR$/.idea/modules/translation-plugin.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/build/classes/main/background-script.js" afterPath="$PROJECT_DIR$/background-script/build/classes/main/background-script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/build/classes/main/background-script.meta.js" afterPath="$PROJECT_DIR$/background-script/build/classes/main/background-script.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt" afterPath="$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" afterPath="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.js" afterPath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.meta.js" afterPath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/src/main/kotlin/helper.kt" afterPath="$PROJECT_DIR$/copy-module/src/main/kotlin/helper.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt" afterPath="$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/manifest.json" afterPath="$PROJECT_DIR$/manifest.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/build/classes/main/options-module.js" afterPath="$PROJECT_DIR$/options-module/build/classes/main/options-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/build/classes/main/options-module.meta.js" afterPath="$PROJECT_DIR$/options-module/build/classes/main/options-module.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/src/main/kotlin/helper.kt" afterPath="$PROJECT_DIR$/options-module/src/main/kotlin/helper.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/src/main/resources/options.html" afterPath="$PROJECT_DIR$/options-module/src/main/resources/options.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" afterPath="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" afterPath="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/src/main/resources/panel.html" afterPath="$PROJECT_DIR$/panel-module/src/main/resources/panel.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
@@ -286,18 +73,18 @@
       <file leaf-file-name="helper.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="63" />
+            <state relative-caret-position="168">
+              <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="main.kt" pinned="false" current-in-tab="false">
+      <file leaf-file-name="main.kt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="383">
-              <caret line="57" column="78" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="57" selection-end-column="78" />
+            <state relative-caret-position="462">
+              <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
               <folding />
             </state>
           </provider>
@@ -316,8 +103,8 @@
       <file leaf-file-name="main.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
+            <state relative-caret-position="210">
+              <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="12" selection-end-column="9" />
               <folding />
             </state>
           </provider>
@@ -336,8 +123,8 @@
       <file leaf-file-name="options.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/options.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-84">
-              <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+            <state relative-caret-position="252">
+              <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -346,8 +133,8 @@
       <file leaf-file-name="helper.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="525">
-              <caret line="25" column="89" lean-forward="false" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+            <state relative-caret-position="297">
+              <caret line="24" column="50" lean-forward="false" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
               <folding>
                 <element signature="e#42#148#0" expanded="true" />
               </folding>
@@ -365,11 +152,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="panel.kt" pinned="false" current-in-tab="true">
+      <file leaf-file-name="panel.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="609">
-              <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+            <state relative-caret-position="336">
+              <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="27" />
               <folding>
                 <element signature="e#42#240#0" expanded="true" />
               </folding>
@@ -377,14 +164,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="background-script.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/background-script/build/kotlin-js-min/main/background-script.js">
+      <file leaf-file-name="options.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/options-module/src/main/resources/options.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1764">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding>
-                <marker date="1516723000206" expanded="true" signature="262:7509" ph="{...}" />
-              </folding>
+            <state relative-caret-position="388">
+              <caret line="214" column="22" lean-forward="false" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1670,9 +1455,9 @@
         <option value="$PROJECT_DIR$/copy-module/src/main/kotlin/helper.kt" />
         <option value="$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt" />
         <option value="$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt" />
-        <option value="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" />
         <option value="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" />
         <option value="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" />
+        <option value="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" />
       </list>
     </option>
   </component>
@@ -1958,12 +1743,12 @@
       <workItem from="1516598997917" duration="712000" />
       <workItem from="1516630069728" duration="2911000" />
       <workItem from="1516701141910" duration="3932000" />
-      <workItem from="1516716080605" duration="7073000" />
+      <workItem from="1516716080605" duration="8975000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="179853000" />
+    <option name="totallyTimeSpent" value="181755000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
@@ -2222,14 +2007,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/options-module/src/main/resources/options.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="214" column="22" lean-forward="false" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/panel-module/src/main/resources/panel.html">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
@@ -2259,7 +2036,7 @@
         <state relative-caret-position="-1764">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <marker date="1516723000206" expanded="true" signature="262:7509" ph="{...}" />
+            <marker date="1516723629679" expanded="true" signature="262:7744" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -2280,14 +2057,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/helper.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-291">
@@ -2296,34 +2065,42 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/src/main/resources/options.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="214" column="22" lean-forward="false" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/options.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-84">
-          <caret line="18" column="17" lean-forward="false" selection-start-line="18" selection-start-column="17" selection-end-line="18" selection-end-column="17" />
+        <state relative-caret-position="252">
+          <caret line="34" column="8" lean-forward="false" selection-start-line="34" selection-start-column="8" selection-end-line="34" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="10" column="8" lean-forward="false" selection-start-line="10" selection-start-column="8" selection-end-line="12" selection-end-column="9" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="26" selection-end-line="18" selection-end-column="63" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="383">
-          <caret line="57" column="78" lean-forward="true" selection-start-line="55" selection-start-column="11" selection-end-line="57" selection-end-column="78" />
+        <state relative-caret-position="168">
+          <caret line="8" column="1" lean-forward="true" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="525">
-          <caret line="25" column="89" lean-forward="false" selection-start-line="25" selection-start-column="89" selection-end-line="25" selection-end-column="89" />
+        <state relative-caret-position="297">
+          <caret line="24" column="50" lean-forward="false" selection-start-line="24" selection-start-column="50" selection-end-line="24" selection-end-column="50" />
           <folding>
             <element signature="e#42#148#0" expanded="true" />
           </folding>
@@ -2332,11 +2109,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="609">
-          <caret line="38" column="28" lean-forward="false" selection-start-line="38" selection-start-column="28" selection-end-line="38" selection-end-column="28" />
+        <state relative-caret-position="336">
+          <caret line="40" column="20" lean-forward="true" selection-start-line="40" selection-start-column="20" selection-end-line="40" selection-end-column="27" />
           <folding>
             <element signature="e#42#240#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="462">
+          <caret line="39" column="25" lean-forward="true" selection-start-line="39" selection-start-column="25" selection-end-line="39" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

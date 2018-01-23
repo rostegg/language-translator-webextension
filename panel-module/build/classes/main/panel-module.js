@@ -128,6 +128,7 @@ this['panel-module'] = function (_, Kotlin) {
     };
   }
   function translateText$lambda$lambda_0() {
+    browser.runtime.sendMessage('error-translating');
   }
   function translateText$lambda(items) {
     var tmp$, tmp$_0;

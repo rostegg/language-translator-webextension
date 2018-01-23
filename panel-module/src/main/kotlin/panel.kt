@@ -34,9 +34,17 @@ fun translateText(){
         xhttp.open("GET", request)
         xhttp.onload=fun(){
             val response = JSON.parse<YandexResponse>(xhttp.responseText)
-            outputPanel.value = response.text
+            if (errorCodes.keys.contains(response.code))
+                browser.runtime.sendMessage(jsObject {
+                    errorType = "translation-api-error"
+                    code = response.code
+                    message = errorCodes[code]
+                })
+            else
+                outputPanel.value = response.text
         }
         xhttp.onerror=fun(){
+            browser.runtime.sendMessage("error-translating")
         }
         xhttp.send()
     })

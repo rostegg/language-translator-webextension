@@ -127,6 +127,12 @@ this['background-script'] = function (_, Kotlin) {
       updateLanguagesList();
       createDefaultLanguageSettings();
     }
+     else if (command !== 'proxy-changed')
+      if (command === 'error-translating') {
+        printNotification('Error', 'An error occurred while translating. Could not send request.');
+      }
+       else
+        command.errorType;
     return Unit;
   }
   function main(args) {
