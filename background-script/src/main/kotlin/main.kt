@@ -1,11 +1,10 @@
 package com.rostegg.kotlin.webextensions
 
-import org.w3c.dom.asList
-import org.w3c.dom.parsing.DOMParser
 import org.w3c.xhr.XMLHttpRequest
 
 fun main(args: Array<String>) {
-    console.log("running background script..")
+    println("running background script..")
+
     initPlugin()
 
     // listen for shortcuts
@@ -22,7 +21,6 @@ fun main(args: Array<String>) {
     // listen for options changes
     browser.runtime.onMessage.addListener{ command ->
         if (command === "api-key-changed"){
-            console.log("updating languages")
             updateLanguagesList()
             createDefaultLanguageSettings()
         }
@@ -46,32 +44,37 @@ fun initDefaultLocalization() {
 }
 
 fun updateLanguagesList() {
-
     var xhttp :dynamic= XMLHttpRequest()
     browser.storage.local.get().then({ items ->
         var localization = items["localization"]
         var apiKey = items["apiKey"]
         var request = Endpoints.getLanguageEndpoint(apiKey,localization)
-        xhttp.open("GET",request )
-        println("executing query $request")
+        xhttp.open("GET",request)
         xhttp.onload=fun(){
-            var xmlParser = DOMParser()
-
-            var xmlDoc = xmlParser.parseFromString(xhttp.responseText,"text/xml")
-            var languagesList = xmlDoc.getElementsByTagName("Item")
-            val languagesStrorageList = hashSetOf<Language>()
-            languagesList.asList().forEach { language->
-                println("loaded : " + language.getAttribute("key") + " - " + language.getAttribute("value"))
-                languagesStrorageList.add(
-                        Language(language.getAttribute("key")!!,language.getAttribute("value")!!)
-                )
+            println(xhttp.responseText)
+            val response = JSON.parse<YandexResponse>(xhttp.responseText)
+            if (response.code != undefined)
+                printNotification("Key validation error",
+                        "Code: ${response.code}\nStatus: ${response.message}")
+            else{
+                val languagesStorageList = hashSetOf<Language>()
+                for (key in js("Object").keys(response.langs)){
+                    languagesStorageList.add(
+                            Language(key,response.langs[key])
+                    )
+                }
+                val languages: dynamic = object{}
+                // convert Set to Array, because kotlin.collections not mapped to any js type
+                // more info https://kotlinlang.org/docs/reference/js-to-kotlin-interop.html
+                val langArray = languagesStorageList.toTypedArray()
+                languages["languages-list"] = langArray
+                browser.storage.local.set(languages)
+                printNotification("Good", "The key was successfully validated, enjoy.")
             }
-            val languages: dynamic = object{}
-            // convert Set to Array, because kotlin.collections not mapped to any js type
-            // more info https://kotlinlang.org/docs/reference/js-to-kotlin-interop.html
-            val langArray = languagesStrorageList.toTypedArray()
-            languages["languages-list"] = langArray
-            browser.storage.local.set(languages)
+
+        }
+        xhttp.onerror = fun(){
+            printNotification("Error", "First try to insert a valid key from Yandex in the options menu")
         }
         xhttp.send()
     })
@@ -88,3 +91,11 @@ fun createDefaultLanguageSettings(){
     browser.storage.local.set(languageTo)
 }
 
+fun printNotification(title:String, message:String){
+    browser.notifications.create(jsObject {
+        type="basic"
+        this.title = title
+        this.message = message
+        iconUrl = browser.extension.getURL("icons/translator.svg")
+    })
+}

@@ -40,7 +40,8 @@ this['options-module'] = function (_, Kotlin) {
   var languageFromMenu;
   var languageToMenu;
   var apiKeyEdit;
-  var proxySereverUrlEdit;
+  var proxyServerUrlEdit;
+  var enableMouseUpEventCheckBox;
   var saveApiKeyBtn;
   var saveProxyUrlBtn;
   function initLanguagesList$lambda(items) {
@@ -55,6 +56,10 @@ this['options-module'] = function (_, Kotlin) {
   }
   function initLanguagesList() {
     browser.storage.local.get().then(initLanguagesList$lambda);
+  }
+  function initOptionsElements() {
+    initDefaultLanguages();
+    initValuesIfExist();
   }
   function initDefaultLanguages$lambda(items) {
     var tmp$, tmp$_0;
@@ -79,17 +84,20 @@ this['options-module'] = function (_, Kotlin) {
     option.text = text;
     element.add(option);
   }
-  function initProxyAndKeyIfExist$lambda(items) {
+  function initValuesIfExist$lambda(items) {
     var proxyUrl = items['proxyUrl'];
     var apiKey = items['apiKey'];
+    var enabledMouseUpEvent = items['mouse-event'];
     if (proxyUrl != undefined)
-      proxySereverUrlEdit.value = proxyUrl;
+      proxyServerUrlEdit.value = proxyUrl;
     if (apiKey != undefined)
       apiKeyEdit.value = apiKey;
+    if (enabledMouseUpEvent != undefined)
+      enableMouseUpEventCheckBox.checked = enabledMouseUpEvent;
     return Unit;
   }
-  function initProxyAndKeyIfExist() {
-    browser.storage.local.get().then(initProxyAndKeyIfExist$lambda);
+  function initValuesIfExist() {
+    browser.storage.local.get().then(initValuesIfExist$lambda);
   }
   function main$lambda$ObjectLiteral() {
   }
@@ -137,18 +145,29 @@ this['options-module'] = function (_, Kotlin) {
   };
   function main$lambda_2(it) {
     var proxyUrl = new main$lambda$ObjectLiteral_2();
-    proxyUrl['proxyUrl'] = proxySereverUrlEdit.value;
+    proxyUrl['proxyUrl'] = proxyServerUrlEdit.value;
     browser.storage.local.set(proxyUrl);
     return browser.runtime.sendMessage('proxy-changed');
   }
+  function main$lambda$ObjectLiteral_3() {
+  }
+  main$lambda$ObjectLiteral_3.$metadata$ = {
+    kind: Kind_CLASS,
+    interfaces: []
+  };
+  function main$lambda_3(it) {
+    var mouseEvent = new main$lambda$ObjectLiteral_3();
+    mouseEvent['mouse-event'] = enableMouseUpEventCheckBox.checked;
+    return browser.storage.local.set(mouseEvent);
+  }
   function main(args) {
     initLanguagesList();
-    initDefaultLanguages();
-    initProxyAndKeyIfExist();
+    initOptionsElements();
     languageFromMenu.onclick = main$lambda;
     languageToMenu.onclick = main$lambda_0;
     saveApiKeyBtn.onclick = main$lambda_1;
     saveProxyUrlBtn.onclick = main$lambda_2;
+    enableMouseUpEventCheckBox.onclick = main$lambda_3;
   }
   var package$com = _.com || (_.com = {});
   var package$rostegg = package$com.rostegg || (package$com.rostegg = {});
@@ -170,9 +189,14 @@ this['options-module'] = function (_, Kotlin) {
       return apiKeyEdit;
     }
   });
-  Object.defineProperty(package$webextensions, 'proxySereverUrlEdit', {
+  Object.defineProperty(package$webextensions, 'proxyServerUrlEdit', {
     get: function () {
-      return proxySereverUrlEdit;
+      return proxyServerUrlEdit;
+    }
+  });
+  Object.defineProperty(package$webextensions, 'enableMouseUpEventCheckBox', {
+    get: function () {
+      return enableMouseUpEventCheckBox;
     }
   });
   Object.defineProperty(package$webextensions, 'saveApiKeyBtn', {
@@ -186,17 +210,19 @@ this['options-module'] = function (_, Kotlin) {
     }
   });
   package$webextensions.initLanguagesList = initLanguagesList;
+  package$webextensions.initOptionsElements = initOptionsElements;
   package$webextensions.initDefaultLanguages = initDefaultLanguages;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
-  package$webextensions.initProxyAndKeyIfExist = initProxyAndKeyIfExist;
+  package$webextensions.initValuesIfExist = initValuesIfExist;
   package$webextensions.main_kand9s$ = main;
-  var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4;
+  var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4, tmp$_5;
   languageFromMenu = Kotlin.isType(tmp$ = document.querySelector('#language-from'), HTMLSelectElement) ? tmp$ : throwCCE();
   languageToMenu = Kotlin.isType(tmp$_0 = document.querySelector('#language-to'), HTMLSelectElement) ? tmp$_0 : throwCCE();
   apiKeyEdit = Kotlin.isType(tmp$_1 = document.querySelector('#api-key-edit'), HTMLInputElement) ? tmp$_1 : throwCCE();
-  proxySereverUrlEdit = Kotlin.isType(tmp$_2 = document.querySelector('#proxy-edit'), HTMLInputElement) ? tmp$_2 : throwCCE();
-  saveApiKeyBtn = Kotlin.isType(tmp$_3 = document.querySelector('#save-api-btn'), HTMLAnchorElement) ? tmp$_3 : throwCCE();
-  saveProxyUrlBtn = Kotlin.isType(tmp$_4 = document.querySelector('#save-proxy-btn'), HTMLAnchorElement) ? tmp$_4 : throwCCE();
+  proxyServerUrlEdit = Kotlin.isType(tmp$_2 = document.querySelector('#proxy-edit'), HTMLInputElement) ? tmp$_2 : throwCCE();
+  enableMouseUpEventCheckBox = Kotlin.isType(tmp$_3 = document.querySelector('#enable-mouse-up'), HTMLInputElement) ? tmp$_3 : throwCCE();
+  saveApiKeyBtn = Kotlin.isType(tmp$_4 = document.querySelector('#save-api-btn'), HTMLAnchorElement) ? tmp$_4 : throwCCE();
+  saveProxyUrlBtn = Kotlin.isType(tmp$_5 = document.querySelector('#save-proxy-btn'), HTMLAnchorElement) ? tmp$_5 : throwCCE();
   main([]);
   Kotlin.defineModule('options-module', _);
   return _;

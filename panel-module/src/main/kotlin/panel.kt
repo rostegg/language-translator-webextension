@@ -31,12 +31,12 @@ fun translateText(){
         var fromLanguage = (languageFromMenu.options[languageFromMenu.selectedIndex] as HTMLOptionElement).value
         var toLanguage = (languageToMenu.options[languageToMenu.selectedIndex] as HTMLOptionElement).value
         var request= Endpoints.getTranslateTextEndpoint(apiKey,"$fromLanguage-$toLanguage",text)
-        println("sending request : $request")
         xhttp.open("GET", request)
         xhttp.onload=fun(){
-            println(xhttp.responseText)
             val response = JSON.parse<YandexResponse>(xhttp.responseText)
             outputPanel.value = response.text
+        }
+        xhttp.onerror=fun(){
         }
         xhttp.send()
     })

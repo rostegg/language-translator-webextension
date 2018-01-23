@@ -7,9 +7,9 @@
     "48": "icons/translator.svg"
   },
   "permissions": [
-    "activeTab","menus", "tabs","contextMenus","clipboardRead","clipboardWrite","browsingData", "notifications", "storage"
+    "activeTab","menus", "tabs","contextMenus","clipboardRead","clipboardWrite","browsingData", "notifications", "storage", "alarms"
   ],
-  "background": {  "scripts": [  "background-script/build/classes/main/min/kotlin.js", "background-script/build/classes/main/min/background-script.js" ] },
+  "background": {  "scripts": [  "background-script/build/kotlin-js-min/main/kotlin.js", "background-script/build/kotlin-js-min/main/background-script.js" ] },
   "commands": {
     "fast-translate": {
       "suggested_key": { "default": "Ctrl+Shift+U" },
@@ -18,7 +18,7 @@
   },
   "content_scripts": [{
     "matches": ["<all_urls>"],
-    "js": ["copy-module/build/classes/main/min/kotlin.js","copy-module/build/classes/main/min/copy-module.js"]
+    "js": ["copy-module/build/kotlin-js-min/main/kotlin.js","copy-module/build/kotlin-js-min/main/copy-module.js"]
   }],
 
   "sidebar_action": {

@@ -23,6 +23,6 @@ object Endpoints{
     }
 }
 
-data class Language(val key:String, val value:String)
+data class Language(val key:String, val value:String,val code:String, val message: String)
 
 

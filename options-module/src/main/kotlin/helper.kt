@@ -31,7 +31,6 @@ fun initOptionsElements(){
 }
 fun initDefaultLanguages(){
     browser.storage.local.get().then({ items ->
-
         var languageTo = items["language-to"]
         var languageFrom = items["language-from"]
         val languagesCount = languageFromMenu.options.length

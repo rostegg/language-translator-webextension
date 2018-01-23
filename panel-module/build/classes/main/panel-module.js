@@ -7,7 +7,6 @@ this['panel-module'] = function (_, Kotlin) {
   var throwCCE = Kotlin.throwCCE;
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
   var Unit = Kotlin.kotlin.Unit;
-  var println = Kotlin.kotlin.io.println_s8jyv4$;
   var equals = Kotlin.equals;
   function YandexResponse(code, lang, text) {
     this.code = code;
@@ -66,9 +65,11 @@ this['panel-module'] = function (_, Kotlin) {
     }
     return Endpoints_instance;
   }
-  function Language(key, value) {
+  function Language(key, value, code, message) {
     this.key = key;
     this.value = value;
+    this.code = code;
+    this.message = message;
   }
   Language.$metadata$ = {
     kind: Kind_CLASS,
@@ -81,20 +82,28 @@ this['panel-module'] = function (_, Kotlin) {
   Language.prototype.component2 = function () {
     return this.value;
   };
-  Language.prototype.copy_puj7f4$ = function (key, value) {
-    return new Language(key === void 0 ? this.key : key, value === void 0 ? this.value : value);
+  Language.prototype.component3 = function () {
+    return this.code;
+  };
+  Language.prototype.component4 = function () {
+    return this.message;
+  };
+  Language.prototype.copy_w74nik$ = function (key, value, code, message) {
+    return new Language(key === void 0 ? this.key : key, value === void 0 ? this.value : value, code === void 0 ? this.code : code, message === void 0 ? this.message : message);
   };
   Language.prototype.toString = function () {
-    return 'Language(key=' + Kotlin.toString(this.key) + (', value=' + Kotlin.toString(this.value)) + ')';
+    return 'Language(key=' + Kotlin.toString(this.key) + (', value=' + Kotlin.toString(this.value)) + (', code=' + Kotlin.toString(this.code)) + (', message=' + Kotlin.toString(this.message)) + ')';
   };
   Language.prototype.hashCode = function () {
     var result = 0;
     result = result * 31 + Kotlin.hashCode(this.key) | 0;
     result = result * 31 + Kotlin.hashCode(this.value) | 0;
+    result = result * 31 + Kotlin.hashCode(this.code) | 0;
+    result = result * 31 + Kotlin.hashCode(this.message) | 0;
     return result;
   };
   Language.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value)))));
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value) && Kotlin.equals(this.code, other.code) && Kotlin.equals(this.message, other.message)))));
   };
   function main$lambda(it) {
     translateText();
@@ -114,10 +123,11 @@ this['panel-module'] = function (_, Kotlin) {
   }
   function translateText$lambda$lambda(closure$xhttp) {
     return function () {
-      println(closure$xhttp.v.responseText);
       var response = JSON.parse(closure$xhttp.v.responseText);
       outputPanel.value = response.text;
     };
+  }
+  function translateText$lambda$lambda_0() {
   }
   function translateText$lambda(items) {
     var tmp$, tmp$_0;
@@ -127,9 +137,9 @@ this['panel-module'] = function (_, Kotlin) {
     var fromLanguage = (Kotlin.isType(tmp$ = languageFromMenu.options[languageFromMenu.selectedIndex], HTMLOptionElement) ? tmp$ : throwCCE()).value;
     var toLanguage = (Kotlin.isType(tmp$_0 = languageToMenu.options[languageToMenu.selectedIndex], HTMLOptionElement) ? tmp$_0 : throwCCE()).value;
     var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text);
-    println('sending request : ' + request);
     xhttp.v.open('GET', request);
     xhttp.v.onload = translateText$lambda$lambda(xhttp);
+    xhttp.v.onerror = translateText$lambda$lambda_0;
     return xhttp.v.send();
   }
   function translateText() {
