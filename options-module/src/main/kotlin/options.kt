@@ -32,7 +32,8 @@ fun main(args: Array<String>) {
         val proxyUrl: dynamic = object{}
         proxyUrl["proxyUrl"] = proxyServerUrlEdit.value
         browser.storage.local.set(proxyUrl)
-        browser.runtime.sendMessage("proxy-changed")
+        browser.runtime.sendMessage(jsObject { action = "change-proxy-url"
+            url = proxyServerUrlEdit.value }, jsObject { toProxyScript = true })
     }
 
     enableMouseUpEventCheckBox.onclick = {

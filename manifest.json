@@ -7,7 +7,7 @@
     "48": "icons/translator.svg"
   },
   "permissions": [
-    "activeTab","menus", "tabs","contextMenus","clipboardRead","clipboardWrite","browsingData", "notifications", "storage", "alarms"
+    "activeTab","menus", "tabs","contextMenus","clipboardRead","clipboardWrite","browsingData", "notifications", "storage", "alarms", "proxy"
   ],
   "background": {  "scripts": [  "background-script/build/kotlin-js-min/main/kotlin.js", "background-script/build/kotlin-js-min/main/background-script.js" ] },
   "commands": {

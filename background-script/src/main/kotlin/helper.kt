@@ -2,6 +2,8 @@ package com.rostegg.kotlin.webextensions
 
 external val browser: dynamic
 
+const val PROXY_SCRIPT_URL = "proxy/proxy-settings.js"
+
 inline fun jsObject(init: dynamic.() -> Unit): dynamic {
     val o = js("{}")
     init(o)

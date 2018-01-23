@@ -3,7 +3,9 @@ if (typeof kotlin === 'undefined') {
 }
 this['options-module'] = function (_, Kotlin) {
   'use strict';
+  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var Kind_CLASS = Kotlin.Kind.CLASS;
+  var defineInlineFunction = Kotlin.defineInlineFunction;
   var throwCCE = Kotlin.throwCCE;
   var Unit = Kotlin.kotlin.Unit;
   var equals = Kotlin.equals;
@@ -37,6 +39,11 @@ this['options-module'] = function (_, Kotlin) {
   Language.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value)))));
   };
+  var jsObject = defineInlineFunction('options-module.com.rostegg.kotlin.webextensions.jsObject_5ij4lk$', function (init) {
+    var o = {};
+    init(o);
+    return o;
+  });
   var languageFromMenu;
   var languageToMenu;
   var apiKeyEdit;
@@ -147,7 +154,13 @@ this['options-module'] = function (_, Kotlin) {
     var proxyUrl = new main$lambda$ObjectLiteral_2();
     proxyUrl['proxyUrl'] = proxyServerUrlEdit.value;
     browser.storage.local.set(proxyUrl);
-    return browser.runtime.sendMessage('proxy-changed');
+    var tmp$ = browser.runtime;
+    var o = {};
+    o.action = 'change-proxy-url';
+    o.url = proxyServerUrlEdit.value;
+    var o_0 = {};
+    o_0.toProxyScript = true;
+    return tmp$.sendMessage(o, o_0);
   }
   function main$lambda$ObjectLiteral_3() {
   }
@@ -174,6 +187,8 @@ this['options-module'] = function (_, Kotlin) {
   var package$kotlin = package$rostegg.kotlin || (package$rostegg.kotlin = {});
   var package$webextensions = package$kotlin.webextensions || (package$kotlin.webextensions = {});
   package$webextensions.Language = Language;
+  $$importsForInline$$['options-module'] = _;
+  package$webextensions.jsObject_5ij4lk$ = jsObject;
   Object.defineProperty(package$webextensions, 'languageFromMenu', {
     get: function () {
       return languageFromMenu;

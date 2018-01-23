@@ -12,6 +12,7 @@ this['background-script'] = function (_, Kotlin) {
   var ensureNotNull = Kotlin.ensureNotNull;
   var equals = Kotlin.equals;
   var iterator = Kotlin.kotlin.js.iterator_s8jyvk$;
+  var PROXY_SCRIPT_URL;
   var jsObject = defineInlineFunction('background-script.com.rostegg.kotlin.webextensions.jsObject_5ij4lk$', function (init) {
     var o = {};
     init(o);
@@ -127,17 +128,16 @@ this['background-script'] = function (_, Kotlin) {
       updateLanguagesList();
       createDefaultLanguageSettings();
     }
-     else if (command !== 'proxy-changed')
-      if (command === 'error-translating') {
-        printNotification('Error', 'An error occurred while translating. Could not send request.');
-      }
-       else
-        command.errorType;
+     else if (command === 'error-translating')
+      printNotification('Error', 'An error occurred while translating. Could not send request.');
+    else if (command.errorType === 'translation-api-error')
+      printNotification('Error', 'An error occurred while translating.' + '\n' + 'Code: ' + command.code + '\n' + 'Status: ' + command.message);
     return Unit;
   }
   function main(args) {
     println('running background script..');
     initPlugin();
+    browser.proxy.register(PROXY_SCRIPT_URL);
     browser.commands.onCommand.addListener(main$lambda);
     browser.runtime.onMessage.addListener(main$lambda_0);
   }
@@ -169,7 +169,6 @@ this['background-script'] = function (_, Kotlin) {
   function updateLanguagesList$lambda$lambda(closure$xhttp) {
     return function () {
       var tmp$;
-      println(closure$xhttp.v.responseText);
       var response = JSON.parse(closure$xhttp.v.responseText);
       if (!equals(response.code, undefined))
         printNotification('Key validation error', 'Code: ' + response.code + '\n' + 'Status: ' + response.message);
@@ -235,11 +234,16 @@ this['background-script'] = function (_, Kotlin) {
     o.iconUrl = browser.extension.getURL('icons/translator.svg');
     tmp$.create(o);
   }
-  $$importsForInline$$['background-script'] = _;
   var package$com = _.com || (_.com = {});
   var package$rostegg = package$com.rostegg || (package$com.rostegg = {});
   var package$kotlin = package$rostegg.kotlin || (package$rostegg.kotlin = {});
   var package$webextensions = package$kotlin.webextensions || (package$kotlin.webextensions = {});
+  Object.defineProperty(package$webextensions, 'PROXY_SCRIPT_URL', {
+    get: function () {
+      return PROXY_SCRIPT_URL;
+    }
+  });
+  $$importsForInline$$['background-script'] = _;
   package$webextensions.jsObject_5ij4lk$ = jsObject;
   Object.defineProperty(package$webextensions, 'Endpoints', {
     get: Endpoints_getInstance
@@ -252,6 +256,7 @@ this['background-script'] = function (_, Kotlin) {
   package$webextensions.updateLanguagesList = updateLanguagesList;
   package$webextensions.createDefaultLanguageSettings = createDefaultLanguageSettings;
   package$webextensions.printNotification_puj7f4$ = printNotification;
+  PROXY_SCRIPT_URL = 'proxy/proxy-settings.js';
   main([]);
   Kotlin.defineModule('background-script', _);
   return _;

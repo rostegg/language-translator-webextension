@@ -7,6 +7,12 @@ external val browser: dynamic
 
 data class Language(val key:String, val value:String)
 
+inline fun jsObject(init: dynamic.() -> Unit): dynamic {
+    val o = js("{}")
+    init(o)
+    return o
+}
+
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val apiKeyEdit = document.querySelector("#api-key-edit") as HTMLInputElement

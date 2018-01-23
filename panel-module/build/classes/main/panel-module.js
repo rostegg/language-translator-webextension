@@ -3,9 +3,13 @@ if (typeof kotlin === 'undefined') {
 }
 this['panel-module'] = function (_, Kotlin) {
   'use strict';
+  var $$importsForInline$$ = _.$$importsForInline$$ || (_.$$importsForInline$$ = {});
   var Kind_CLASS = Kotlin.Kind.CLASS;
   var throwCCE = Kotlin.throwCCE;
+  var to = Kotlin.kotlin.to_ujzrz7$;
+  var hashMapOf = Kotlin.kotlin.collections.hashMapOf_qfcya0$;
   var Kind_OBJECT = Kotlin.Kind.OBJECT;
+  var defineInlineFunction = Kotlin.defineInlineFunction;
   var Unit = Kotlin.kotlin.Unit;
   var equals = Kotlin.equals;
   function YandexResponse(code, lang, text) {
@@ -43,10 +47,12 @@ this['panel-module'] = function (_, Kotlin) {
   YandexResponse.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.code, other.code) && Kotlin.equals(this.lang, other.lang) && Kotlin.equals(this.text, other.text)))));
   };
+  var PROXY_SCRIPT_URL;
   var inputPanel;
   var outputPanel;
   var languageToMenu;
   var languageFromMenu;
+  var errorCodes;
   function Endpoints() {
     Endpoints_instance = this;
   }
@@ -65,11 +71,14 @@ this['panel-module'] = function (_, Kotlin) {
     }
     return Endpoints_instance;
   }
-  function Language(key, value, code, message) {
+  var jsObject = defineInlineFunction('panel-module.com.rostegg.kotlin.webextensions.jsObject_5ij4lk$', function (init) {
+    var o = {};
+    init(o);
+    return o;
+  });
+  function Language(key, value) {
     this.key = key;
     this.value = value;
-    this.code = code;
-    this.message = message;
   }
   Language.$metadata$ = {
     kind: Kind_CLASS,
@@ -82,28 +91,20 @@ this['panel-module'] = function (_, Kotlin) {
   Language.prototype.component2 = function () {
     return this.value;
   };
-  Language.prototype.component3 = function () {
-    return this.code;
-  };
-  Language.prototype.component4 = function () {
-    return this.message;
-  };
-  Language.prototype.copy_w74nik$ = function (key, value, code, message) {
-    return new Language(key === void 0 ? this.key : key, value === void 0 ? this.value : value, code === void 0 ? this.code : code, message === void 0 ? this.message : message);
+  Language.prototype.copy_puj7f4$ = function (key, value) {
+    return new Language(key === void 0 ? this.key : key, value === void 0 ? this.value : value);
   };
   Language.prototype.toString = function () {
-    return 'Language(key=' + Kotlin.toString(this.key) + (', value=' + Kotlin.toString(this.value)) + (', code=' + Kotlin.toString(this.code)) + (', message=' + Kotlin.toString(this.message)) + ')';
+    return 'Language(key=' + Kotlin.toString(this.key) + (', value=' + Kotlin.toString(this.value)) + ')';
   };
   Language.prototype.hashCode = function () {
     var result = 0;
     result = result * 31 + Kotlin.hashCode(this.key) | 0;
     result = result * 31 + Kotlin.hashCode(this.value) | 0;
-    result = result * 31 + Kotlin.hashCode(this.code) | 0;
-    result = result * 31 + Kotlin.hashCode(this.message) | 0;
     return result;
   };
   Language.prototype.equals = function (other) {
-    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value) && Kotlin.equals(this.code, other.code) && Kotlin.equals(this.message, other.message)))));
+    return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.key, other.key) && Kotlin.equals(this.value, other.value)))));
   };
   function main$lambda(it) {
     translateText();
@@ -121,30 +122,59 @@ this['panel-module'] = function (_, Kotlin) {
     var swapBtn = Kotlin.isType(tmp$_0 = document.querySelector('#swap-btn'), HTMLButtonElement) ? tmp$_0 : throwCCE();
     swapBtn.onclick = main$lambda_0;
   }
-  function translateText$lambda$lambda(closure$xhttp) {
+  function translateText$lambda$lambda(closure$request) {
     return function () {
-      var response = JSON.parse(closure$xhttp.v.responseText);
-      outputPanel.value = response.text;
+      sendRequest(closure$request.v);
+      return Unit;
     };
-  }
-  function translateText$lambda$lambda_0() {
-    browser.runtime.sendMessage('error-translating');
   }
   function translateText$lambda(items) {
     var tmp$, tmp$_0;
     var apiKey = items['apiKey'];
     var text = inputPanel.value;
-    var xhttp = {v: new XMLHttpRequest()};
     var fromLanguage = (Kotlin.isType(tmp$ = languageFromMenu.options[languageFromMenu.selectedIndex], HTMLOptionElement) ? tmp$ : throwCCE()).value;
     var toLanguage = (Kotlin.isType(tmp$_0 = languageToMenu.options[languageToMenu.selectedIndex], HTMLOptionElement) ? tmp$_0 : throwCCE()).value;
-    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text);
-    xhttp.v.open('GET', request);
-    xhttp.v.onload = translateText$lambda$lambda(xhttp);
-    xhttp.v.onerror = translateText$lambda$lambda_0;
-    return xhttp.v.send();
+    var request = {v: Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text)};
+    return items['proxyUrl'] != undefined || items['proxyUrl'] != '' ? browser.proxy.register(PROXY_SCRIPT_URL).then(translateText$lambda$lambda(request)) : sendRequest(request.v);
   }
   function translateText() {
     browser.storage.local.get().then(translateText$lambda);
+  }
+  function sendRequest$lambda$lambda(closure$response) {
+    return function () {
+      var tmp$;
+      if (errorCodes.keys.contains_11rb$(closure$response.code)) {
+        var tmp$_0 = browser.runtime;
+        var o = {};
+        var closure$response_0 = closure$response;
+        o.errorType = 'translation-api-error';
+        o.code = closure$response_0.code;
+        o.message = errorCodes.get_11rb$(o.code);
+        tmp$ = tmp$_0.sendMessage(o);
+      }
+       else
+        tmp$ = outputPanel.value = closure$response.text;
+      return tmp$;
+    };
+  }
+  function sendRequest$lambda(closure$xhttp) {
+    return function () {
+      var response = JSON.parse(closure$xhttp.v.responseText);
+      browser.proxy.unregister().then(sendRequest$lambda$lambda(response));
+    };
+  }
+  function sendRequest$lambda$lambda_0() {
+    return browser.runtime.sendMessage('error-translating');
+  }
+  function sendRequest$lambda_0() {
+    browser.proxy.unregister().then(sendRequest$lambda$lambda_0);
+  }
+  function sendRequest(request) {
+    var xhttp = {v: new XMLHttpRequest()};
+    xhttp.v.open('GET', request);
+    xhttp.v.onload = sendRequest$lambda(xhttp);
+    xhttp.v.onerror = sendRequest$lambda_0;
+    xhttp.v.send();
   }
   function swapLanguagesInMenu() {
     var tmp$ = languageToMenu;
@@ -186,6 +216,11 @@ this['panel-module'] = function (_, Kotlin) {
   var package$kotlin = package$rostegg.kotlin || (package$rostegg.kotlin = {});
   var package$webextensions = package$kotlin.webextensions || (package$kotlin.webextensions = {});
   package$webextensions.YandexResponse = YandexResponse;
+  Object.defineProperty(package$webextensions, 'PROXY_SCRIPT_URL', {
+    get: function () {
+      return PROXY_SCRIPT_URL;
+    }
+  });
   Object.defineProperty(package$webextensions, 'inputPanel', {
     get: function () {
       return inputPanel;
@@ -206,20 +241,30 @@ this['panel-module'] = function (_, Kotlin) {
       return languageFromMenu;
     }
   });
+  Object.defineProperty(package$webextensions, 'errorCodes', {
+    get: function () {
+      return errorCodes;
+    }
+  });
   Object.defineProperty(package$webextensions, 'Endpoints', {
     get: Endpoints_getInstance
   });
+  $$importsForInline$$['panel-module'] = _;
+  package$webextensions.jsObject_5ij4lk$ = jsObject;
   package$webextensions.Language = Language;
   package$webextensions.main_kand9s$ = main;
   package$webextensions.translateText = translateText;
+  package$webextensions.sendRequest_61zpoe$ = sendRequest;
   package$webextensions.swapLanguagesInMenu = swapLanguagesInMenu;
   package$webextensions.initLanguagesList = initLanguagesList;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
+  PROXY_SCRIPT_URL = 'proxy/proxy-settings.js';
   var tmp$, tmp$_0, tmp$_1, tmp$_2;
   inputPanel = Kotlin.isType(tmp$ = document.querySelector('#input-text'), HTMLTextAreaElement) ? tmp$ : throwCCE();
   outputPanel = Kotlin.isType(tmp$_0 = document.querySelector('#output-text'), HTMLTextAreaElement) ? tmp$_0 : throwCCE();
   languageToMenu = Kotlin.isType(tmp$_1 = document.querySelector('#language-to'), HTMLSelectElement) ? tmp$_1 : throwCCE();
   languageFromMenu = Kotlin.isType(tmp$_2 = document.querySelector('#language-from'), HTMLSelectElement) ? tmp$_2 : throwCCE();
+  errorCodes = hashMapOf([to('422', 'Text can not be translated'), to('413', 'Maximum text size exceeded'), to('404', 'The daily limit on the volume of the translated text was exceeded'), to('402', 'API Key Locked'), to('401', 'Invalid API key'), to('501', 'Specified translation direction is not supported')]);
   main([]);
   Kotlin.defineModule('panel-module', _);
   return _;

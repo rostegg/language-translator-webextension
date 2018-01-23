@@ -3,4 +3,5 @@ include 'copy-module'
 include 'panel-module'
 include 'options-module'
 include 'background-script'
+include 'proxy'
 

@@ -27,13 +27,22 @@ fun translateText(){
     browser.storage.local.get().then({ items ->
         var apiKey = items["apiKey"]
         var text = inputPanel.value
-        var xhttp :dynamic= XMLHttpRequest()
         var fromLanguage = (languageFromMenu.options[languageFromMenu.selectedIndex] as HTMLOptionElement).value
         var toLanguage = (languageToMenu.options[languageToMenu.selectedIndex] as HTMLOptionElement).value
         var request= Endpoints.getTranslateTextEndpoint(apiKey,"$fromLanguage-$toLanguage",text)
-        xhttp.open("GET", request)
-        xhttp.onload=fun(){
-            val response = JSON.parse<YandexResponse>(xhttp.responseText)
+        if (items["proxyUrl"] != undefined || items["proxyUrl"] != "")
+            browser.proxy.register(PROXY_SCRIPT_URL).then{ sendRequest(request)}
+        else
+            sendRequest(request)
+    })
+
+}
+fun sendRequest(request: String){
+    var xhttp :dynamic= XMLHttpRequest()
+    xhttp.open("GET", request)
+    xhttp.onload=fun(){
+        val response = JSON.parse<YandexResponse>(xhttp.responseText)
+        browser.proxy.unregister().then{
             if (errorCodes.keys.contains(response.code))
                 browser.runtime.sendMessage(jsObject {
                     errorType = "translation-api-error"
@@ -43,12 +52,13 @@ fun translateText(){
             else
                 outputPanel.value = response.text
         }
-        xhttp.onerror=fun(){
+    }
+    xhttp.onerror=fun(){
+        browser.proxy.unregister().then{
             browser.runtime.sendMessage("error-translating")
         }
-        xhttp.send()
-    })
-
+    }
+    xhttp.send()
 }
 
 fun swapLanguagesInMenu() {

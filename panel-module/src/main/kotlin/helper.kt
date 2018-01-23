@@ -12,6 +12,8 @@ data class YandexResponse(val code:String, val lang:String, val text: String)
 
 external val browser: dynamic
 
+const val PROXY_SCRIPT_URL = "proxy/proxy-settings.js"
+
 val inputPanel = document.querySelector("#input-text") as HTMLTextAreaElement
 val outputPanel = document.querySelector("#output-text")  as HTMLTextAreaElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement

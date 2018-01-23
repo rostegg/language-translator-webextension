@@ -6,7 +6,7 @@ fun main(args: Array<String>) {
     println("running background script..")
 
     initPlugin()
-
+    browser.proxy.register(PROXY_SCRIPT_URL)
     // listen for shortcuts
     browser.commands.onCommand.addListener { command ->
         if (command == "fast-translate") {
@@ -25,11 +25,10 @@ fun main(args: Array<String>) {
                 updateLanguagesList()
                 createDefaultLanguageSettings()
             }
-            command === "proxy-changed" -> {
-                // in progress
-            }
             command === "error-translating" -> printNotification("Error", "An error occurred while translating. Could not send request.")
             command.errorType === "translation-api-error" -> printNotification("Error", "An error occurred while translating.\nCode: ${command.code}\nStatus: ${command.message}")
+            else -> {
+            }
         }
     }
 }
@@ -55,7 +54,6 @@ fun updateLanguagesList() {
         var request = Endpoints.getLanguageEndpoint(apiKey,localization)
         xhttp.open("GET",request)
         xhttp.onload=fun(){
-            println(xhttp.responseText)
             val response = JSON.parse<YandexResponse>(xhttp.responseText)
             if (response.code != undefined)
                 printNotification("Key validation error",
@@ -75,7 +73,6 @@ fun updateLanguagesList() {
                 browser.storage.local.set(languages)
                 printNotification("Good", "The key was successfully validated, enjoy.")
             }
-
         }
         xhttp.onerror = fun(){
             printNotification("Error", "First try to insert a valid key from Yandex in the options menu")
