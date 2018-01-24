@@ -16,7 +16,6 @@ fun main(args: Array<String>) {
 }
 fun checkForMouseUpEvent(){
     browser.storage.local.get().then({ items ->
-        println(items)
         var mouseUpEnabled = items["mouse-event"]
         if (mouseUpEnabled != undefined && mouseUpEnabled == true)
             document.addEventListener("mouseup", { copySelectedText() })

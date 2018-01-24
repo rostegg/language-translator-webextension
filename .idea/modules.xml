@@ -6,6 +6,7 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/copy-module.iml" filepath="$PROJECT_DIR$/.idea/modules/copy-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/options-module.iml" filepath="$PROJECT_DIR$/.idea/modules/options-module.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/panel-module.iml" filepath="$PROJECT_DIR$/.idea/modules/panel-module.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/proxy/proxy.iml" filepath="$PROJECT_DIR$/.idea/modules/proxy/proxy.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/translation-plugin.iml" filepath="$PROJECT_DIR$/.idea/modules/translation-plugin.iml" />
     </modules>
   </component>

@@ -1,6 +1,5 @@
 package com.rostegg.kotlin.webextensions
 
-import org.w3c.dom.HTMLButtonElement
 import org.w3c.dom.HTMLOptionElement
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.get
@@ -12,12 +11,10 @@ import kotlin.browser.document
 fun main(args: Array<String>) {
     initLanguagesList()
 
-    var translateBtn = document.querySelector("#translate-btn") as HTMLButtonElement
     translateBtn.onclick = {
         translateText()
     }
 
-    var swapBtn = document.querySelector("#swap-btn") as HTMLButtonElement
     swapBtn.onclick = {
         swapLanguagesInMenu()
     }
@@ -30,33 +27,26 @@ fun translateText(){
         var fromLanguage = (languageFromMenu.options[languageFromMenu.selectedIndex] as HTMLOptionElement).value
         var toLanguage = (languageToMenu.options[languageToMenu.selectedIndex] as HTMLOptionElement).value
         var request= Endpoints.getTranslateTextEndpoint(apiKey,"$fromLanguage-$toLanguage",text)
-        if (items["proxyUrl"] != undefined || items["proxyUrl"] != "")
-            browser.proxy.register(PROXY_SCRIPT_URL).then{ sendRequest(request)}
-        else
-            sendRequest(request)
+        sendRequest(request)
     })
-
 }
+
 fun sendRequest(request: String){
     var xhttp :dynamic= XMLHttpRequest()
     xhttp.open("GET", request)
     xhttp.onload=fun(){
         val response = JSON.parse<YandexResponse>(xhttp.responseText)
-        browser.proxy.unregister().then{
-            if (errorCodes.keys.contains(response.code))
-                browser.runtime.sendMessage(jsObject {
-                    errorType = "translation-api-error"
-                    code = response.code
-                    message = errorCodes[code]
-                })
-            else
-                outputPanel.value = response.text
-        }
+        if (errorCodes.keys.contains(response.code))
+            browser.runtime.sendMessage(jsObject {
+                errorType = "translation-api-error"
+                code = response.code
+                message = errorCodes[code]
+            })
+        else
+            outputPanel.value = response.text
     }
     xhttp.onerror=fun(){
-        browser.proxy.unregister().then{
-            browser.runtime.sendMessage("error-translating")
-        }
+        browser.runtime.sendMessage("error-translating")
     }
     xhttp.send()
 }

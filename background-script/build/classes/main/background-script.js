@@ -106,24 +106,30 @@ this['background-script'] = function (_, Kotlin) {
   YandexResponse.prototype.equals = function (other) {
     return this === other || (other !== null && (typeof other === 'object' && (Object.getPrototypeOf(this) === Object.getPrototypeOf(other) && (Kotlin.equals(this.code, other.code) && Kotlin.equals(this.message, other.message) && Kotlin.equals(this.dirs, other.dirs) && Kotlin.equals(this.langs, other.langs)))));
   };
-  function main$lambda$lambda(tabs) {
+  function main$lambda$lambda() {
+    return Unit;
+  }
+  function main$lambda() {
+    return browser.sidebarAction.open().then(main$lambda$lambda);
+  }
+  function main$lambda$lambda_0(tabs) {
     var tmp$ = browser.tabs;
     var tmp$_0 = ensureNotNull(tabs[0].id);
     var o = {};
     o.action = 'copy-text';
     return tmp$.sendMessage(tmp$_0, o);
   }
-  function main$lambda(command) {
+  function main$lambda_0(command) {
     if (command == 'fast-translate') {
       var tmp$ = browser.tabs;
       var o = {};
       o.active = true;
       o.currentWindow = true;
-      tmp$.query(o).then(main$lambda$lambda);
+      tmp$.query(o).then(main$lambda$lambda_0);
     }
     return Unit;
   }
-  function main$lambda_0(command) {
+  function main$lambda_1(command) {
     if (command === 'api-key-changed') {
       updateLanguagesList();
       createDefaultLanguageSettings();
@@ -136,10 +142,18 @@ this['background-script'] = function (_, Kotlin) {
   }
   function main(args) {
     println('running background script..');
+    var contexts = {v: ['all']};
+    var tmp$ = browser.menus;
+    var o = {};
+    o.id = 'translate text';
+    o.title = 'Translate text';
+    contexts.v = contexts.v;
+    tmp$.create(o);
+    browser.menus.onClicked.addListener(main$lambda);
     initPlugin();
     browser.proxy.register(PROXY_SCRIPT_URL);
-    browser.commands.onCommand.addListener(main$lambda);
-    browser.runtime.onMessage.addListener(main$lambda_0);
+    browser.commands.onCommand.addListener(main$lambda_0);
+    browser.runtime.onMessage.addListener(main$lambda_1);
   }
   function initPlugin() {
     browser.storage.local.clear();

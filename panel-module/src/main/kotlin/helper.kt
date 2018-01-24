@@ -1,5 +1,6 @@
 package com.rostegg.kotlin.webextensions
 
+import org.w3c.dom.HTMLButtonElement
 import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.HTMLTextAreaElement
 import kotlin.browser.document
@@ -18,6 +19,8 @@ val inputPanel = document.querySelector("#input-text") as HTMLTextAreaElement
 val outputPanel = document.querySelector("#output-text")  as HTMLTextAreaElement
 val languageToMenu = document.querySelector("#language-to") as HTMLSelectElement
 val languageFromMenu = document.querySelector("#language-from") as HTMLSelectElement
+var swapBtn = document.querySelector("#swap-btn") as HTMLButtonElement
+var translateBtn = document.querySelector("#translate-btn") as HTMLButtonElement
 
 val errorCodes:HashMap<String,String> = hashMapOf("422" to "Text can not be translated",
                                                   "413" to "Maximum text size exceeded",

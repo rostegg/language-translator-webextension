@@ -52,6 +52,8 @@ this['panel-module'] = function (_, Kotlin) {
   var outputPanel;
   var languageToMenu;
   var languageFromMenu;
+  var swapBtn;
+  var translateBtn;
   var errorCodes;
   function Endpoints() {
     Endpoints_instance = this;
@@ -114,13 +116,15 @@ this['panel-module'] = function (_, Kotlin) {
     swapLanguagesInMenu();
     return Unit;
   }
+  function main$lambda_1(it) {
+    inputPanel.focus();
+    return document.execCommand('paste');
+  }
   function main(args) {
-    var tmp$, tmp$_0;
     initLanguagesList();
-    var translateBtn = Kotlin.isType(tmp$ = document.querySelector('#translate-btn'), HTMLButtonElement) ? tmp$ : throwCCE();
     translateBtn.onclick = main$lambda;
-    var swapBtn = Kotlin.isType(tmp$_0 = document.querySelector('#swap-btn'), HTMLButtonElement) ? tmp$_0 : throwCCE();
     swapBtn.onclick = main$lambda_0;
+    inputPanel.onclick = main$lambda_1;
   }
   function translateText$lambda$lambda(closure$request) {
     return function () {
@@ -241,6 +245,22 @@ this['panel-module'] = function (_, Kotlin) {
       return languageFromMenu;
     }
   });
+  Object.defineProperty(package$webextensions, 'swapBtn', {
+    get: function () {
+      return swapBtn;
+    },
+    set: function (value) {
+      swapBtn = value;
+    }
+  });
+  Object.defineProperty(package$webextensions, 'translateBtn', {
+    get: function () {
+      return translateBtn;
+    },
+    set: function (value) {
+      translateBtn = value;
+    }
+  });
   Object.defineProperty(package$webextensions, 'errorCodes', {
     get: function () {
       return errorCodes;
@@ -259,11 +279,13 @@ this['panel-module'] = function (_, Kotlin) {
   package$webextensions.initLanguagesList = initLanguagesList;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
   PROXY_SCRIPT_URL = 'proxy/proxy-settings.js';
-  var tmp$, tmp$_0, tmp$_1, tmp$_2;
+  var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4;
   inputPanel = Kotlin.isType(tmp$ = document.querySelector('#input-text'), HTMLTextAreaElement) ? tmp$ : throwCCE();
   outputPanel = Kotlin.isType(tmp$_0 = document.querySelector('#output-text'), HTMLTextAreaElement) ? tmp$_0 : throwCCE();
   languageToMenu = Kotlin.isType(tmp$_1 = document.querySelector('#language-to'), HTMLSelectElement) ? tmp$_1 : throwCCE();
   languageFromMenu = Kotlin.isType(tmp$_2 = document.querySelector('#language-from'), HTMLSelectElement) ? tmp$_2 : throwCCE();
+  swapBtn = Kotlin.isType(tmp$_3 = document.querySelector('#swap-btn'), HTMLButtonElement) ? tmp$_3 : throwCCE();
+  translateBtn = Kotlin.isType(tmp$_4 = document.querySelector('#translate-btn'), HTMLButtonElement) ? tmp$_4 : throwCCE();
   errorCodes = hashMapOf([to('422', 'Text can not be translated'), to('413', 'Maximum text size exceeded'), to('404', 'The daily limit on the volume of the translated text was exceeded'), to('402', 'API Key Locked'), to('401', 'Invalid API key'), to('501', 'Specified translation direction is not supported')]);
   main([]);
   Kotlin.defineModule('panel-module', _);

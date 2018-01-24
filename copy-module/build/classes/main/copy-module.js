@@ -4,7 +4,6 @@ if (typeof kotlin === 'undefined') {
 this['copy-module'] = function (_, Kotlin) {
   'use strict';
   var Unit = Kotlin.kotlin.Unit;
-  var println = Kotlin.kotlin.io.println_s8jyv4$;
   function main$lambda(message) {
     if (message.action === 'copy-text') {
       copySelectedText();
@@ -27,7 +26,6 @@ this['copy-module'] = function (_, Kotlin) {
     return Unit;
   }
   function checkForMouseUpEvent$lambda(items) {
-    println(items);
     var mouseUpEnabled = items['mouse-event'];
     if (mouseUpEnabled != undefined && mouseUpEnabled == true)
       document.addEventListener('mouseup', checkForMouseUpEvent$lambda$lambda);

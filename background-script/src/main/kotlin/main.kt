@@ -4,6 +4,17 @@ import org.w3c.xhr.XMLHttpRequest
 
 fun main(args: Array<String>) {
     println("running background script..")
+    var contexts = arrayOf("all")
+    browser.menus.create(jsObject{
+        id = "translate text"
+        title = "Translate text"
+        contexts = contexts
+    })
+    browser.menus.onClicked.addListener{
+        browser.sidebarAction.open().then{
+            // TODO
+        }
+    }
 
     initPlugin()
     browser.proxy.register(PROXY_SCRIPT_URL)
