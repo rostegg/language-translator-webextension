@@ -6,21 +6,12 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/fileSnapshots.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.bin" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" afterPath="$PROJECT_DIR$/.gradle/3.5-rc-2/taskHistory/taskHistory.lock" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/cache.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/build/classes/main/background-script.js" afterPath="$PROJECT_DIR$/background-script/build/classes/main/background-script.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/build/classes/main/background-script.meta.js" afterPath="$PROJECT_DIR$/background-script/build/classes/main/background-script.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" afterPath="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.js" afterPath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.meta.js" afterPath="$PROJECT_DIR$/copy-module/build/classes/main/copy-module.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt" afterPath="$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.gradle" afterPath="$PROJECT_DIR$/build.gradle" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/build/classes/main/options-module.js" afterPath="$PROJECT_DIR$/options-module/build/classes/main/options-module.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/build/classes/main/options-module.meta.js" afterPath="$PROJECT_DIR$/options-module/build/classes/main/options-module.meta.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/options-module/src/main/kotlin/options.kt" afterPath="$PROJECT_DIR$/options-module/src/main/kotlin/options.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.meta.js" afterPath="$PROJECT_DIR$/panel-module/build/classes/main/panel-module.meta.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" afterPath="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" afterPath="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -92,28 +83,28 @@
       <file leaf-file-name="main.kt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-966">
-              <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <state relative-caret-position="84">
+              <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="kotlin.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/background-script/build/kotlin-js-min/main/kotlin.js">
+      <file leaf-file-name="main.kt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxy/src/main/kotlin/main.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2520">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="137">
+              <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="options.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/options.kt">
+      <file leaf-file-name="helper.kt" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="756">
-              <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+            <state relative-caret-position="63">
+              <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -122,95 +113,70 @@
       <file leaf-file-name="background-script.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/background-script/build/kotlin-js-min/main/background-script.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="357">
-              <caret line="95" column="27" lean-forward="false" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+            <state relative-caret-position="586">
+              <caret line="197" column="11" lean-forward="true" selection-start-line="197" selection-start-column="11" selection-end-line="197" selection-end-column="11" />
               <folding>
-                <marker date="1516803630011" expanded="true" signature="262:8335" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="2846:2854" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="2846:2875" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="2910:3397" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="2951:3026" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="3420:3893" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="3918:4053" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="4105:4110" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="4237:4396" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="4458:4463" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="4750:5625" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="4775:5620" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="5028:5614" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="5166:5292" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="5675:5779" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="5833:6285" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="5863:6280" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="6319:6440" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="6498:6503" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="6658:6663" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="6804:7175" ph="{...}" />
-                <marker date="1516803630011" expanded="true" signature="7221:7434" ph="{...}" />
+                <marker date="1516898898829" expanded="true" signature="262:8335" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/helper.kt">
+      <file leaf-file-name="build.gradle" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/build.gradle">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="13" column="1" lean-forward="false" selection-start-line="13" selection-start-column="1" selection-end-line="13" selection-end-column="1" />
+            <state relative-caret-position="284">
+              <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="options.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/options-module/src/main/resources/options.html">
+      <file leaf-file-name="copy-module.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/copy-module/build/kotlin-js-min/main/copy-module.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="868">
-              <caret line="214" column="22" lean-forward="false" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
+            <state relative-caret-position="-693">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helper.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt">
+      <file leaf-file-name="kotlin.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/copy-module/build/kotlin-js-min/main/kotlin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="212">
-              <caret line="22" column="80" lean-forward="false" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
-              <folding>
-                <element signature="e#42#185#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="main.kt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="630">
-              <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="32" />
+            <state relative-caret-position="-1512">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="panel.kt" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt">
+      <file leaf-file-name="proxy-settings.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxy/proxy-settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="420">
-              <caret line="57" column="14" lean-forward="true" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
-              <folding>
-                <element signature="e#42#203#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="231">
+              <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="panel.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/panel-module/src/main/resources/panel.html">
+      <file leaf-file-name="proxy-settings.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/proxy/build/classes/main/proxy-settings.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="490">
-              <caret line="145" column="47" lean-forward="false" selection-start-line="145" selection-start-column="47" selection-end-line="145" selection-end-column="47" />
+            <state relative-caret-position="-80437">
+              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="manifest.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/manifest.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="168">
+              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
               <folding />
             </state>
           </provider>
@@ -224,8 +190,8 @@
         <option value="Class" />
         <option value="HTML File" />
         <option value="CSS File" />
-        <option value="Kotlin File" />
         <option value="JavaScript File" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -239,6 +205,12 @@
       <find>Language</find>
       <find>proxy</find>
       <find>inputPanel</find>
+      <find>cons</find>
+      <find>conso</find>
+      <find>ergeScripts</find>
+      <find>test</find>
+      <find>merg</find>
+      <find>classe</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -338,6 +310,10 @@
                 <option name="description" value="Generates Gradle wrapper files." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
                 <option name="name" value="wrapper" />
+              </ExternalTaskPojo>
+              <ExternalTaskPojo>
+                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$" />
+                <option name="name" value="mergeScripts" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Assembles test classes." />
@@ -1121,10 +1097,6 @@
                 <option name="name" value="dependentComponents" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/proxy" />
-                <option name="name" value="runDceKotlinJs" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
                 <option name="description" value="Displays all buildscript dependencies declared in project ':proxy'." />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/proxy" />
                 <option name="name" value="buildEnvironment" />
@@ -1152,10 +1124,6 @@
                 <option name="description" value="Displays the configuration model of project ':proxy'. [incubating]" />
                 <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/proxy" />
                 <option name="name" value="model" />
-              </ExternalTaskPojo>
-              <ExternalTaskPojo>
-                <option name="linkedExternalProjectPath" value="$PROJECT_DIR$/proxy" />
-                <option name="name" value="runDceTestKotlinJs" />
               </ExternalTaskPojo>
               <ExternalTaskPojo>
                 <option name="description" value="Processes main resources." />
@@ -1253,8 +1221,8 @@
     </option>
     <option name="modificationStamps">
       <map>
-        <entry key="$PROJECT_DIR$" value="4550391366965" />
-        <entry key="$PROJECT_DIR$/build.gradle" value="41218770" />
+        <entry key="$PROJECT_DIR$" value="4550492480367" />
+        <entry key="$PROJECT_DIR$/build.gradle" value="3028208659" />
         <entry key="$PROJECT_DIR$/copy-module/build.gradle" value="3563168618" />
         <entry key="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" value="615277776" />
         <entry key="$PROJECT_DIR$/proxy/build.gradle" value="3563168618" />
@@ -1685,7 +1653,6 @@
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/background-script/src/main/kotlin/test.c" />
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/build.gradle" />
         <option value="$PROJECT_DIR$/background-script/build/classes/main/background-script.js" />
         <option value="$PROJECT_DIR$/background-script/build/kotlin-js-min/main/kotlin.js" />
         <option value="$PROJECT_DIR$/options-module/src/main/resources/options.html" />
@@ -1693,16 +1660,23 @@
         <option value="$PROJECT_DIR$/copy-module/src/main/kotlin/helper.kt" />
         <option value="$PROJECT_DIR$/proxy/src/main/kotlin/proxy-setting.js" />
         <option value="$PROJECT_DIR$/proxy/src/main/kotlin/proxy-settings.kt" />
-        <option value="$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt" />
         <option value="$PROJECT_DIR$/manifest.json" />
         <option value="$PROJECT_DIR$/proxy/proxy-settings.js" />
         <option value="$PROJECT_DIR$/options-module/src/main/kotlin/helper.kt" />
-        <option value="$PROJECT_DIR$/options-module/src/main/kotlin/options.kt" />
         <option value="$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt" />
         <option value="$PROJECT_DIR$/background-script/build/kotlin-js-min/main/background-script.js" />
         <option value="$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt" />
         <option value="$PROJECT_DIR$/background-script/src/main/kotlin/main.kt" />
         <option value="$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt" />
+        <option value="$PROJECT_DIR$/options-module/src/main/kotlin/options.kt" />
+        <option value="$PROJECT_DIR$/options-module/build/classes/main/options-module.js" />
+        <option value="$PROJECT_DIR$/options-module/build/classes/main/options-module.meta.js" />
+        <option value="$PROJECT_DIR$/proxy/build/kotlin-js-min/main/proxy-settings.js" />
+        <option value="$PROJECT_DIR$/proxy/build/classes/main/proxy-settings.js" />
+        <option value="$PROJECT_DIR$/build.gradle" />
+        <option value="$PROJECT_DIR$/proxy/src/main/kotlin/test.kt" />
+        <option value="$PROJECT_DIR$/proxy/src/main/kotlin/main.kt" />
+        <option value="$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt" />
       </list>
     </option>
   </component>
@@ -1764,8 +1738,6 @@
     <panes>
       <pane id="AndroidView" />
       <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -1776,25 +1748,46 @@
             <path>
               <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
             </path>
             <path>
               <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin-js-min" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="kotlin-js-min" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="background-script" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="kotlin" type="462c0819:PsiDirectoryNode" />
@@ -1802,15 +1795,35 @@
             <path>
               <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
               <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="panel-module" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="translation-plugin" type="b2602c69:ProjectViewProjectNode" />
+              <item name="translation-plugin" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="proxy" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
+              <item name="build" type="462c0819:PsiDirectoryNode" />
+              <item name="classes" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1922,13 +1935,15 @@
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--continuous" />
+        <option name="scriptParameters" value="--continuous --stacktrace" />
         <option name="taskDescriptions">
           <list />
         </option>
         <option name="taskNames">
           <list>
+            <option value="build" />
             <option value="runDceKotlinJs" />
+            <option value="mergeScripts" />
           </list>
         </option>
         <option name="vmOptions" value="" />
@@ -1963,16 +1978,16 @@
       <workItem from="1516630069728" duration="2911000" />
       <workItem from="1516701141910" duration="3932000" />
       <workItem from="1516716080605" duration="19225000" />
-      <workItem from="1516797150782" duration="5519000" />
+      <workItem from="1516797150782" duration="7056000" />
+      <workItem from="1516871057656" duration="12339000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="197524000" />
+    <option name="totallyTimeSpent" value="211400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1064" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1981,12 +1996,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.343785" sideWeight="0.5123523" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30089486" sideWeight="0.48764768" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4994401" sideWeight="0.48764768" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16433942" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="209" y="192" width="278" height="615" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.16648765" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" x="209" y="192" width="278" height="615" />
       <window_info id="Statistic" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32975295" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
@@ -2028,43 +2043,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/panel-module/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/panel.java" />
-    <entry file="file://$PROJECT_DIR$/panel-module/build/classes/main/min/kotlin.js" />
-    <entry file="file://$PROJECT_DIR$/options-module/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/panel-module/src/main/resources/panel.css" />
-    <entry file="file://$PROJECT_DIR$/test-module/build/classes/main/min/test-module.js" />
-    <entry file="file://$PROJECT_DIR$/background-script/build.gradle" />
-    <entry file="file://$PROJECT_DIR$/test-module/src/main/kotlin/main.kt" />
-    <entry file="file://$PROJECT_DIR$/test-module/src/main/kotlin/helper.kt" />
-    <entry file="file://$PROJECT_DIR$/icons/translator.svg">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="20" column="76" lean-forward="false" selection-start-line="20" selection-start-column="76" selection-end-line="20" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.idea/workspace.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="9" column="47" lean-forward="true" selection-start-line="9" selection-start-column="47" selection-end-line="9" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/settings.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gradlew">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1428">
@@ -2080,28 +2058,11 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/test.c" />
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="FIRST">
-          <first_editor relative-caret-position="105">
-            <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/test.h" />
     <entry file="file://$PROJECT_DIR$/LICENSE">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitattributes">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -2133,64 +2094,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copy-module/build/kotlin-js-min/main/copy-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/copy-module/build/kotlin-js-min/main/kotlin.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.gitignore">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="514">
-          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/proxy/build.gradle" />
     <entry file="file://$PROJECT_DIR$/proxy/src/main/kotlin/proxy-setting.js" />
-    <entry file="file://$PROJECT_DIR$/proxy/build/kotlin-js-min/main/proxy.js" />
     <entry file="file://$PROJECT_DIR$/proxy/src/main/kotlin/proxy-settings.kt" />
     <entry file="file://$PROJECT_DIR$/panel-module/build/kotlin-js-min/main/panel-module.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1407">
           <caret line="67" column="50" lean-forward="false" selection-start-line="67" selection-start-column="50" selection-end-line="67" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.travis.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/proxy/proxy-settings.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="16" column="1" lean-forward="false" selection-start-line="16" selection-start-column="1" selection-end-line="16" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/build.gradle">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="399">
-          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -2198,69 +2111,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="63">
           <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="29" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/manifest.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="11" lean-forward="false" selection-start-line="8" selection-start-column="11" selection-end-line="8" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/background-script/build/kotlin-js-min/main/kotlin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2520">
+        <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/background-script/build/kotlin-js-min/main/background-script.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="95" column="27" lean-forward="false" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
-          <folding>
-            <marker date="1516803630011" expanded="true" signature="262:8335" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="2846:2854" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="2846:2875" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="2910:3397" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="2951:3026" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="3420:3893" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="3918:4053" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="4105:4110" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="4237:4396" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="4458:4463" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="4750:5625" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="4775:5620" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="5028:5614" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="5166:5292" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="5675:5779" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="5833:6285" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="5863:6280" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="6319:6440" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="6498:6503" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="6658:6663" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="6804:7175" ph="{...}" />
-            <marker date="1516803630011" expanded="true" signature="7221:7434" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/options.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="756">
-          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -2275,16 +2132,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/options-module/src/main/resources/options.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="868">
+        <state relative-caret-position="4494">
           <caret line="214" column="22" lean-forward="false" selection-start-line="214" selection-start-column="22" selection-end-line="214" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/panel-module/src/main/resources/panel.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="490">
-          <caret line="145" column="47" lean-forward="false" selection-start-line="145" selection-start-column="47" selection-end-line="145" selection-end-column="47" />
           <folding />
         </state>
       </provider>
@@ -2292,36 +2141,255 @@
     <entry file="file://$PROJECT_DIR$/copy-module/src/main/kotlin/main.kt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="630">
-          <caret line="30" column="4" lean-forward="true" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="32" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/main.kt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-966">
-          <caret line="14" column="19" lean-forward="false" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+          <caret line="30" column="4" lean-forward="false" selection-start-line="30" selection-start-column="4" selection-end-line="30" selection-end-column="32" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/helper.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
+        <state relative-caret-position="399">
           <caret line="22" column="80" lean-forward="false" selection-start-line="22" selection-start-column="80" selection-end-line="22" selection-end-column="80" />
           <folding>
-            <element signature="e#42#185#0" expanded="true" />
+            <element signature="e#42#185#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/panel-module/src/main/resources/panel.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3045">
+          <caret line="145" column="67" lean-forward="false" selection-start-line="145" selection-start-column="10" selection-end-line="145" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="105">
+            <caret line="5" column="0" lean-forward="true" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/panel-module/src/main/kotlin/panel.kt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="57" column="14" lean-forward="true" selection-start-line="57" selection-start-column="14" selection-end-line="57" selection-end-column="14" />
+        <state relative-caret-position="105">
+          <caret line="10" column="35" lean-forward="false" selection-start-line="10" selection-start-column="35" selection-end-line="10" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/build/tmp/jar/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/src/main/kotlin/options.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="5" column="23" lean-forward="false" selection-start-line="5" selection-start-column="23" selection-end-line="5" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/build/classes/main/options-module.meta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/build/classes/main/options-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1596">
+          <caret line="179" column="8" lean-forward="false" selection-start-line="179" selection-start-column="4" selection-end-line="179" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/build/kotlin-js-min/main/options-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-168">
+          <caret line="151" column="9" lean-forward="false" selection-start-line="151" selection-start-column="4" selection-end-line="151" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/options-module/build/kotlin-js-min/main/kotlin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/kotlin-js-min/main/proxy-result.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build/kotlin-build/version.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="31" lean-forward="false" selection-start-line="3" selection-start-column="31" selection-end-line="3" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3">
+          <caret line="44" column="0" lean-forward="false" selection-start-line="44" selection-start-column="0" selection-end-line="44" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.travis.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/classes/main/proxy.meta.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/kotlin-js-min/main/kotlin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/kotlin-js-min/main/proxy-settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="2050" column="17" lean-forward="false" selection-start-line="2050" selection-start-column="17" selection-end-line="2050" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/kotlin-js-min/main/proxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copy-module/build/kotlin-js-min/main/kotlin.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1512">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/copy-module/build/kotlin-js-min/main/copy-module.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-693">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/classes/main/proxy.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="11" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build.gradle">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="42" column="9" lean-forward="false" selection-start-line="42" selection-start-column="9" selection-end-line="42" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/src/main/kotlin/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="137">
+          <caret line="7" column="29" lean-forward="false" selection-start-line="7" selection-start-column="29" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/proxy-settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="231">
+          <caret line="11" column="0" lean-forward="false" selection-start-line="11" selection-start-column="0" selection-end-line="16" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/manifest.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/background-script/build/kotlin-js-min/main/background-script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="586">
+          <caret line="197" column="11" lean-forward="true" selection-start-line="197" selection-start-column="11" selection-end-line="197" selection-end-column="11" />
           <folding>
-            <element signature="e#42#203#0" expanded="true" />
+            <marker date="1516898898829" expanded="true" signature="262:8335" ph="{...}" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/proxy/build/classes/main/proxy-settings.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80437">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/main.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="4" column="29" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/background-script/src/main/kotlin/helper.kt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="3" column="0" lean-forward="true" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>

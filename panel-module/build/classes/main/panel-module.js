@@ -118,19 +118,14 @@ this['panel-module'] = function (_, Kotlin) {
   }
   function main$lambda_1(it) {
     inputPanel.focus();
-    return document.execCommand('paste');
+    document.execCommand('paste');
+    return Unit;
   }
   function main(args) {
     initLanguagesList();
     translateBtn.onclick = main$lambda;
     swapBtn.onclick = main$lambda_0;
-    inputPanel.onclick = main$lambda_1;
-  }
-  function translateText$lambda$lambda(closure$request) {
-    return function () {
-      sendRequest(closure$request.v);
-      return Unit;
-    };
+    window.addEventListener('mouseover', main$lambda_1);
   }
   function translateText$lambda(items) {
     var tmp$, tmp$_0;
@@ -138,40 +133,30 @@ this['panel-module'] = function (_, Kotlin) {
     var text = inputPanel.value;
     var fromLanguage = (Kotlin.isType(tmp$ = languageFromMenu.options[languageFromMenu.selectedIndex], HTMLOptionElement) ? tmp$ : throwCCE()).value;
     var toLanguage = (Kotlin.isType(tmp$_0 = languageToMenu.options[languageToMenu.selectedIndex], HTMLOptionElement) ? tmp$_0 : throwCCE()).value;
-    var request = {v: Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text)};
-    return items['proxyUrl'] != undefined || items['proxyUrl'] != '' ? browser.proxy.register(PROXY_SCRIPT_URL).then(translateText$lambda$lambda(request)) : sendRequest(request.v);
+    var request = Endpoints_getInstance().getTranslateTextEndpoint_6hosri$(apiKey, fromLanguage + '-' + toLanguage, text);
+    sendRequest(request);
+    return Unit;
   }
   function translateText() {
     browser.storage.local.get().then(translateText$lambda);
   }
-  function sendRequest$lambda$lambda(closure$response) {
-    return function () {
-      var tmp$;
-      if (errorCodes.keys.contains_11rb$(closure$response.code)) {
-        var tmp$_0 = browser.runtime;
-        var o = {};
-        var closure$response_0 = closure$response;
-        o.errorType = 'translation-api-error';
-        o.code = closure$response_0.code;
-        o.message = errorCodes.get_11rb$(o.code);
-        tmp$ = tmp$_0.sendMessage(o);
-      }
-       else
-        tmp$ = outputPanel.value = closure$response.text;
-      return tmp$;
-    };
-  }
   function sendRequest$lambda(closure$xhttp) {
     return function () {
       var response = JSON.parse(closure$xhttp.v.responseText);
-      browser.proxy.unregister().then(sendRequest$lambda$lambda(response));
+      if (errorCodes.keys.contains_11rb$(response.code)) {
+        var tmp$ = browser.runtime;
+        var o = {};
+        o.errorType = 'translation-api-error';
+        o.code = response.code;
+        o.message = errorCodes.get_11rb$(o.code);
+        tmp$.sendMessage(o);
+      }
+       else
+        outputPanel.value = response.text;
     };
   }
-  function sendRequest$lambda$lambda_0() {
-    return browser.runtime.sendMessage('error-translating');
-  }
   function sendRequest$lambda_0() {
-    browser.proxy.unregister().then(sendRequest$lambda$lambda_0);
+    browser.runtime.sendMessage('error-translating');
   }
   function sendRequest(request) {
     var xhttp = {v: new XMLHttpRequest()};

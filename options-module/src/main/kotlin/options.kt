@@ -2,8 +2,11 @@ package com.rostegg.kotlin.webextensions
 
 import org.w3c.dom.HTMLOptionElement
 import org.w3c.dom.get
-
+fun test(){
+    console.log("unused")
+}
 fun main(args: Array<String>) {
+    console.log("test")
     initLanguagesList()
     initOptionsElements()
 

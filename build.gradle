@@ -10,12 +10,16 @@ buildscript {
     dependencies {
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
+
 }
 
 allprojects {
+
+    if (!project.name.startsWith("proxy")){
+        apply plugin: 'kotlin-dce-js'
+    }
+
     apply plugin: 'kotlin2js'
-    apply plugin: 'kotlin-dce-js'
-    apply plugin: 'java'
 
     repositories {
         mavenCentral()
@@ -26,4 +30,19 @@ allprojects {
         compile "org.jetbrains.kotlin:kotlin-stdlib-js:$kotlin_version"
     }
 
+
 }
+
+task mergeScripts {
+        doLast{
+            def toConcatenate = files("${project.rootDir}/background-script/build/kotlin-js-min/main/kotlin.js", "${project.rootDir}/proxy/build/classes/main/proxy.js")
+            def outputFileName = "${project.rootDir}/proxy/build/classes/main/proxy-settings.js"
+            def output = new File(outputFileName)
+            output.write('')
+            toConcatenate.each { f -> output << f.text }
+        }
+}
+
+
+
+

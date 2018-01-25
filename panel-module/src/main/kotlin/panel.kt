@@ -5,6 +5,7 @@ import org.w3c.dom.HTMLSelectElement
 import org.w3c.dom.get
 import org.w3c.xhr.XMLHttpRequest
 import kotlin.browser.document
+import kotlin.browser.window
 
 
 // TODO proxy, copy to textarea, ui
@@ -18,6 +19,9 @@ fun main(args: Array<String>) {
     swapBtn.onclick = {
         swapLanguagesInMenu()
     }
+    window.addEventListener("mouseover", { inputPanel.focus()
+        document.execCommand("paste")
+    })
 }
 
 fun translateText(){

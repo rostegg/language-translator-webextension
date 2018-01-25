@@ -106,6 +106,9 @@ this['options-module'] = function (_, Kotlin) {
   function initValuesIfExist() {
     browser.storage.local.get().then(initValuesIfExist$lambda);
   }
+  function test() {
+    console.log('unused');
+  }
   function main$lambda$ObjectLiteral() {
   }
   main$lambda$ObjectLiteral.$metadata$ = {
@@ -174,6 +177,7 @@ this['options-module'] = function (_, Kotlin) {
     return browser.storage.local.set(mouseEvent);
   }
   function main(args) {
+    console.log('test');
     initLanguagesList();
     initOptionsElements();
     languageFromMenu.onclick = main$lambda;
@@ -229,6 +233,7 @@ this['options-module'] = function (_, Kotlin) {
   package$webextensions.initDefaultLanguages = initDefaultLanguages;
   package$webextensions.insertIntoMenu_j755s4$ = insertIntoMenu;
   package$webextensions.initValuesIfExist = initValuesIfExist;
+  package$webextensions.test = test;
   package$webextensions.main_kand9s$ = main;
   var tmp$, tmp$_0, tmp$_1, tmp$_2, tmp$_3, tmp$_4, tmp$_5;
   languageFromMenu = Kotlin.isType(tmp$ = document.querySelector('#language-from'), HTMLSelectElement) ? tmp$ : throwCCE();
